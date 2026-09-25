@@ -1,0 +1,147 @@
+/* ── Versión SUIZA ─────────────────────────────────────────────
+   Retícula internacional: todo alineado, tipografía pequeña y
+   precisa, un solo acento rojo y ni un adorno de más. */
+body.tema-suiza{
+  --ink:#111111; --ink-2:#555555; --ink-3:#8a8a8a;
+  --paper:#ffffff; --paper-2:#f2f2f2; --line:#d8d8d8;
+  --peri:#e8e8e8; --peri-2:#c8c8c8; --peri-deep:#111111;
+  --rojo:#e4322b; --card:#ffffff;
+  --shadow:none; --shadow-lg:none;
+  --r:0px; --maxw:1320px; --sp:clamp(56px,7vw,104px);
+  font-size:16px; letter-spacing:-.006em;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-suiza:not([data-theme="light"]){
+    --ink:#f5f5f5; --ink-2:#b5b5b5; --ink-3:#8a8a8a;
+    --paper:#0e0e0e; --paper-2:#161616; --line:#2c2c2c; --card:#0e0e0e;
+    --peri:#242424; --peri-2:#3a3a3a; --peri-deep:#f5f5f5;
+  }
+}
+body.tema-suiza h1,body.tema-suiza h2,body.tema-suiza h3,body.tema-suiza h4{
+  font-weight:500;letter-spacing:-.035em;line-height:1.02;
+}
+body.tema-suiza .hero h1{font-size:clamp(40px,6.6vw,86px);font-weight:500}
+body.tema-suiza .hero h1 em{background:none;color:var(--rojo)}
+body.tema-suiza h2.title,body.tema-suiza .phero h1{font-size:clamp(28px,4.4vw,52px)}
+body.tema-suiza .lede{font-size:17px;max-width:54ch;color:var(--ink-2)}
+body.tema-suiza .eyebrow{
+  font-size:10.5px;letter-spacing:.16em;color:var(--ink);font-weight:500;
+  border-top:1px solid var(--ink);padding-top:10px;display:block;margin-bottom:26px;
+}
+body.tema-suiza .eyebrow::before{display:none}
+
+/* cabecera: línea y nada más */
+body.tema-suiza header{background:var(--paper);border-bottom:1px solid var(--line);backdrop-filter:none}
+body.tema-suiza .bar{height:64px}
+body.tema-suiza .brand b{font-size:14px;font-weight:600;letter-spacing:0}
+body.tema-suiza .brand span{letter-spacing:.1em}
+body.tema-suiza nav a.nav{
+  border-radius:0;font-size:11.5px;letter-spacing:.04em;text-transform:none;padding:7px 11px;font-weight:500;
+}
+body.tema-suiza nav a.nav[aria-current]{background:none;color:var(--rojo)}
+body.tema-suiza nav a.nav:hover{background:var(--paper-2)}
+body.tema-suiza .nav-cta{
+  background:var(--rojo);color:#fff;border-radius:0;font-size:11.5px;padding:9px 16px;letter-spacing:.04em;
+}
+body.tema-suiza .nav-cta:hover{transform:none;background:var(--ink)}
+
+body.tema-suiza .btn{
+  border-radius:0;font-size:12.5px;letter-spacing:.04em;padding:13px 22px;font-weight:500;border-width:1px;
+}
+body.tema-suiza .btn-primary{background:var(--ink);color:var(--paper)}
+body.tema-suiza .btn-primary:hover{transform:none;background:var(--rojo)}
+body.tema-suiza .btn-ghost{border-color:var(--ink)}
+body.tema-suiza .btn-ghost:hover{transform:none;background:var(--ink);color:var(--paper)}
+body.tema-suiza .btn-wa{background:none;border-color:var(--ink);color:var(--ink)}
+body.tema-suiza .btn-wa:hover{transform:none;background:var(--ink);color:var(--paper)}
+
+/* retícula visible */
+body.tema-suiza .hero{padding-block:clamp(40px,5vw,72px) 0}
+body.tema-suiza .hero::before{display:none}
+body.tema-suiza .hero-grid{grid-template-columns:7fr 5fr;gap:24px;align-items:start}
+body.tema-suiza .hero-media .frame{border-radius:0;box-shadow:none;aspect-ratio:4/5}
+body.tema-suiza .hero-media .frame img{filter:grayscale(1)}
+body.tema-suiza .hero-media::after{display:none}
+body.tema-suiza .hero-badge{
+  position:static;max-width:none;width:100%;border:0;border-top:1px solid var(--ink);
+  border-radius:0;box-shadow:none;background:none;padding:12px 0 0;margin-top:16px;display:flex;gap:14px;align-items:baseline;
+}
+body.tema-suiza .hero-badge b{font-size:34px;font-weight:500}
+body.tema-suiza .trust{border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+body.tema-suiza .trust li{justify-content:flex-start;font-size:12px;padding:16px 20px;letter-spacing:.02em}
+body.tema-suiza .trust li+li{border-color:var(--line)}
+body.tema-suiza .trust svg{color:var(--rojo);width:15px;height:15px}
+
+body.tema-suiza .area-card,body.tema-suiza .grupo,body.tema-suiza .online-card,body.tema-suiza .lawyer,
+body.tema-suiza .post,body.tema-suiza .office,body.tema-suiza .trio li,body.tema-suiza form,
+body.tema-suiza .direct a,body.tema-suiza .pasos li,body.tema-suiza .destacada{
+  border-radius:0;box-shadow:none;border:0;border-top:1px solid var(--ink);background:none;
+}
+body.tema-suiza .area-card,body.tema-suiza .online-card,body.tema-suiza .post{padding-inline:0;padding-top:18px}
+body.tema-suiza .posts-foto .post > *:not(.post-img){margin-inline:0}
+body.tema-suiza .post-img{aspect-ratio:3/2;margin-bottom:16px}
+body.tema-suiza .post-img img{filter:grayscale(1)}
+body.tema-suiza .post:hover .post-img img{filter:grayscale(0);transform:none}
+body.tema-suiza .area-card:hover,body.tema-suiza .post:hover,body.tema-suiza .online-card:hover,
+body.tema-suiza .destacada:hover{transform:none;box-shadow:none;border-top-color:var(--rojo)}
+body.tema-suiza .area-card h3,body.tema-suiza .online-card h3,body.tema-suiza .post h3{font-size:19px}
+body.tema-suiza .area-card .num,body.tema-suiza .area .num,body.tema-suiza .prio .k,
+body.tema-suiza .cols h4,body.tema-suiza .post .cat,body.tema-suiza .role{color:var(--rojo)}
+body.tema-suiza .prio{border:0;border-top:1px solid var(--ink);border-radius:0;gap:0;background:none}
+body.tema-suiza .prio li{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:26px 22px 26px 0}
+body.tema-suiza .prio .k{font-size:11px;letter-spacing:.14em}
+body.tema-suiza .prio h3{font-size:17px}
+body.tema-suiza .online-card .ic{border-radius:0;background:none;color:var(--rojo);width:auto;height:auto;margin-bottom:12px}
+body.tema-suiza .pasos li{background:none;padding:20px 0 0}
+body.tema-suiza .pasos .n{border-radius:0;background:var(--rojo);color:#fff;width:34px;height:34px;font-size:13px}
+body.tema-suiza .spec span,body.tema-suiza .spec a{
+  border-radius:0;background:none;border:1px solid var(--ink);color:var(--ink);font-size:11.5px;font-weight:500;
+}
+body.tema-suiza .spec-big span{background:var(--rojo);border-color:var(--rojo);color:#fff}
+body.tema-suiza .tags span{border-radius:0;font-size:11px}
+body.tema-suiza .lawyer .ph{aspect-ratio:1/1}
+body.tema-suiza .lawyer .txt{padding:18px 0 0}
+body.tema-suiza .destacada{grid-template-columns:5fr 7fr}
+body.tema-suiza .destacada .txt{padding:22px 0 0 24px}
+body.tema-suiza .online-teaser,body.tema-suiza .cta-box{
+  border-radius:0;background:var(--ink);color:var(--paper);border:0;
+}
+body.tema-suiza .cta-box h2,body.tema-suiza .online-teaser h3{color:var(--paper)}
+body.tema-suiza .cta-box p{color:#b5b5b5}
+body.tema-suiza .cta-box .btn-primary,body.tema-suiza .online-teaser .btn-primary{background:var(--rojo);color:#fff}
+body.tema-suiza .cta-box .btn-ghost{border-color:#666;color:#fff}
+body.tema-suiza .areas{border-top:1px solid var(--ink)}
+body.tema-suiza details.area{border-bottom:1px solid var(--line)}
+body.tema-suiza .area h3{font-size:clamp(19px,2.4vw,27px)}
+body.tema-suiza .area .plus{border-radius:0;border-color:var(--ink);width:32px;height:32px}
+body.tema-suiza details.area[open] .plus{background:var(--rojo);border-color:var(--rojo)}
+body.tema-suiza .field input,body.tema-suiza .field textarea,body.tema-suiza .field select{
+  border-radius:0;border-width:1px;border-color:var(--ink);font-size:14.5px;
+}
+body.tema-suiza .field label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+body.tema-suiza .band{background:var(--ink)}
+body.tema-suiza .band img.bg{opacity:.15;filter:grayscale(1)}
+body.tema-suiza .band .wrap{text-align:left;max-width:var(--maxw)}
+body.tema-suiza .band .cta-row{justify-content:flex-start}
+body.tema-suiza .band p{margin-inline:0}
+body.tema-suiza footer{background:var(--paper);color:var(--ink-2);border-top:1px solid var(--ink)}
+body.tema-suiza footer h4,body.tema-suiza .f-brand b{color:var(--ink)}
+body.tema-suiza footer a{color:var(--ink-2)}
+body.tema-suiza footer a:hover{color:var(--rojo)}
+body.tema-suiza .f-brand img{background:none}
+body.tema-suiza .social a{border-radius:0;border-color:var(--line);color:var(--ink)}
+body.tema-suiza .social a:hover{background:var(--rojo);border-color:var(--rojo);color:#fff}
+body.tema-suiza .f-bottom{border-color:var(--line)}
+body.tema-suiza .fab{border-radius:0;background:var(--rojo);color:#fff;box-shadow:none}
+body.tema-suiza .art-body{font-size:17.5px}
+body.tema-suiza .art-img{border-radius:0;box-shadow:none}
+body.tema-suiza .art-img img{filter:grayscale(1)}
+
+/* movimiento: casi nada, solo un fundido corto */
+body.tema-suiza .rv{transform:none;transition:opacity .45s ease}
+body.tema-suiza .rv.in{transform:none}
+@media (max-width:900px){
+  body.tema-suiza .hero-grid{grid-template-columns:1fr}
+  body.tema-suiza .destacada{grid-template-columns:1fr}
+  body.tema-suiza .destacada .txt{padding-left:0}
+}

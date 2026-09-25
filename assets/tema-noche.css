@@ -1,0 +1,154 @@
+/* ── Versión NOCHE ─────────────────────────────────────────────
+   Oscura y cara: cristal, luz azul, halos y movimiento suave.
+   Siempre en oscuro, dé igual lo que tenga puesto el sistema. */
+body.tema-noche{
+  --ink:#f4f6fc; --ink-2:#b4bad0; --ink-3:#7f8699;
+  --paper:#07080d; --paper-2:#0c0e16; --line:#1e2231;
+  --peri:#8aa6ff; --peri-2:#6c8cff; --peri-deep:#b9c9ff;
+  --card:rgba(255,255,255,.035);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -24px rgba(0,0,0,.9);
+  --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 40px 80px -36px rgba(108,140,255,.45);
+  --r:18px;
+  --sp:clamp(80px,10vw,150px);
+  color-scheme:dark;
+  background:
+    radial-gradient(900px 600px at 82% -8%, rgba(108,140,255,.20), transparent 62%),
+    radial-gradient(700px 500px at 5% 18%, rgba(138,166,255,.10), transparent 60%),
+    var(--paper);
+  background-attachment:fixed;
+}
+
+/* tipografía fina y espaciada */
+body.tema-noche h1,body.tema-noche h2,body.tema-noche h3{font-weight:500;letter-spacing:-.035em}
+body.tema-noche .hero h1{font-size:clamp(42px,7.4vw,96px);font-weight:500}
+body.tema-noche .hero h1 em{
+  background:none;color:transparent;
+  background-image:linear-gradient(100deg,#ffffff 8%,var(--peri) 46%,#ffffff 92%);
+  -webkit-background-clip:text;background-clip:text;
+  background-size:220% 100%;animation:noche-brillo 7s ease-in-out infinite;
+}
+@keyframes noche-brillo{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+body.tema-noche h2.title,body.tema-noche .phero h1{font-size:clamp(32px,5vw,58px)}
+body.tema-noche .eyebrow{color:var(--peri);letter-spacing:.2em}
+body.tema-noche .eyebrow::before{background:linear-gradient(90deg,var(--peri),transparent);width:34px}
+body.tema-noche .lede{color:var(--ink-2)}
+
+/* cabecera de cristal */
+body.tema-noche header{
+  background:rgba(7,8,13,.6);backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+body.tema-noche header.stuck{box-shadow:0 20px 50px -40px rgba(0,0,0,1)}
+body.tema-noche .brand img{filter:invert(1) brightness(1.6)}
+body.tema-noche .f-brand img{filter:none}
+body.tema-noche nav a.nav{color:var(--ink-2)}
+body.tema-noche nav a.nav:hover{background:rgba(255,255,255,.06);color:#fff}
+body.tema-noche nav a.nav[aria-current]{background:rgba(138,166,255,.16);color:#fff;box-shadow:inset 0 0 0 1px rgba(138,166,255,.35)}
+body.tema-noche .nav-cta{background:linear-gradient(180deg,var(--peri),var(--peri-2));color:#07080d;box-shadow:0 10px 30px -12px rgba(108,140,255,.8)}
+
+/* botones con luz */
+body.tema-noche .btn-primary{
+  background:linear-gradient(180deg,#fff,#dbe3ff);color:#07080d;
+  box-shadow:0 14px 34px -16px rgba(219,227,255,.75);
+}
+body.tema-noche .btn-primary:hover{box-shadow:0 20px 44px -16px rgba(219,227,255,.9)}
+body.tema-noche .btn-ghost{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14);color:var(--ink)}
+body.tema-noche .btn-ghost:hover{border-color:var(--peri);background:rgba(138,166,255,.1)}
+
+/* hero */
+body.tema-noche .hero::before{
+  background:radial-gradient(circle,rgba(108,140,255,.35) 0%,transparent 66%);opacity:1;
+}
+body.tema-noche .hero-media .frame{
+  box-shadow:0 50px 100px -40px rgba(0,0,0,1), 0 0 0 1px rgba(255,255,255,.08);
+}
+body.tema-noche .hero-media .frame img{filter:grayscale(.2) contrast(1.06) brightness(.95)}
+body.tema-noche .hero-media::after{background:linear-gradient(135deg,var(--peri-2),transparent);opacity:.5;filter:blur(2px)}
+body.tema-noche .hero-badge{
+  background:rgba(18,20,30,.8);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);color:var(--ink-2);
+}
+body.tema-noche .hero-badge b{color:#fff}
+
+/* cristal en todas las cajas */
+body.tema-noche .trust{border-color:rgba(255,255,255,.07)}
+body.tema-noche .trust li+li{border-color:rgba(255,255,255,.07)}
+body.tema-noche .trust svg{color:var(--peri)}
+body.tema-noche .alt{background:rgba(255,255,255,.022)}
+body.tema-noche .area-card,body.tema-noche .grupo,body.tema-noche .online-card,body.tema-noche .lawyer,
+body.tema-noche .post,body.tema-noche .office,body.tema-noche .trio li,body.tema-noche form,
+body.tema-noche .direct a,body.tema-noche .destacada,body.tema-noche .pasos li{
+  background:var(--card);border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+body.tema-noche .area-card,body.tema-noche .online-card,body.tema-noche .post,body.tema-noche .destacada{
+  position:relative;overflow:hidden;
+}
+body.tema-noche .area-card::before,body.tema-noche .online-card::before,body.tema-noche .post::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;
+  background:radial-gradient(420px 220px at 50% 0%,rgba(138,166,255,.22),transparent 70%);
+}
+body.tema-noche .area-card:hover::before,body.tema-noche .online-card:hover::before,body.tema-noche .post:hover::before{opacity:1}
+body.tema-noche .area-card:hover,body.tema-noche .post:hover,body.tema-noche .online-card:hover,
+body.tema-noche .destacada:hover{border-color:rgba(138,166,255,.45);box-shadow:var(--shadow-lg)}
+body.tema-noche .prio{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.08)}
+body.tema-noche .prio li{background:#0a0c14}
+body.tema-noche .prio .k,body.tema-noche .cols h4,body.tema-noche .area-card .num,
+body.tema-noche .post .cat,body.tema-noche .role{color:var(--peri)}
+body.tema-noche .online-card .ic{background:rgba(138,166,255,.16);color:var(--peri-deep);box-shadow:inset 0 0 0 1px rgba(138,166,255,.3)}
+body.tema-noche .pasos .n{background:linear-gradient(180deg,var(--peri),var(--peri-2));color:#07080d}
+body.tema-noche .spec span,body.tema-noche .spec a{background:rgba(138,166,255,.16);color:var(--peri-deep);box-shadow:inset 0 0 0 1px rgba(138,166,255,.28)}
+body.tema-noche .spec-big span{background:linear-gradient(180deg,#fff,#dbe3ff);color:#07080d}
+body.tema-noche .tags span{border-color:rgba(255,255,255,.14);color:var(--ink-2)}
+body.tema-noche .lawyer .ph img{filter:grayscale(1) brightness(.85)}
+body.tema-noche .lawyer:hover .ph img{filter:grayscale(.2) brightness(1)}
+
+/* acordeón y filetes */
+body.tema-noche .areas,body.tema-noche details.area,body.tema-noche .faq,body.tema-noche .faq details,
+body.tema-noche .legal details{border-color:rgba(255,255,255,.08)}
+body.tema-noche .area .plus{border-color:rgba(255,255,255,.16)}
+body.tema-noche details.area[open] .plus{background:var(--peri);border-color:var(--peri)}
+body.tema-noche details.area[open] .plus::before,body.tema-noche details.area[open] .plus::after{background:#07080d}
+body.tema-noche .grupo li{border-color:rgba(255,255,255,.07)}
+
+/* bandas y remates */
+body.tema-noche .band{background:#05060a}
+body.tema-noche .band img.bg{opacity:.22}
+body.tema-noche .online-teaser{
+  background:linear-gradient(120deg,rgba(138,166,255,.18),rgba(255,255,255,.03));
+  border:1px solid rgba(138,166,255,.3);color:var(--ink);
+}
+body.tema-noche .online-teaser .btn-primary{background:linear-gradient(180deg,#fff,#dbe3ff);color:#07080d}
+body.tema-noche .cta-box{
+  background:linear-gradient(120deg,rgba(138,166,255,.2),rgba(255,255,255,.04));
+  border:1px solid rgba(138,166,255,.32);color:var(--ink);
+}
+body.tema-noche .cta-box h2{color:#fff}
+body.tema-noche .cta-box p{color:var(--ink-2)}
+body.tema-noche .cta-box .btn-primary{background:linear-gradient(180deg,#fff,#dbe3ff);color:#07080d}
+body.tema-noche .cta-box .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+body.tema-noche footer{background:#05060a;border-top:1px solid rgba(255,255,255,.06)}
+
+/* formulario */
+body.tema-noche .field input,body.tema-noche .field textarea,body.tema-noche .field select{
+  background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);color:#fff;
+}
+body.tema-noche .field input:focus,body.tema-noche .field textarea:focus,body.tema-noche .field select:focus{
+  border-color:var(--peri);box-shadow:0 0 0 3px rgba(138,166,255,.18);
+}
+
+/* artículos */
+body.tema-noche .art-body strong{color:#fff}
+body.tema-noche .art-body blockquote{background:rgba(255,255,255,.04);border-left-color:var(--peri)}
+body.tema-noche .art-img{box-shadow:0 40px 90px -40px rgba(0,0,0,1)}
+
+/* movimiento: entra flotando, con escala */
+body.tema-noche .rv{opacity:0;transform:translateY(26px) scale(.985);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+body.tema-noche .rv.in{opacity:1;transform:none}
+body.tema-noche .area-card,body.tema-noche .post,body.tema-noche .online-card,body.tema-noche .destacada,
+body.tema-noche .direct a{transition:all .35s cubic-bezier(.16,1,.3,1)}
+body.tema-noche .phero::before{
+  background:radial-gradient(circle,rgba(108,140,255,.30) 0%,transparent 66%);opacity:1;
+}
+body.tema-noche .phero{border-bottom-color:rgba(255,255,255,.07)}
+body.tema-noche .fab{box-shadow:0 14px 34px -10px rgba(37,211,102,.55)}

@@ -1,0 +1,151 @@
+/* ── Versión TINTA ─────────────────────────────────────────────
+   Blanco y negro, sin un solo color. Tipografía enorme, secciones
+   que se invierten y el contenido que se descubre como una cortina. */
+body.tema-tinta{
+  --ink:#000000; --ink-2:#4a4a4a; --ink-3:#8c8c8c;
+  --paper:#ffffff; --paper-2:#f2f2f2; --line:#d6d6d6;
+  --peri:#ebebeb; --peri-2:#b4b4b4; --peri-deep:#000000;
+  --card:#ffffff;
+  --shadow:none; --shadow-lg:none;
+  --r:0px; --maxw:1320px; --sp:clamp(76px,9.5vw,150px);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  letter-spacing:-.01em;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-tinta:not([data-theme="light"]){
+    --ink:#ffffff; --ink-2:#b4b4b4; --ink-3:#7a7a7a;
+    --paper:#000000; --paper-2:#0d0d0d; --line:#2e2e2e; --card:#000000;
+    --peri:#1a1a1a; --peri-2:#4a4a4a; --peri-deep:#ffffff;
+  }
+}
+/* las secciones alternas se dan la vuelta enteras */
+body.tema-tinta .alt,body.tema-tinta .band{
+  --ink:#ffffff; --ink-2:#b4b4b4; --ink-3:#7a7a7a;
+  --paper:#000000; --paper-2:#111111; --line:#333333; --card:#000000;
+  --peri:#1d1d1d; --peri-2:#5a5a5a; --peri-deep:#ffffff;
+  background:#000;color:#fff;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-tinta:not([data-theme="light"]) .alt,body.tema-tinta:not([data-theme="light"]) .band{
+    --ink:#000000; --ink-2:#4a4a4a; --ink-3:#8c8c8c;
+    --paper:#ffffff; --paper-2:#f2f2f2; --line:#d6d6d6; --card:#ffffff;
+    --peri:#ebebeb; --peri-2:#b4b4b4; --peri-deep:#000000;
+    background:#fff;color:#000;
+  }
+}
+
+body.tema-tinta h1,body.tema-tinta h2,body.tema-tinta h3{font-weight:500;letter-spacing:-.05em;line-height:.95}
+body.tema-tinta .hero h1{font-size:clamp(50px,9.6vw,140px);font-weight:500}
+body.tema-tinta .hero h1 em{background:none;font-style:italic;font-weight:400}
+body.tema-tinta h2.title,body.tema-tinta .phero h1{font-size:clamp(34px,6vw,84px)}
+body.tema-tinta .lede{font-size:clamp(18px,2vw,22px);font-weight:400;max-width:60ch}
+body.tema-tinta .eyebrow{font-size:11px;letter-spacing:.24em;color:var(--ink)}
+body.tema-tinta .eyebrow::before{background:var(--ink);width:28px;height:1px}
+
+body.tema-tinta header{background:var(--paper);border-bottom:1px solid var(--ink);backdrop-filter:none}
+body.tema-tinta .bar{height:70px}
+body.tema-tinta .brand b{letter-spacing:.02em;font-weight:600}
+body.tema-tinta nav a.nav{border-radius:0;font-size:12px;letter-spacing:.08em;font-weight:500}
+body.tema-tinta nav a.nav:hover{background:var(--ink);color:var(--paper)}
+body.tema-tinta nav a.nav[aria-current]{background:var(--ink);color:var(--paper)}
+body.tema-tinta .nav-cta{background:var(--ink);color:var(--paper);border-radius:0;border:1px solid var(--ink)}
+body.tema-tinta .nav-cta:hover{background:var(--paper);color:var(--ink);transform:none}
+
+body.tema-tinta .btn{
+  border-radius:0;border-width:1px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:16px 30px;font-weight:500;
+}
+body.tema-tinta .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+body.tema-tinta .btn-primary:hover{background:var(--paper);color:var(--ink);transform:none}
+body.tema-tinta .btn-ghost{border-color:var(--ink);color:var(--ink);background:none}
+body.tema-tinta .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:none}
+body.tema-tinta .btn-wa{background:none;border-color:var(--ink);color:var(--ink)}
+body.tema-tinta .btn-wa:hover{background:var(--ink);color:var(--paper);transform:none}
+body.tema-tinta .btn-wa svg{opacity:.7}
+
+/* hero: la foto ocupa y pesa */
+body.tema-tinta .hero{padding-block:clamp(44px,6vw,86px) 0}
+body.tema-tinta .hero::before{display:none}
+body.tema-tinta .hero-grid{grid-template-columns:1fr;gap:clamp(30px,4vw,56px)}
+body.tema-tinta .hero-media .frame{border-radius:0;box-shadow:none;aspect-ratio:21/7}
+body.tema-tinta .hero-media .frame img{filter:grayscale(1) contrast(1.3);object-position:center 30%}
+body.tema-tinta .hero-media::after{display:none}
+body.tema-tinta .hero-badge{
+  position:static;background:none;border:0;border-top:1px solid var(--ink);border-radius:0;box-shadow:none;
+  width:100%;max-width:none;padding:14px 0 0;margin-top:18px;display:flex;gap:16px;align-items:baseline;
+}
+body.tema-tinta .hero-badge b{font-size:40px;font-weight:500}
+body.tema-tinta .trust{border-color:var(--ink);border-width:1px 0}
+body.tema-tinta .trust li{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+body.tema-tinta .trust li+li{border-color:var(--line)}
+body.tema-tinta .trust svg{color:var(--ink)}
+
+body.tema-tinta .area-card,body.tema-tinta .grupo,body.tema-tinta .online-card,body.tema-tinta .lawyer,
+body.tema-tinta .post,body.tema-tinta .office,body.tema-tinta .trio li,body.tema-tinta form,
+body.tema-tinta .direct a,body.tema-tinta .pasos li,body.tema-tinta .destacada{
+  border-radius:0;border:1px solid var(--line);background:none;box-shadow:none;
+}
+body.tema-tinta .area-card:hover,body.tema-tinta .post:hover,body.tema-tinta .online-card:hover,
+body.tema-tinta .destacada:hover,body.tema-tinta .direct a:hover{
+  transform:none;box-shadow:none;background:var(--ink);color:var(--paper);border-color:var(--ink);
+}
+body.tema-tinta .area-card:hover *,body.tema-tinta .post:hover *,body.tema-tinta .online-card:hover *,
+body.tema-tinta .direct a:hover *{color:var(--paper)}
+body.tema-tinta .online-card:hover .ic{background:var(--paper);color:var(--ink)}
+body.tema-tinta .post-img img,body.tema-tinta .destacada .ph img,body.tema-tinta .lawyer .ph img,
+body.tema-tinta .art-img img{filter:grayscale(1) contrast(1.25)}
+body.tema-tinta .prio{border:1px solid var(--line);border-radius:0;gap:1px;background:var(--line)}
+body.tema-tinta .prio li{background:var(--paper)}
+body.tema-tinta .prio .k,body.tema-tinta .cols h4,body.tema-tinta .post .cat,body.tema-tinta .role,
+body.tema-tinta .area-card .num{color:var(--ink-3);letter-spacing:.16em}
+body.tema-tinta .online-card .ic{border-radius:0;background:var(--ink);color:var(--paper)}
+body.tema-tinta .pasos .n{border-radius:0;background:var(--ink);color:var(--paper)}
+body.tema-tinta .spec span,body.tema-tinta .spec a{
+  border-radius:0;background:none;border:1px solid var(--ink);color:var(--ink);
+  letter-spacing:.08em;text-transform:uppercase;font-size:11px;
+}
+body.tema-tinta .spec-big span{background:var(--ink);color:var(--paper)}
+body.tema-tinta .tags span{border-radius:0;border-color:var(--line)}
+body.tema-tinta .areas{border-top:1px solid var(--ink)}
+body.tema-tinta details.area{border-bottom:1px solid var(--line)}
+body.tema-tinta .area h3{font-size:clamp(22px,3.6vw,44px)}
+body.tema-tinta .area .plus{border-radius:0;border-color:var(--ink)}
+body.tema-tinta details.area[open] .plus{background:var(--ink);border-color:var(--ink)}
+body.tema-tinta details.area[open] .plus::before,body.tema-tinta details.area[open] .plus::after{background:var(--paper)}
+body.tema-tinta .online-teaser{background:var(--ink);color:var(--paper);border-radius:0}
+body.tema-tinta .online-teaser .eyebrow,body.tema-tinta .online-teaser .eyebrow::before{color:var(--paper);background:none}
+body.tema-tinta .online-teaser .eyebrow::before{background:var(--paper)}
+body.tema-tinta .online-teaser .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+body.tema-tinta .cta-box{background:none;border:1px solid var(--ink);color:var(--ink);border-radius:0}
+body.tema-tinta .cta-box .btn-primary{background:var(--ink);color:var(--paper)}
+body.tema-tinta .cta-box .btn-ghost{border-color:var(--ink);color:var(--ink)}
+body.tema-tinta .band img.bg{opacity:.3;filter:grayscale(1) contrast(1.3)}
+body.tema-tinta .band h2{font-size:clamp(36px,6.6vw,92px)}
+body.tema-tinta footer{background:var(--ink);color:#9a9a9a}
+body.tema-tinta footer h4,body.tema-tinta .f-brand b{color:#fff}
+body.tema-tinta .f-brand img{background:#fff}
+body.tema-tinta .social a{border-radius:0}
+body.tema-tinta .field input,body.tema-tinta .field textarea,body.tema-tinta .field select{
+  border-radius:0;border-color:var(--ink);border-width:1px;background:none;color:var(--ink);
+}
+body.tema-tinta .field input:focus,body.tema-tinta .field textarea:focus{box-shadow:none;border-width:2px}
+body.tema-tinta .field label{letter-spacing:.14em;text-transform:uppercase;font-size:10.5px}
+body.tema-tinta .art-body{font-size:18.5px}
+body.tema-tinta .art-img{border-radius:0}
+body.tema-tinta .art-body blockquote{border-left:2px solid var(--ink);background:none;border-radius:0;font-style:italic}
+body.tema-tinta .fab{border-radius:0;background:var(--ink);color:var(--paper);box-shadow:none}
+body.tema-tinta .phero{border-bottom:1px solid var(--ink)}
+body.tema-tinta .phero::before{display:none}
+
+/* movimiento: el contenido se descubre como una cortina */
+body.tema-tinta .rv{
+  opacity:1;transform:none;clip-path:inset(0 0 100% 0);
+  transition:clip-path 1s cubic-bezier(.76,0,.24,1);
+}
+body.tema-tinta .rv.in{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){body.tema-tinta .rv{clip-path:none}}
+body.tema-tinta .area-card,body.tema-tinta .post,body.tema-tinta .online-card,body.tema-tinta .destacada,
+body.tema-tinta .direct a,body.tema-tinta .btn{transition:all .25s cubic-bezier(.76,0,.24,1)}
+@media (max-width:900px){
+  body.tema-tinta .hero-media .frame{aspect-ratio:16/10}
+}

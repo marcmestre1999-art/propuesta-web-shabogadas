@@ -1,0 +1,144 @@
+/* ── Versión EXPEDIENTE ────────────────────────────────────────
+   El despacho por dentro: papel pautado, tinta azul, fichas
+   numeradas y mono para todo lo que en un expediente va sellado. */
+body.tema-expediente{
+  --ink:#16181d; --ink-2:#4c5058; --ink-3:#83878f;
+  --paper:#f7f5ef; --paper-2:#efece3; --line:#d8d3c6;
+  --peri:#dbe3f5; --peri-2:#5b79c4; --peri-deep:#1b3a8f;
+  --sello:#b0332c; --card:#fffdf7;
+  --shadow:0 1px 0 var(--line); --shadow-lg:0 2px 0 var(--line), 0 18px 34px -26px rgba(22,24,29,.5);
+  --r:3px; --maxw:1180px; --sp:clamp(64px,8vw,120px);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(27,58,143,.055) 31px 32px);
+  background-color:var(--paper);
+}
+@media (prefers-color-scheme: dark){
+  body.tema-expediente:not([data-theme="light"]){
+    --ink:#eceade; --ink-2:#b6b3a6; --ink-3:#8b8880;
+    --paper:#15161a; --paper-2:#1b1d22; --line:#32343b; --card:#1b1d22;
+    --peri:#22304f; --peri-2:#7d97d6; --peri-deep:#a8bdea; --sello:#e06a62;
+    background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(168,189,234,.05) 31px 32px);
+  }
+}
+body.tema-expediente h1,body.tema-expediente h2,body.tema-expediente h3,body.tema-expediente h4{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:600;letter-spacing:-.03em;line-height:1.08;
+}
+body.tema-expediente .hero h1{font-size:clamp(40px,6.4vw,82px)}
+body.tema-expediente .hero h1 em{background:none;border-bottom:4px solid var(--sello);padding:0}
+body.tema-expediente .lede{font-size:clamp(17px,1.95vw,20px)}
+
+/* todo lo "administrativo" en mono */
+body.tema-expediente .eyebrow,body.tema-expediente .num,body.tema-expediente .k,body.tema-expediente .cat,
+body.tema-expediente .role,body.tema-expediente .cols h4,body.tema-expediente .field label,
+body.tema-expediente .tags span,body.tema-expediente .spec span,body.tema-expediente .spec a,
+body.tema-expediente .trust li,body.tema-expediente .meter,body.tema-expediente .crumbs,
+body.tema-expediente .brand span,body.tema-expediente nav a.nav,body.tema-expediente .btn,
+body.tema-expediente .office h3,body.tema-expediente .direct a small,body.tema-expediente .form-note{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+}
+body.tema-expediente .eyebrow{color:var(--sello);letter-spacing:.1em;font-size:11.5px;font-weight:500}
+body.tema-expediente .eyebrow::before{background:var(--sello);width:22px;height:2px}
+
+/* cabecera con sello */
+body.tema-expediente header{background:var(--paper);border-bottom:2px solid var(--ink)}
+body.tema-expediente .bar{height:72px}
+body.tema-expediente .brand b{font-weight:600;letter-spacing:.06em;font-size:16px}
+body.tema-expediente nav a.nav{
+  border-radius:2px;font-size:12px;letter-spacing:.02em;text-transform:none;font-weight:500;
+}
+body.tema-expediente nav a.nav[aria-current]{background:var(--peri-deep);color:#fff}
+body.tema-expediente .nav-cta{background:var(--peri-deep);color:#fff;border-radius:2px;font-size:12.5px}
+body.tema-expediente .nav-cta:hover{background:var(--ink);transform:none}
+
+body.tema-expediente .btn{border-radius:2px;font-size:12.5px;font-weight:500;letter-spacing:.02em;padding:14px 24px}
+body.tema-expediente .btn-primary{background:var(--peri-deep);color:#fff;box-shadow:none}
+body.tema-expediente .btn-primary:hover{background:var(--ink);transform:none}
+body.tema-expediente .btn-ghost{border-color:var(--ink);border-width:1.5px}
+body.tema-expediente .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:none}
+
+/* el hero, como la portada de un expediente */
+body.tema-expediente .hero::before{display:none}
+body.tema-expediente .hero-media .frame{
+  border-radius:2px;border:1px solid var(--ink);box-shadow:none;outline:1px solid var(--line);outline-offset:5px;
+}
+body.tema-expediente .hero-media .frame img{filter:grayscale(1) contrast(1.08)}
+body.tema-expediente .hero-media::after{display:none}
+body.tema-expediente .hero-badge{
+  border-radius:2px;border:1px solid var(--ink);background:var(--card);box-shadow:none;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.4;
+}
+body.tema-expediente .hero-badge b{font-size:34px;font-weight:600;color:var(--peri-deep)}
+
+body.tema-expediente .trust{border-color:var(--ink);border-width:2px 0 1px}
+body.tema-expediente .trust li{font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+body.tema-expediente .trust svg{color:var(--peri-deep)}
+body.tema-expediente .alt{background:var(--paper-2)}
+
+/* fichas */
+body.tema-expediente .area-card,body.tema-expediente .grupo,body.tema-expediente .online-card,
+body.tema-expediente .lawyer,body.tema-expediente .post,body.tema-expediente .office,
+body.tema-expediente .trio li,body.tema-expediente form,body.tema-expediente .direct a,
+body.tema-expediente .pasos li,body.tema-expediente .destacada{
+  border-radius:3px;border:1px solid var(--line);box-shadow:none;background:var(--card);
+  position:relative;
+}
+body.tema-expediente .area-card::after,body.tema-expediente .online-card::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--peri-deep);
+}
+body.tema-expediente .area-card:hover,body.tema-expediente .post:hover,
+body.tema-expediente .online-card:hover,body.tema-expediente .destacada:hover{
+  transform:none;box-shadow:0 2px 0 var(--ink);border-color:var(--ink);
+}
+body.tema-expediente .area-card .num::before,body.tema-expediente .area .num::before{content:"EXP. "}
+body.tema-expediente .prio .k::before{content:"PUNTO "}
+body.tema-expediente .area-card .num,body.tema-expediente .area .num,body.tema-expediente .prio .k,
+body.tema-expediente .cols h4,body.tema-expediente .post .cat,body.tema-expediente .role{
+  color:var(--peri-deep);letter-spacing:.06em;font-size:11px;
+}
+body.tema-expediente .prio{border-radius:3px;border-color:var(--line);background:var(--line);gap:1px}
+body.tema-expediente .prio li{background:var(--card)}
+body.tema-expediente .online-card .ic{border-radius:2px;background:var(--peri);color:var(--peri-deep)}
+body.tema-expediente .pasos li{background:var(--card);border:1px solid var(--line)}
+body.tema-expediente .pasos .n{border-radius:2px;background:var(--peri-deep);color:#fff;font-size:15px}
+body.tema-expediente .spec span,body.tema-expediente .spec a{
+  border-radius:2px;background:var(--peri);color:var(--peri-deep);font-size:11.5px;letter-spacing:.02em;
+}
+body.tema-expediente .spec-big span{background:var(--sello);color:#fff}
+body.tema-expediente .tags span{border-radius:2px;font-size:11px;border-color:var(--line)}
+body.tema-expediente .lawyer .ph img{filter:grayscale(1) contrast(1.05)}
+body.tema-expediente .post-img img,body.tema-expediente .destacada .ph img{filter:grayscale(1) contrast(1.05)}
+body.tema-expediente .post:hover .post-img img{filter:grayscale(0)}
+
+body.tema-expediente .areas{border-top:2px solid var(--ink)}
+body.tema-expediente details.area{border-bottom:1px solid var(--line)}
+body.tema-expediente .area .plus{border-radius:2px;border-color:var(--ink);width:34px;height:34px}
+body.tema-expediente details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-expediente .online-teaser{background:var(--peri-deep);border-radius:3px}
+body.tema-expediente .cta-box{background:var(--card);border:1px solid var(--ink);border-radius:3px;color:var(--ink)}
+body.tema-expediente .cta-box::before{
+  content:"";position:absolute;inset:5px;border:1px solid var(--line);pointer-events:none;
+}
+body.tema-expediente .cta-box{position:relative}
+body.tema-expediente .cta-box .btn-primary{background:var(--peri-deep);color:#fff}
+body.tema-expediente .cta-box .btn-ghost{border-color:var(--ink);color:var(--ink)}
+body.tema-expediente .band{background:var(--ink)}
+body.tema-expediente .band img.bg{opacity:.18;filter:grayscale(1)}
+body.tema-expediente footer{background:var(--ink)}
+body.tema-expediente .social a{border-radius:2px}
+body.tema-expediente .field input,body.tema-expediente .field textarea,body.tema-expediente .field select{
+  border-radius:2px;border-color:var(--ink);border-width:1px;background:var(--paper);
+}
+body.tema-expediente .field label{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--peri-deep)}
+body.tema-expediente .art-body{font-size:18px}
+body.tema-expediente .art-img{border-radius:3px;border:1px solid var(--ink);box-shadow:none}
+body.tema-expediente .art-img img{filter:grayscale(1)}
+body.tema-expediente .art-body blockquote{
+  background:var(--peri);border-left:4px solid var(--peri-deep);border-radius:0;
+  font-family:'IBM Plex Mono',monospace;font-size:16px;
+}
+body.tema-expediente .fab{border-radius:3px}
+
+/* movimiento: seco, como pasar una hoja */
+body.tema-expediente .rv{transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+body.tema-expediente .area-card,body.tema-expediente .post,body.tema-expediente .online-card,
+body.tema-expediente .direct a{transition:all .2s ease}

@@ -1,0 +1,121 @@
+/* ── Versión INSTITUCIONAL ─────────────────────────────────────
+   El peso de la toga: azul marino, serif Libre Baskerville,
+   cintas y filetes dobles. Formal, sin ser antigua. */
+body.tema-institucional{
+  --ink:#131a2b; --ink-2:#465068; --ink-3:#7c849b;
+  --paper:#ffffff; --paper-2:#f4f6fa; --line:#d5dbe6;
+  --peri:#dbe3f2; --peri-2:#5a6f9e; --peri-deep:#16264f;
+  --oro:#a98544; --card:#ffffff;
+  --shadow:0 1px 3px rgba(19,26,43,.06); --shadow-lg:0 10px 30px -18px rgba(19,26,43,.45);
+  --r:4px; --maxw:1180px; --sp:clamp(64px,8vw,124px);
+}
+@media (prefers-color-scheme: dark){
+  body.tema-institucional:not([data-theme="light"]){
+    --ink:#eef1f7; --ink-2:#b9c0d1; --ink-3:#8a92a6;
+    --paper:#0d1322; --paper-2:#131a2b; --line:#28324a; --card:#131a2b;
+    --peri:#22304f; --peri-2:#8fa2cd; --peri-deep:#cdd8ee;
+  }
+}
+/* cinta superior */
+body.tema-institucional::before{
+  content:"";position:fixed;left:0;right:0;top:0;height:5px;z-index:110;
+  background:linear-gradient(90deg,var(--peri-deep) 0 70%,var(--oro) 70% 100%);
+}
+body.tema-institucional header{top:5px;background:var(--paper);border-bottom:1px solid var(--line)}
+body.tema-institucional{scroll-padding-top:96px}
+
+body.tema-institucional h1,body.tema-institucional h2,body.tema-institucional h3{
+  font-family:'Libre Baskerville',Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.18;
+}
+body.tema-institucional .hero h1{font-size:clamp(36px,5.4vw,66px)}
+body.tema-institucional .hero h1 em{background:none;color:var(--peri-deep);border-bottom:3px solid var(--oro)}
+body.tema-institucional h2.title,body.tema-institucional .phero h1{font-size:clamp(27px,4vw,46px)}
+body.tema-institucional .lede{font-size:clamp(17px,1.9vw,19.5px)}
+body.tema-institucional .eyebrow{color:var(--oro);letter-spacing:.2em;font-size:11px;font-weight:600}
+body.tema-institucional .eyebrow::before{background:var(--oro);width:28px;height:2px}
+
+body.tema-institucional .bar{height:78px}
+body.tema-institucional .brand b{letter-spacing:.12em;font-weight:600;font-size:15px}
+body.tema-institucional nav a.nav{
+  border-radius:0;font-size:12.5px;letter-spacing:.08em;border-bottom:2px solid transparent;padding:8px 12px;
+}
+body.tema-institucional nav a.nav:hover{background:none;border-bottom-color:var(--oro)}
+body.tema-institucional nav a.nav[aria-current]{background:none;color:var(--peri-deep);border-bottom-color:var(--peri-deep)}
+body.tema-institucional .nav-cta{background:var(--peri-deep);color:#fff;border-radius:4px;letter-spacing:.06em}
+body.tema-institucional .nav-cta:hover{background:var(--oro);transform:none}
+
+body.tema-institucional .btn{border-radius:4px;letter-spacing:.06em;font-size:13px;padding:15px 26px}
+body.tema-institucional .btn-primary{background:var(--peri-deep);color:#fff;box-shadow:none}
+body.tema-institucional .btn-primary:hover{background:var(--oro);transform:none}
+body.tema-institucional .btn-ghost{border-color:var(--peri-deep);color:var(--peri-deep)}
+body.tema-institucional .btn-ghost:hover{background:var(--peri-deep);color:#fff;transform:none}
+
+body.tema-institucional .hero{background:var(--paper-2);padding-block:clamp(48px,6vw,86px) 0;border-bottom:1px solid var(--line)}
+body.tema-institucional .hero::before{display:none}
+body.tema-institucional .hero-media .frame{border-radius:4px;border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+body.tema-institucional .hero-media .frame img{filter:grayscale(.85) contrast(1.05)}
+body.tema-institucional .hero-media::after{display:none}
+body.tema-institucional .hero-badge{
+  border-radius:4px;border:1px solid var(--line);border-top:3px solid var(--oro);background:var(--card);
+}
+body.tema-institucional .hero-badge b{font-family:'Libre Baskerville',serif;color:var(--peri-deep);font-size:32px}
+body.tema-institucional .trust{background:var(--paper);border-color:var(--line);margin-top:0}
+body.tema-institucional .trust li{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:22px 8px}
+body.tema-institucional .trust svg{color:var(--oro)}
+body.tema-institucional .alt{background:var(--paper-2)}
+
+body.tema-institucional .area-card,body.tema-institucional .grupo,body.tema-institucional .online-card,
+body.tema-institucional .lawyer,body.tema-institucional .post,body.tema-institucional .office,
+body.tema-institucional .trio li,body.tema-institucional form,body.tema-institucional .direct a,
+body.tema-institucional .pasos li,body.tema-institucional .destacada{
+  border-radius:4px;border-color:var(--line);box-shadow:var(--shadow);
+}
+body.tema-institucional .area-card,body.tema-institucional .online-card,body.tema-institucional .trio li{
+  border-top:3px solid var(--peri-deep);
+}
+body.tema-institucional .area-card:hover,body.tema-institucional .post:hover,
+body.tema-institucional .online-card:hover{transform:translateY(-3px);border-top-color:var(--oro);box-shadow:var(--shadow-lg)}
+body.tema-institucional .area-card .num,body.tema-institucional .area .num,body.tema-institucional .prio .k,
+body.tema-institucional .cols h4,body.tema-institucional .post .cat,body.tema-institucional .role{
+  color:var(--oro);letter-spacing:.14em;
+}
+body.tema-institucional .prio{border-radius:4px;border-color:var(--line)}
+body.tema-institucional .prio li{background:var(--card)}
+body.tema-institucional .prio li:nth-child(odd){background:var(--paper-2)}
+body.tema-institucional .online-card .ic{border-radius:4px;background:var(--peri);color:var(--peri-deep)}
+body.tema-institucional .pasos li{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--oro)}
+body.tema-institucional .pasos .n{border-radius:4px;background:var(--peri-deep);color:#fff}
+body.tema-institucional .spec span,body.tema-institucional .spec a{
+  border-radius:4px;background:var(--peri);color:var(--peri-deep);letter-spacing:.06em;
+}
+body.tema-institucional .spec-big span{background:var(--peri-deep);color:#fff}
+body.tema-institucional .tags span{border-radius:4px}
+body.tema-institucional .lawyer .ph img{filter:grayscale(.9)}
+body.tema-institucional .area .plus{border-radius:4px;border-color:var(--peri-2)}
+body.tema-institucional details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-institucional .online-teaser{background:var(--peri-deep);border-radius:4px;border-top:4px solid var(--oro)}
+body.tema-institucional .online-teaser .eyebrow{color:var(--oro)}
+body.tema-institucional .cta-box{
+  background:var(--peri-deep);color:#fff;border-radius:4px;border-top:4px solid var(--oro);
+}
+body.tema-institucional .cta-box h2{color:#fff}
+body.tema-institucional .cta-box p{color:#c3cbdd}
+body.tema-institucional .cta-box .btn-primary{background:var(--oro);color:#1a1205}
+body.tema-institucional .cta-box .btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+body.tema-institucional .band{background:var(--peri-deep)}
+body.tema-institucional .band img.bg{opacity:.16;filter:grayscale(1)}
+body.tema-institucional footer{background:#0b1121;border-top:4px solid var(--oro)}
+body.tema-institucional footer h4{color:var(--oro);letter-spacing:.16em}
+body.tema-institucional .social a{border-radius:4px}
+body.tema-institucional .field input,body.tema-institucional .field textarea,body.tema-institucional .field select{border-radius:4px}
+body.tema-institucional .field label{letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:var(--ink-2)}
+body.tema-institucional .art-body{font-size:18px}
+body.tema-institucional .articulo h1{font-size:clamp(28px,4vw,42px);line-height:1.2}
+body.tema-institucional .art-img{border-radius:4px;border:1px solid var(--line)}
+body.tema-institucional .art-body blockquote{
+  background:var(--paper-2);border-left:4px solid var(--oro);border-radius:0 4px 4px 0;
+}
+body.tema-institucional .fab{border-radius:4px}
+
+/* movimiento: discreto, nada de alardes */
+body.tema-institucional .rv{transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}

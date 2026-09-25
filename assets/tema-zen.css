@@ -1,0 +1,138 @@
+/* ── Versión ZEN ───────────────────────────────────────────────
+   El aire como material: tipografía pequeña, composición
+   asimétrica, líneas finísimas y un único punto rojo. */
+body.tema-zen{
+  --ink:#1c1c1a; --ink-2:#6b6b66; --ink-3:#9c9c96;
+  --paper:#fbfaf7; --paper-2:#f4f2ed; --line:#e6e3dc;
+  --peri:#efece5; --peri-2:#c9c5bb; --peri-deep:#1c1c1a;
+  --punto:#c8452f; --card:#fbfaf7;
+  --shadow:none; --shadow-lg:none;
+  --r:0px; --maxw:1100px; --sp:clamp(96px,14vw,220px);
+  font-size:15.5px; line-height:1.9; letter-spacing:.01em;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-zen:not([data-theme="light"]){
+    --ink:#f2f0ea; --ink-2:#a8a49b; --ink-3:#7d7a72;
+    --paper:#121211; --paper-2:#191917; --line:#2c2b28; --card:#121211;
+    --peri:#22211e; --peri-2:#4a4844; --peri-deep:#f2f0ea;
+  }
+}
+body.tema-zen h1,body.tema-zen h2,body.tema-zen h3{font-weight:400;letter-spacing:-.02em;line-height:1.25}
+body.tema-zen .hero h1{font-size:clamp(30px,3.8vw,46px);font-weight:400;max-width:15ch}
+body.tema-zen .hero h1 em{background:none;color:var(--punto)}
+body.tema-zen h2.title,body.tema-zen .phero h1{font-size:clamp(24px,3.2vw,38px);max-width:22ch}
+body.tema-zen .lede{font-size:15.5px;max-width:46ch;color:var(--ink-2);line-height:1.9}
+body.tema-zen .eyebrow{font-size:10px;letter-spacing:.34em;color:var(--ink-3);margin-bottom:34px}
+body.tema-zen .eyebrow::before{width:6px;height:6px;border-radius:50%;background:var(--punto)}
+
+body.tema-zen header{background:color-mix(in srgb,var(--paper) 90%,transparent);border-bottom:1px solid var(--line)}
+body.tema-zen .bar{height:86px}
+body.tema-zen .brand b{font-weight:400;letter-spacing:.24em;font-size:13px}
+body.tema-zen .brand span{letter-spacing:.24em;font-size:9px}
+body.tema-zen nav a.nav{border-radius:0;font-size:11.5px;letter-spacing:.14em;font-weight:400;color:var(--ink-2)}
+body.tema-zen nav a.nav:hover{background:none;color:var(--ink)}
+body.tema-zen nav a.nav[aria-current]{background:none;color:var(--ink)}
+body.tema-zen nav a.nav[aria-current]::after{content:"·";color:var(--punto);margin-left:6px}
+body.tema-zen .nav-cta{background:none;border:1px solid var(--line);color:var(--ink);border-radius:0;letter-spacing:.14em;font-size:11px}
+body.tema-zen .nav-cta:hover{border-color:var(--ink);background:none;transform:none}
+body.tema-zen .btn{
+  border-radius:0;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;padding:16px 30px;
+  font-weight:400;border-width:1px;
+}
+body.tema-zen .btn-primary{background:var(--ink);color:var(--paper);box-shadow:none}
+body.tema-zen .btn-primary:hover{background:var(--punto);transform:none}
+body.tema-zen .btn-ghost{border-color:var(--line);color:var(--ink)}
+body.tema-zen .btn-ghost:hover{border-color:var(--ink);background:none;transform:none}
+body.tema-zen .btn-wa{background:none;border-color:var(--line);color:var(--ink)}
+body.tema-zen .btn-wa:hover{border-color:var(--ink);background:none;transform:none}
+body.tema-zen .btn svg{display:none}
+
+/* composición asimétrica y mucho aire */
+body.tema-zen .hero{padding-block:clamp(70px,10vw,150px) 0}
+body.tema-zen .hero::before{display:none}
+body.tema-zen .hero-grid{grid-template-columns:5fr 4fr;gap:clamp(40px,8vw,120px);align-items:end}
+body.tema-zen .hero-media{margin-top:clamp(20px,5vw,70px)}
+body.tema-zen .hero-media .frame{border-radius:0;box-shadow:none;aspect-ratio:3/4}
+body.tema-zen .hero-media .frame img{filter:grayscale(1) brightness(1.03) contrast(.96)}
+body.tema-zen .hero-media::after{display:none}
+body.tema-zen .hero-badge{
+  position:static;background:none;border:0;box-shadow:none;border-radius:0;padding:0;margin-top:20px;
+  width:100%;max-width:none;font-size:11.5px;letter-spacing:.06em;color:var(--ink-3);
+}
+body.tema-zen .hero-badge b{font-size:22px;font-weight:400;color:var(--ink);display:inline;margin-right:10px}
+body.tema-zen .cta-row{gap:26px;margin-bottom:0}
+body.tema-zen .trust{border-color:var(--line);margin-top:clamp(70px,10vw,140px)}
+body.tema-zen .trust li{font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:30px 8px;color:var(--ink-2)}
+body.tema-zen .trust li+li{border-color:var(--line)}
+body.tema-zen .trust svg{display:none}
+body.tema-zen .alt{background:var(--paper-2)}
+
+body.tema-zen .area-card,body.tema-zen .grupo,body.tema-zen .online-card,body.tema-zen .lawyer,
+body.tema-zen .post,body.tema-zen .office,body.tema-zen .trio li,body.tema-zen form,
+body.tema-zen .direct a,body.tema-zen .pasos li,body.tema-zen .destacada{
+  border-radius:0;border:0;border-top:1px solid var(--line);background:none;box-shadow:none;padding-inline:0;
+}
+body.tema-zen .area-card,body.tema-zen .online-card,body.tema-zen .post{padding-top:26px;gap:14px}
+body.tema-zen .posts-foto .post > *:not(.post-img){margin-inline:0}
+body.tema-zen .post-img{aspect-ratio:1/1;margin-bottom:20px}
+body.tema-zen .post-img img,body.tema-zen .destacada .ph img,body.tema-zen .lawyer .ph img,
+body.tema-zen .art-img img{filter:grayscale(1) contrast(.95)}
+body.tema-zen .area-card:hover,body.tema-zen .post:hover,body.tema-zen .online-card:hover,
+body.tema-zen .destacada:hover{transform:none;box-shadow:none;border-top-color:var(--ink)}
+body.tema-zen .area-card h3,body.tema-zen .online-card h3,body.tema-zen .post h3{font-size:19px;font-weight:400}
+body.tema-zen .area-card .num,body.tema-zen .area .num,body.tema-zen .prio .k,body.tema-zen .cols h4,
+body.tema-zen .post .cat,body.tema-zen .role{color:var(--ink-3);letter-spacing:.24em;font-size:10px}
+body.tema-zen .area-card .more,body.tema-zen .online-card .more,body.tema-zen .post .more{
+  font-weight:400;letter-spacing:.14em;font-size:11.5px;text-transform:uppercase;
+}
+body.tema-zen .area-card .more svg,body.tema-zen .post .more svg,body.tema-zen .online-card .more svg{display:none}
+body.tema-zen .prio{border:0;border-top:1px solid var(--line);border-radius:0;background:none;gap:0}
+body.tema-zen .prio li{background:none;border-bottom:1px solid var(--line);padding:36px 30px 36px 0}
+body.tema-zen .prio h3{font-size:17px;font-weight:400}
+body.tema-zen .online-card .ic{display:none}
+body.tema-zen .pasos li{padding:26px 0 0;gap:20px}
+body.tema-zen .pasos .n{border-radius:0;background:none;color:var(--punto);border:1px solid var(--line);font-weight:400}
+body.tema-zen .spec span,body.tema-zen .spec a{
+  border-radius:0;background:none;border:0;border-bottom:1px solid var(--line);color:var(--ink-2);
+  letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;padding:6px 0;margin-right:22px;
+}
+body.tema-zen .spec-big span{border-bottom-color:var(--punto);color:var(--ink)}
+body.tema-zen .tags span{border-radius:0;border:0;border-bottom:1px solid var(--line);padding:4px 0;margin-right:18px}
+body.tema-zen .areas{border-top:1px solid var(--line)}
+body.tema-zen details.area{border-bottom:1px solid var(--line)}
+body.tema-zen .area h3{font-size:clamp(19px,2.4vw,26px);font-weight:400}
+body.tema-zen .area .plus{border-radius:0;border-color:var(--line);width:28px;height:28px}
+body.tema-zen details.area[open] .plus{background:none;border-color:var(--ink)}
+body.tema-zen details.area[open] .plus::before,body.tema-zen details.area[open] .plus::after{background:var(--ink)}
+body.tema-zen .online-teaser,body.tema-zen .cta-box{
+  border-radius:0;background:none;border:0;border-top:1px solid var(--ink);color:var(--ink);padding-inline:0;
+}
+body.tema-zen .cta-box h2{color:var(--ink);font-weight:400}
+body.tema-zen .cta-box .btn-primary{background:var(--ink);color:var(--paper)}
+body.tema-zen .cta-box .btn-ghost,body.tema-zen .cta-box .btn-wa{border-color:var(--line);color:var(--ink)}
+body.tema-zen .band{background:var(--ink)}
+body.tema-zen .band img.bg{opacity:.12;filter:grayscale(1)}
+body.tema-zen .band h2{font-weight:400;font-size:clamp(26px,3.6vw,44px)}
+body.tema-zen footer{background:var(--paper);color:var(--ink-2);border-top:1px solid var(--line)}
+body.tema-zen footer h4,body.tema-zen .f-brand b{color:var(--ink);letter-spacing:.24em}
+body.tema-zen footer a{color:var(--ink-2)}
+body.tema-zen footer a:hover{color:var(--punto)}
+body.tema-zen .f-brand img{background:none}
+body.tema-zen .social a{border-radius:0;border-color:var(--line);color:var(--ink)}
+body.tema-zen .f-bottom{border-color:var(--line)}
+body.tema-zen .field input,body.tema-zen .field textarea,body.tema-zen .field select{
+  border-radius:0;border-width:0 0 1px;border-color:var(--line);background:none;padding-inline:0;
+}
+body.tema-zen .field input:focus,body.tema-zen .field textarea:focus{box-shadow:none;border-bottom-color:var(--ink)}
+body.tema-zen .field label{letter-spacing:.2em;text-transform:uppercase;font-size:10px;color:var(--ink-3)}
+body.tema-zen .art-body{font-size:16.5px;line-height:1.95}
+body.tema-zen .art-img{border-radius:0}
+body.tema-zen .art-body blockquote{border-left:1px solid var(--punto);background:none;border-radius:0;font-style:italic}
+body.tema-zen .fab{border-radius:0;background:var(--ink);color:var(--paper);box-shadow:none}
+
+/* movimiento: casi imperceptible */
+body.tema-zen .rv{transform:translateY(8px);transition:opacity 1.3s ease,transform 1.3s cubic-bezier(.22,1,.36,1)}
+@media (max-width:900px){
+  body.tema-zen .hero-grid{grid-template-columns:1fr}
+  body.tema-zen .hero-media{margin-top:0}
+}

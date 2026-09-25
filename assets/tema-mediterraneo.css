@@ -1,0 +1,105 @@
+/* ── Versión MEDITERRÁNEO ──────────────────────────────────────
+   Dénia en la web: cal, azul marino, terracota y curvas. */
+body.tema-mediterraneo{
+  --ink:#10283a; --ink-2:#456073; --ink-3:#7d94a3;
+  --paper:#fdfbf6; --paper-2:#f0f5f4; --line:#dfe8e6;
+  --peri:#bfe0dc; --peri-2:#5fa8a0; --peri-deep:#12626a;
+  --arena:#e8b48a; --card:#ffffff;
+  --shadow:0 2px 6px rgba(16,40,58,.05), 0 18px 40px -26px rgba(16,40,58,.28);
+  --shadow-lg:0 4px 10px rgba(16,40,58,.06), 0 40px 70px -34px rgba(18,98,106,.4);
+  --r:26px; --sp:clamp(72px,9vw,140px);
+}
+@media (prefers-color-scheme: dark){
+  body.tema-mediterraneo:not([data-theme="light"]){
+    --ink:#eef6f5; --ink-2:#b4c9cd; --ink-3:#85a0a6;
+    --paper:#07222b; --paper-2:#0c2e39; --line:#164050; --card:#0c2e39;
+    --peri:#2b6e70; --peri-2:#6fc3b8; --peri-deep:#bfe0dc;
+  }
+}
+body.tema-mediterraneo h1,body.tema-mediterraneo h2,body.tema-mediterraneo h3{
+  font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.08;
+}
+body.tema-mediterraneo .hero h1{font-size:clamp(44px,7vw,88px);font-weight:300}
+body.tema-mediterraneo .hero h1 em{
+  background:none;font-weight:600;color:var(--peri-deep);position:relative;white-space:normal;
+}
+body.tema-mediterraneo .hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:-.1em;height:.16em;
+  background:radial-gradient(circle at 10% 0,var(--arena),var(--peri-2));border-radius:99px;opacity:.7;
+}
+body.tema-mediterraneo .eyebrow{color:var(--peri-deep);letter-spacing:.18em}
+body.tema-mediterraneo .eyebrow::before{background:var(--arena);width:30px;height:3px;border-radius:9px}
+body.tema-mediterraneo .lede{font-size:clamp(18px,2vw,21px)}
+
+/* sol de fondo y olas */
+body.tema-mediterraneo .hero::before{
+  background:radial-gradient(circle,var(--arena) 0%,transparent 66%);opacity:.5;
+}
+body.tema-mediterraneo .hero{position:relative}
+body.tema-mediterraneo .hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;z-index:-1;
+  background:radial-gradient(120% 100% at 50% 100%,var(--peri) 0%,transparent 62%);opacity:.5;
+}
+body.tema-mediterraneo header{background:color-mix(in srgb,var(--paper) 86%,transparent)}
+body.tema-mediterraneo .brand b{letter-spacing:.09em}
+body.tema-mediterraneo nav a.nav[aria-current]{background:var(--peri);color:var(--peri-deep)}
+body.tema-mediterraneo .nav-cta{background:var(--peri-deep);color:#fff}
+
+body.tema-mediterraneo .btn{border-radius:999px;padding:15px 30px}
+body.tema-mediterraneo .btn-primary{background:var(--peri-deep);color:#fff}
+body.tema-mediterraneo .btn-ghost{border-color:var(--peri-2);color:var(--peri-deep)}
+body.tema-mediterraneo .btn-ghost:hover{background:var(--peri);border-color:var(--peri-2)}
+
+body.tema-mediterraneo .hero-media .frame{border-radius:180px 26px 180px 26px}
+body.tema-mediterraneo .hero-media::after{background:var(--arena);border-radius:26px 180px 26px 180px;opacity:.65}
+body.tema-mediterraneo .hero-badge{border-radius:22px;border-color:var(--peri)}
+body.tema-mediterraneo .hero-badge b{color:var(--peri-deep)}
+
+body.tema-mediterraneo .trust{border:0;background:var(--paper-2);border-radius:var(--r);padding:6px 10px}
+body.tema-mediterraneo .trust li+li{border-color:var(--line)}
+body.tema-mediterraneo .trust svg{color:var(--peri-2)}
+body.tema-mediterraneo .alt{background:var(--paper-2)}
+
+body.tema-mediterraneo .area-card,body.tema-mediterraneo .grupo,body.tema-mediterraneo .online-card,
+body.tema-mediterraneo .lawyer,body.tema-mediterraneo .post,body.tema-mediterraneo .office,
+body.tema-mediterraneo .trio li,body.tema-mediterraneo form,body.tema-mediterraneo .direct a,
+body.tema-mediterraneo .pasos li,body.tema-mediterraneo .destacada{border-radius:var(--r)}
+body.tema-mediterraneo .area-card:hover,body.tema-mediterraneo .post:hover,
+body.tema-mediterraneo .online-card:hover{border-color:var(--peri-2)}
+body.tema-mediterraneo .post-img,body.tema-mediterraneo .destacada .ph,
+body.tema-mediterraneo .lawyer .ph{border-radius:0}
+body.tema-mediterraneo .lawyer .ph img{filter:none}
+body.tema-mediterraneo .prio{border-radius:var(--r);overflow:hidden}
+body.tema-mediterraneo .prio .k{color:var(--peri-deep)}
+body.tema-mediterraneo .prio li:nth-child(4n+1){background:var(--paper-2)}
+body.tema-mediterraneo .online-card .ic{background:var(--peri);color:var(--peri-deep);border-radius:50%}
+body.tema-mediterraneo .pasos li{background:var(--card);border:1px solid var(--line)}
+body.tema-mediterraneo .pasos .n{background:var(--arena);color:#3b2313}
+body.tema-mediterraneo .spec span,body.tema-mediterraneo .spec a{background:var(--peri);color:var(--peri-deep)}
+body.tema-mediterraneo .spec-big span{background:var(--peri-deep);color:#fff}
+body.tema-mediterraneo .cols h4,body.tema-mediterraneo .post .cat,body.tema-mediterraneo .role,
+body.tema-mediterraneo .area-card .num{color:var(--peri-deep)}
+body.tema-mediterraneo .area .plus{border-color:var(--peri-2)}
+body.tema-mediterraneo details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-mediterraneo .online-teaser{background:var(--peri-deep);border-radius:var(--r)}
+body.tema-mediterraneo .online-teaser .eyebrow{color:var(--peri)}
+body.tema-mediterraneo .online-teaser .eyebrow::before{background:var(--arena)}
+body.tema-mediterraneo .cta-box{background:var(--peri);color:var(--ink);border-radius:var(--r)}
+body.tema-mediterraneo .cta-box .btn-primary{background:var(--peri-deep);color:#fff}
+body.tema-mediterraneo .band{background:#07222b}
+body.tema-mediterraneo .band img.bg{opacity:.25}
+body.tema-mediterraneo .band h2{font-weight:300}
+body.tema-mediterraneo footer{background:#07222b;color:#a8c2c6}
+body.tema-mediterraneo .field input,body.tema-mediterraneo .field textarea,body.tema-mediterraneo .field select{border-radius:16px}
+body.tema-mediterraneo .art-body{font-size:18.5px}
+body.tema-mediterraneo .art-img,body.tema-mediterraneo .video{border-radius:var(--r)}
+body.tema-mediterraneo .fab{box-shadow:0 12px 28px -8px rgba(18,98,106,.5)}
+
+/* movimiento: sube flotando, como el agua */
+body.tema-mediterraneo .rv{transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+body.tema-mediterraneo .area-card,body.tema-mediterraneo .post,body.tema-mediterraneo .online-card,
+body.tema-mediterraneo .direct a{transition:all .4s cubic-bezier(.16,1,.3,1)}
+body.tema-mediterraneo .area-card:hover,body.tema-mediterraneo .online-card:hover{transform:translateY(-6px)}
+@media (max-width:900px){
+  body.tema-mediterraneo .hero-media .frame{border-radius:120px 20px 120px 20px}
+}

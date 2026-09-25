@@ -1,0 +1,148 @@
+/* ── Versión BOUTIQUE ──────────────────────────────────────────
+   Despacho boutique: verde profundo, oro fino, serif de alto
+   contraste y mucho aire. Cara sin gritarlo. */
+body.tema-boutique{
+  --ink:#f3efe6; --ink-2:#c6c0b0; --ink-3:#938d7e;
+  --paper:#12211c; --paper-2:#17281f; --line:#2b3d33;
+  --peri:#c9a961; --peri-2:#e0c489; --peri-deep:#e8d5a8;
+  --card:#17281f;
+  --shadow:0 2px 6px rgba(0,0,0,.4), 0 20px 46px -30px rgba(0,0,0,.9);
+  --shadow-lg:0 4px 10px rgba(0,0,0,.4), 0 44px 80px -40px rgba(201,169,97,.35);
+  --r:0px; --maxw:1180px; --sp:clamp(84px,11vw,168px);
+  color-scheme:dark;
+  background:
+    radial-gradient(1000px 700px at 78% -12%, rgba(201,169,97,.12), transparent 60%),
+    var(--paper);
+  background-attachment:fixed;
+}
+body.tema-boutique h1,body.tema-boutique h2,body.tema-boutique h3{
+  font-family:'Playfair Display',Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.1;
+}
+body.tema-boutique .hero h1{font-size:clamp(46px,7.4vw,96px)}
+body.tema-boutique .hero h1 em{background:none;font-style:italic;color:var(--peri-2)}
+body.tema-boutique h2.title,body.tema-boutique .phero h1{font-size:clamp(32px,5.2vw,62px)}
+body.tema-boutique .lede{font-size:clamp(17px,1.9vw,20px);color:var(--ink-2);font-weight:300}
+body.tema-boutique .eyebrow{
+  color:var(--peri);letter-spacing:.3em;font-size:10.5px;justify-content:center;
+}
+body.tema-boutique .eyebrow::before{background:var(--peri);width:26px;height:1px}
+
+/* todo centrado, como una invitación */
+body.tema-boutique section > .wrap > .eyebrow,
+body.tema-boutique section > .wrap > h2.title,
+body.tema-boutique section > .wrap > .lede{text-align:center;margin-inline:auto}
+body.tema-boutique section > .wrap > .lede{max-width:58ch}
+body.tema-boutique .phero .wrap{text-align:center}
+body.tema-boutique .phero .wrap > *{margin-inline:auto}
+body.tema-boutique .phero .eyebrow{justify-content:center}
+
+body.tema-boutique header{
+  background:rgba(18,33,28,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+body.tema-boutique .brand img{filter:invert(1) sepia(1) saturate(.4) hue-rotate(5deg) brightness(1.4)}
+body.tema-boutique .brand b{letter-spacing:.2em;font-weight:500;font-size:14px}
+body.tema-boutique nav a.nav{font-size:11.5px;letter-spacing:.16em;color:var(--ink-2);border-radius:0}
+body.tema-boutique nav a.nav:hover{background:none;color:var(--peri-2)}
+body.tema-boutique nav a.nav[aria-current]{background:none;color:var(--peri);border-bottom:1px solid var(--peri)}
+body.tema-boutique .nav-cta{
+  background:none;border:1px solid var(--peri);color:var(--peri-2);border-radius:0;letter-spacing:.12em;font-size:11.5px;
+}
+body.tema-boutique .nav-cta:hover{background:var(--peri);color:#12211c;transform:none}
+
+body.tema-boutique .btn{
+  border-radius:0;letter-spacing:.14em;font-size:11.5px;text-transform:uppercase;padding:17px 34px;font-weight:500;
+}
+body.tema-boutique .btn-primary{background:var(--peri);color:#12211c;box-shadow:none}
+body.tema-boutique .btn-primary:hover{background:var(--peri-2);transform:none}
+body.tema-boutique .btn-ghost{border-color:var(--peri);color:var(--peri-2);background:none}
+body.tema-boutique .btn-ghost:hover{background:var(--peri);color:#12211c;transform:none}
+body.tema-boutique .btn-wa{background:none;border-color:#3f6b52;color:#8fd3ab}
+body.tema-boutique .btn-wa:hover{background:#3f6b52;color:#fff;transform:none}
+
+body.tema-boutique .hero::before{background:radial-gradient(circle,rgba(201,169,97,.22) 0%,transparent 68%);opacity:1}
+body.tema-boutique .hero-media .frame{
+  border-radius:0;box-shadow:none;outline:1px solid var(--peri);outline-offset:14px;
+}
+body.tema-boutique .hero-media .frame img{filter:grayscale(1) sepia(.25) brightness(.9)}
+body.tema-boutique .hero-media::after{display:none}
+body.tema-boutique .hero-badge{
+  background:var(--paper);border:1px solid var(--peri);border-radius:0;color:var(--ink-2);left:-34px;
+}
+body.tema-boutique .hero-badge b{font-family:'Playfair Display',serif;color:var(--peri-2);font-size:38px;font-weight:400}
+
+body.tema-boutique .trust{border-color:var(--line)}
+body.tema-boutique .trust li{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase}
+body.tema-boutique .trust li+li{border-color:var(--line)}
+body.tema-boutique .trust svg{color:var(--peri)}
+body.tema-boutique .alt{background:var(--paper-2)}
+
+body.tema-boutique .area-card,body.tema-boutique .grupo,body.tema-boutique .online-card,
+body.tema-boutique .lawyer,body.tema-boutique .post,body.tema-boutique .office,body.tema-boutique .trio li,
+body.tema-boutique form,body.tema-boutique .direct a,body.tema-boutique .pasos li,body.tema-boutique .destacada{
+  border-radius:0;border:1px solid var(--line);background:var(--card);box-shadow:none;
+}
+body.tema-boutique .area-card:hover,body.tema-boutique .post:hover,body.tema-boutique .online-card:hover,
+body.tema-boutique .destacada:hover{border-color:var(--peri);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+body.tema-boutique .area-card{align-items:center;text-align:center;padding:38px 26px}
+body.tema-boutique .area-card .more{justify-content:center}
+body.tema-boutique .prio{border:1px solid var(--line);border-radius:0;gap:1px;background:var(--line)}
+body.tema-boutique .prio li{background:var(--paper);text-align:center;padding:38px 26px}
+body.tema-boutique .prio .k,body.tema-boutique .cols h4,body.tema-boutique .post .cat,
+body.tema-boutique .role,body.tema-boutique .area-card .num{color:var(--peri);letter-spacing:.2em}
+body.tema-boutique .prio h3,body.tema-boutique .area-card h3{font-size:20px}
+body.tema-boutique .online-card .ic{border-radius:0;background:none;border:1px solid var(--peri);color:var(--peri)}
+body.tema-boutique .pasos .n{border-radius:0;background:none;border:1px solid var(--peri);color:var(--peri)}
+body.tema-boutique .spec span,body.tema-boutique .spec a{
+  border-radius:0;background:none;border:1px solid var(--peri);color:var(--peri-2);letter-spacing:.1em;font-size:11px;text-transform:uppercase;
+}
+body.tema-boutique .spec-big span{background:var(--peri);color:#12211c;border-color:var(--peri)}
+body.tema-boutique .tags span{border-radius:0;border-color:var(--line);color:var(--ink-2)}
+body.tema-boutique .lawyer .ph img{filter:grayscale(1) sepia(.2) brightness(.92)}
+body.tema-boutique .lawyer:hover .ph img{filter:grayscale(.6) sepia(.15)}
+body.tema-boutique .area .plus{border-radius:0;border-color:var(--peri)}
+body.tema-boutique details.area[open] .plus{background:var(--peri);border-color:var(--peri)}
+body.tema-boutique details.area[open] .plus::before,body.tema-boutique details.area[open] .plus::after{background:#12211c}
+body.tema-boutique .online-teaser,body.tema-boutique .cta-box{
+  border-radius:0;background:none;border:1px solid var(--peri);color:var(--ink);text-align:center;
+}
+body.tema-boutique .cta-box{justify-items:center}
+body.tema-boutique .cta-box .cta-row{justify-content:center}
+body.tema-boutique .cta-box h2{color:var(--ink)}
+body.tema-boutique .cta-box p{color:var(--ink-2);margin-inline:auto}
+body.tema-boutique .cta-box .btn-primary,body.tema-boutique .online-teaser .btn-primary{background:var(--peri);color:#12211c}
+body.tema-boutique .cta-box .btn-ghost{border-color:var(--peri);color:var(--peri-2)}
+body.tema-boutique .band{background:#0c1713}
+body.tema-boutique .band img.bg{opacity:.16;filter:grayscale(1) sepia(.3)}
+body.tema-boutique .band h2{font-size:clamp(34px,5.4vw,64px)}
+body.tema-boutique footer{background:#0c1713;color:var(--ink-3);border-top:1px solid var(--line)}
+body.tema-boutique footer h4{color:var(--peri);letter-spacing:.2em}
+body.tema-boutique .social a{border-radius:0;border-color:var(--line)}
+body.tema-boutique .social a:hover{background:var(--peri);border-color:var(--peri);color:#12211c}
+body.tema-boutique .field input,body.tema-boutique .field textarea,body.tema-boutique .field select{
+  border-radius:0;background:var(--paper);border-color:var(--line);color:var(--ink);
+}
+body.tema-boutique .field input:focus,body.tema-boutique .field textarea:focus{border-color:var(--peri);box-shadow:none}
+body.tema-boutique .field label{letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;color:var(--ink-3)}
+body.tema-boutique .art-body{font-size:18.5px;font-weight:300}
+body.tema-boutique .art-body strong{color:var(--ink)}
+body.tema-boutique .art-body a{color:var(--peri-2)}
+body.tema-boutique .art-body blockquote{
+  border-left:0;border-top:1px solid var(--peri);border-bottom:1px solid var(--peri);
+  background:none;border-radius:0;font-style:italic;text-align:center;padding:26px 0;
+}
+body.tema-boutique .art-img{border-radius:0;box-shadow:none;outline:1px solid var(--line)}
+body.tema-boutique .fab{border-radius:0;background:var(--peri);color:#12211c;box-shadow:none}
+
+/* movimiento: aparece con calma y un filete que se abre */
+body.tema-boutique .rv{transform:translateY(18px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.16,1,.3,1)}
+body.tema-boutique .rv h2.title{position:relative;padding-bottom:22px}
+body.tema-boutique .rv h2.title::after{
+  content:"";position:absolute;left:50%;bottom:0;height:1px;width:0;background:var(--peri);
+  transform:translateX(-50%);transition:width 1.4s cubic-bezier(.16,1,.3,1) .25s;
+}
+body.tema-boutique .rv.in h2.title::after{width:110px}
+@media (max-width:900px){
+  body.tema-boutique .hero-badge{display:none}
+  body.tema-boutique .hero-media .frame{outline-offset:8px}
+}

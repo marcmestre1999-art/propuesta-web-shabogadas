@@ -1,0 +1,170 @@
+{
+ "Trabajamos para ayudarte": {
+  "t": "Titular principal (hero)",
+  "p": "Es lo primero que se lee y lo que decide si alguien sigue bajando. Corto, en primera persona del plural y hablando de lo que hacéis por quien llega, no de vosotras.",
+  "v": ["Estamos para ayudarte", "Trabajamos para que estés tranquila", "Tu caso, en buenas manos", "Te acompañamos de principio a fin", "Ponemos el derecho de tu parte"]
+ },
+ "Todo gran cambio empieza por uno pequeño. Te asesoramos, te guiamos y te acompañamos durante todos los pasos legales, explicándote e informándote de las diferentes posibilidades.": {
+  "t": "Entradilla del hero",
+  "p": "Dos o tres líneas que explican el titular y bajan el miedo de quien llega con un problema. Mejor verbos que adjetivos.",
+  "v": [
+   "Todo gran cambio empieza por uno pequeño. Te asesoramos, te guiamos y te acompañamos en cada paso, explicándote siempre qué opciones tienes.",
+   "Escuchamos tu caso, te decimos qué se puede hacer y nos ocupamos. Sin tecnicismos y sin sorpresas en la factura.",
+   "Somos dos abogadas. Estudiamos tu asunto antes de mover un dedo y te explicamos, en cristiano, qué podemos hacer y qué va a costar.",
+   "Divorcios, herencias, comunidades de propietarios y extranjería. Te explicamos las opciones, eliges tú y lo llevamos nosotras.",
+   "Cuando algo se tuerce, lo que más tranquiliza es saber qué va a pasar. Eso es lo primero que te damos."
+  ]
+ },
+ "Asesoramiento jurídico para particulares y empresas": {
+  "t": "Titular de sección (quiénes somos)",
+  "p": "Titular descriptivo: aquí manda que se entienda a quién atendéis. Es también el que más ayuda en Google.",
+  "v": ["Un despacho para personas, no para expedientes", "Asesoramiento legal para particulares y empresas", "Derecho civil, familia, extranjería y mediación", "Lo que hacemos y para quién", "Abogadas para el día a día y para lo difícil"]
+ },
+ "Todo lo que podemos llevar por ti": {
+  "t": "Titular de sección (servicios)",
+  "p": "Encabeza la lista de trámites. Funciona mejor prometiendo descarga («lo llevamos nosotras») que enumerando materias.",
+  "v": ["Esto es lo que hacemos por ti", "Cuatro áreas, un solo despacho", "De qué nos podemos encargar", "Lo que ponemos en tus manos", "En qué te podemos ayudar"]
+ },
+ "Cuatro áreas de trabajo. Ábrelas para ver el detalle de cada trámite — si tu caso no aparece, escríbenos igualmente y te decimos si podemos ayudarte.": {
+  "t": "Entradilla de servicios",
+  "p": "Da instrucciones (abre las áreas) y quita la barrera de «lo mío no está en la lista», que es lo que más frena una consulta.",
+  "v": [
+   "Cuatro áreas de trabajo. Ábrelas para ver el detalle de cada trámite; si tu caso no aparece, escríbenos igual y te decimos si podemos ayudarte.",
+   "Estas son las materias que llevamos. Si no ves la tuya, pregúntanos: si no es lo nuestro, te decimos con quién ir.",
+   "Abre cada área y mira el detalle. Y si tienes dudas de dónde encaja tu caso, para eso está la primera consulta.",
+   "Cuatro áreas y muchos trámites detrás de cada una. Ábrelas con calma.",
+   "Lo que llevamos, al detalle. Ningún caso es igual que otro: cuéntanos el tuyo."
+  ]
+ },
+ "Tu abogada, sin desplazarte": {
+  "t": "Titular del bloque de servicios online",
+  "p": "Es el bloque que os diferencia del despacho de la esquina. El beneficio va delante: no tener que ir.",
+  "v": ["Tu abogada, sin moverte de casa", "Resolvemos tu caso a distancia", "Consulta desde donde estés", "El despacho, donde tú estés", "Sin desplazamientos y sin esperas"]
+ },
+ "Consultas por videollamada, teléfono o escrito, redacción y revisión de contratos, reclamación de impagados y trámites de extranjería. Toda España, presupuesto cerrado.": {
+  "t": "Texto del bloque online",
+  "p": "Enumera para que se entienda que «online» no es solo una llamada, y cierra con las dos garantías: cobertura y precio.",
+  "v": [
+   "Videollamada, teléfono o correo; contratos, reclamaciones de impagados y extranjería. En toda España y con presupuesto cerrado.",
+   "Todo lo que se puede llevar a distancia lo llevamos a distancia. Tú decides si en algún momento nos vemos en persona.",
+   "Consultas, contratos, reclamaciones y papeleo de extranjería, sin pisar el despacho si no quieres.",
+   "Atendemos por videollamada o teléfono, revisamos tus documentos y te decimos qué hacer. Presupuesto cerrado antes de empezar.",
+   "Vivas donde vivas: trabajamos en toda España de forma telemática, práctica y ágil."
+  ]
+ },
+ "¿Qué es S&H Abogadas?": {
+  "t": "Titular de sección (prioridades)",
+  "p": "Pregunta directa que da paso a los ocho compromisos. Puede funcionar también como afirmación.",
+  "v": ["¿Qué es S&H Abogadas?", "Cómo trabajamos", "Nuestra forma de trabajar", "Lo que puedes esperar de nosotras", "Ocho cosas que no negociamos"]
+ },
+ "Te ofrecemos un asesoramiento cercano, de confianza e individualizado. Esto es lo que eso significa en la práctica.": {
+  "t": "Entradilla de prioridades",
+  "p": "«Cercano y de confianza» lo dice todo el mundo; esta línea existe para avisar de que debajo viene la prueba.",
+  "v": [
+   "Te ofrecemos un asesoramiento cercano, de confianza e individualizado. Esto es lo que eso significa en la práctica.",
+   "Cercano, de confianza e individualizado. Debajo, lo que hay detrás de cada palabra.",
+   "Esto no es una declaración de intenciones: es cómo llevamos cada asunto.",
+   "Ocho compromisos que cumplimos en todos los casos, sean grandes o pequeños.",
+   "Lo que nos comprometemos a hacer contigo desde el primer día."
+  ]
+ },
+ "No importa dónde te encuentres": {
+  "t": "Titular de la banda oscura",
+  "p": "Banda de refuerzo entre secciones: una idea sola, grande y sin adorno.",
+  "v": ["No importa dónde te encuentres", "Da igual desde dónde nos escribas", "Te defendemos vivas donde vivas", "Sin barreras territoriales", "Toda España, desde Dénia y València"]
+ },
+ "Lo que solemos explicar en consulta": {
+  "t": "Titular de actualidad (blog)",
+  "p": "Presenta los artículos como respuestas a dudas reales, no como noticias jurídicas. Es lo que hace que se lean.",
+  "v": ["Lo que solemos explicar en consulta", "Dudas que nos llegan al despacho", "Actualidad legal, en cristiano", "Lo que preguntan nuestros clientes", "Respuestas a las dudas de siempre"]
+ },
+ "Dudas reales que nos llegan al despacho, contadas sin tecnicismos.": {
+  "t": "Entradilla de actualidad",
+  "p": "Promete lo que más se agradece en un blog jurídico: que se entienda.",
+  "v": [
+   "Dudas reales que nos llegan al despacho, contadas sin tecnicismos.",
+   "Escribimos sobre lo que nos preguntáis, en un idioma que se entiende.",
+   "Casos y preguntas del día a día, explicados como se los explicamos a un cliente.",
+   "Sin latinajos: lo que la ley dice y lo que significa para ti.",
+   "Artículos cortos sobre cosas que pasan de verdad."
+  ]
+ },
+ "Quién va a llevar tu asunto": {
+  "t": "Titular de sección (el despacho)",
+  "p": "En un despacho de dos personas, saber quién te atiende es el argumento de venta. Por eso el titular habla de personas.",
+  "v": ["Quién va a llevar tu asunto", "Las dos que te van a atender", "Elisabeth e Isabel", "Siempre hablarás con tu abogada", "Aquí no hay intermediarios"]
+ },
+ "En S&H Abogadas te ofrecemos nuestros servicios de asesoramiento legal y te acompañamos en todo el proceso. Somos dos: no hay intermediarios ni pasantes.": {
+  "t": "Entradilla del despacho",
+  "p": "Convierte «somos pocas» en una ventaja. El dato concreto («somos dos») vale más que cualquier adjetivo.",
+  "v": [
+   "Te asesoramos y te acompañamos en todo el proceso. Somos dos: no hay intermediarios ni pasantes.",
+   "Somos dos abogadas colegiadas. La que coge el teléfono es la que lleva tu caso.",
+   "Un despacho pequeño a propósito: así sabemos tu nombre y tu expediente de memoria.",
+   "Dos abogadas, dos especialidades y un solo interlocutor para ti.",
+   "Nos vas a tener localizadas. Eso, en un pleito, se nota."
+  ]
+ },
+ "Cuéntanos tu caso": {
+  "t": "Titular de contacto",
+  "p": "Es la llamada a la acción principal. Verbo en imperativo y sin pedir compromiso.",
+  "v": ["Cuéntanos tu caso", "Hablemos de lo tuyo", "Escríbenos sin compromiso", "¿Empezamos?", "Cuéntanos qué ha pasado"]
+ },
+ "Te responderemos con la mayor brevedad posible. Si lo prefieres, puedes llamarnos o escribirnos por WhatsApp. Damos facilidades en el pago de nuestros honorarios.": {
+  "t": "Entradilla de contacto",
+  "p": "Última objeción antes de escribir: cuánto tardáis, por dónde se os localiza y cuánto cuesta.",
+  "v": [
+   "Te responderemos lo antes posible. Si lo prefieres, llámanos o escríbenos por WhatsApp. Damos facilidades en el pago.",
+   "Escríbenos y te contestamos en cuanto lo veamos. La primera consulta sirve para saber si hay caso.",
+   "Cuéntanos qué ha pasado y cuándo te va bien que te llamemos. El resto lo miramos nosotras.",
+   "Por formulario, por teléfono o por WhatsApp: elige tú. Y con presupuesto cerrado desde el principio.",
+   "Te leemos, lo estudiamos y te decimos qué haríamos y cuánto costaría."
+  ]
+ },
+ "Confianza legal": {
+  "t": "Titular de la página del despacho",
+  "p": "Titular de portada de página. Dos palabras que resuman el tono; el detalle va en la entradilla.",
+  "v": ["Confianza legal", "Dos abogadas, un despacho", "Quiénes somos", "Cerca, y con la ley de tu parte", "El despacho por dentro"]
+ },
+ "Tranquilidad, calidad y seguridad": {
+  "t": "Titular de la página de servicios",
+  "p": "Viene literal de vuestra web. Es un titular de valores; si se prefiere algo más concreto, hay alternativas debajo.",
+  "v": ["Tranquilidad, calidad y seguridad", "Todo lo que llevamos", "Nuestras áreas de trabajo", "Del divorcio a la comunidad de vecinos", "Servicios del despacho"]
+ },
+ "Asesoría legal, en Dénia, en València y online": {
+  "t": "Titular de la página de contacto",
+  "p": "Aquí el titular debe decir dónde estáis: es la información que se busca en esta página.",
+  "v": ["Asesoría legal en Dénia, València y online", "Dónde estamos y cómo localizarnos", "Hablemos", "Dénia, València o videollamada", "Estamos a un mensaje"]
+ },
+ "¿Tienes una duda parecida?": {
+  "t": "Llamada a la acción (final de artículo)",
+  "p": "Aparece al acabar de leer. Enlaza lo que acaba de leer con su propio caso.",
+  "v": ["¿Tienes una duda parecida?", "¿Te suena tu caso?", "¿Y en tu situación?", "¿Hablamos de lo tuyo?", "¿Necesitas que lo miremos?"]
+ },
+ "Cuéntanosla. La estudiamos antes de dar ningún paso y te decimos qué haríamos y cuánto costaría.": {
+  "t": "Texto de la llamada a la acción",
+  "p": "Explica qué pasa si escribe: estudio previo y presupuesto. Evita el «contacta con nosotros» vacío.",
+  "v": [
+   "Cuéntanosla. La estudiamos antes de dar ningún paso y te decimos qué haríamos y cuánto costaría.",
+   "Escríbenos y te decimos si hay caso, qué plazos hay y cuánto cuesta.",
+   "Cada asunto es distinto. Cuéntanos el tuyo y lo miramos.",
+   "Una consulta no compromete a nada y te ahorra meses de dudas.",
+   "Mándanos los papeles que tengas y te decimos por dónde empezar."
+  ]
+ },
+ "Siete servicios a distancia": {
+  "t": "Titular de la lista de servicios online",
+  "p": "El número da concreción y anticipa la lista de abajo.",
+  "v": ["Siete servicios a distancia", "Qué puedes resolver sin venir", "Todo esto se hace online", "Consultas y trámites a distancia", "Lo que hacemos sin que te muevas"]
+ },
+ "Tres pasos": {
+  "t": "Titular del proceso",
+  "p": "Los procesos numerados bajan la ansiedad: quien lee sabe en qué se mete.",
+  "v": ["Tres pasos", "Cómo funciona", "Así trabajamos contigo", "De tu consulta a la solución", "Qué pasa cuando nos escribes"]
+ },
+ "Lo que nos preguntan antes de empezar": {
+  "t": "Titular de preguntas frecuentes",
+  "p": "Las dudas de aquí son las que frenan la consulta: precio, desplazamientos y confidencialidad.",
+  "v": ["Lo que nos preguntan antes de empezar", "Preguntas frecuentes", "Dudas habituales", "Antes de escribirnos", "Lo que sueles querer saber"]
+ }
+}

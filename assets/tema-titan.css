@@ -1,0 +1,160 @@
+/* ── Versión TITÁN ─────────────────────────────────────────────
+   Marca grande: tipografía enorme, bloques de color a sangre,
+   bordes duros, hover que invierte y una marquesina que no para. */
+body.tema-titan{
+  --ink:#0b0b0d; --ink-2:#3d3d45; --ink-3:#6e6e78;
+  --paper:#ffffff; --paper-2:#eef2ff; --line:#0b0b0d;
+  --peri:#c7d6ff; --peri-2:#7d9bff; --peri-deep:#1b2f6b;
+  --card:#ffffff;
+  --shadow:none; --shadow-lg:6px 6px 0 var(--ink);
+  --r:0px;
+  --maxw:1280px;
+  --sp:clamp(64px,8vw,120px);
+  letter-spacing:-.015em;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-titan:not([data-theme="light"]){
+    --ink:#f3f4f8; --ink-2:#c2c4cf; --ink-3:#8d8f9c;
+    --paper:#0b0b0d; --paper-2:#151722; --line:#f3f4f8; --card:#0b0b0d;
+    --peri:#3b56b5; --peri-2:#7d9bff; --peri-deep:#c7d6ff;
+    --shadow-lg:6px 6px 0 var(--peri-2);
+  }
+}
+
+/* titulares descomunales */
+body.tema-titan h1,body.tema-titan h2,body.tema-titan h3{font-weight:700;letter-spacing:-.045em;line-height:.94}
+body.tema-titan .hero h1{font-size:clamp(54px,11vw,150px);text-transform:uppercase}
+body.tema-titan .hero h1 em{background:var(--peri);padding:0 .08em;box-decoration-break:clone}
+body.tema-titan h2.title,body.tema-titan .phero h1{
+  font-size:clamp(36px,6.4vw,86px);text-transform:uppercase;letter-spacing:-.04em;
+}
+body.tema-titan .eyebrow{
+  font-size:12px;letter-spacing:.3em;color:var(--ink);font-weight:700;
+}
+body.tema-titan .eyebrow::before{width:34px;height:3px;background:var(--ink)}
+body.tema-titan .lede{font-size:clamp(18px,2.1vw,22px);font-weight:500}
+
+/* cabecera dura */
+body.tema-titan header{background:var(--paper);border-bottom:3px solid var(--line);backdrop-filter:none}
+body.tema-titan header.stuck{box-shadow:none}
+body.tema-titan .bar{height:76px}
+body.tema-titan .brand b{font-weight:700;letter-spacing:-.02em;font-size:17px}
+body.tema-titan nav a.nav{
+  border-radius:0;font-weight:700;font-size:12.5px;letter-spacing:.1em;padding:10px 14px;
+}
+body.tema-titan nav a.nav:hover{background:var(--ink);color:var(--paper)}
+body.tema-titan nav a.nav[aria-current]{background:var(--peri);color:var(--ink)}
+body.tema-titan .nav-cta{border:3px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:0}
+body.tema-titan .nav-cta:hover{background:var(--paper);color:var(--ink);transform:none}
+
+/* botones bloque */
+body.tema-titan .btn{
+  border-radius:0;border-width:3px;font-weight:700;letter-spacing:.04em;padding:16px 28px;font-size:14.5px;
+}
+body.tema-titan .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:4px 4px 0 var(--peri-2)}
+body.tema-titan .btn-primary:hover{transform:translate(4px,4px);box-shadow:0 0 0 var(--peri-2)}
+body.tema-titan .btn-ghost{border-color:var(--ink);background:var(--paper)}
+body.tema-titan .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:none}
+body.tema-titan .btn-wa{border-color:#0b0b0d;box-shadow:4px 4px 0 var(--ink)}
+body.tema-titan .btn-wa:hover{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+
+/* hero */
+body.tema-titan .hero{padding-block:clamp(40px,6vw,80px) 0}
+body.tema-titan .hero::before{display:none}
+body.tema-titan .hero-media .frame{border-radius:0;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--peri)}
+body.tema-titan .hero-media::after{display:none}
+body.tema-titan .hero-badge{
+  border-radius:0;border:3px solid var(--ink);box-shadow:none;background:var(--peri);color:var(--ink);left:-24px;bottom:-26px;
+}
+body.tema-titan .hero-badge b{font-size:44px;font-weight:700}
+
+/* marquesina */
+body.tema-titan .trust{
+  border:0;background:var(--ink);color:var(--paper);margin-top:clamp(40px,6vw,72px);
+  max-width:none;padding:0;overflow:hidden;position:relative;
+}
+body.tema-titan .trust ul{
+  display:flex;width:max-content;gap:0;animation:titan-marquee 26s linear infinite;
+}
+body.tema-titan .trust li{
+  border:0!important;padding:20px 38px;white-space:nowrap;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;font-size:14px;
+}
+body.tema-titan .trust li::after{content:"✦";margin-left:38px;color:var(--peri-2)}
+body.tema-titan .trust svg{color:var(--peri-2)}
+@keyframes titan-marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){body.tema-titan .trust ul{animation:none}}
+
+/* bloques a sangre */
+body.tema-titan .alt{background:var(--peri);border-block:3px solid var(--ink)}
+body.tema-titan .area-card,body.tema-titan .grupo,body.tema-titan .online-card,body.tema-titan .lawyer,
+body.tema-titan .post,body.tema-titan .office,body.tema-titan .trio li,body.tema-titan form,
+body.tema-titan .direct a,body.tema-titan .pasos li,body.tema-titan .destacada{
+  border-radius:0;border:3px solid var(--ink);box-shadow:none;background:var(--card);
+}
+body.tema-titan .area-card:hover,body.tema-titan .post:hover,body.tema-titan .online-card:hover,
+body.tema-titan .destacada:hover{
+  transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink);border-color:var(--ink);
+}
+body.tema-titan .direct a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+body.tema-titan .prio{border:3px solid var(--ink);border-radius:0;gap:3px;background:var(--ink)}
+body.tema-titan .prio li{background:var(--paper);padding:34px 28px}
+body.tema-titan .prio .k{font-size:38px;font-weight:700;color:var(--peri-2);letter-spacing:-.04em}
+body.tema-titan .prio h3{font-size:21px;text-transform:uppercase}
+body.tema-titan .area-card .num,body.tema-titan .area .num{font-weight:700;font-size:15px;color:var(--peri-deep)}
+body.tema-titan .online-teaser,body.tema-titan .cta-box{border-radius:0;border:3px solid var(--ink)}
+body.tema-titan .cta-box{background:var(--peri)}
+body.tema-titan .cta-box .btn-primary{box-shadow:4px 4px 0 var(--paper)}
+body.tema-titan .online-card .ic{border-radius:0;border:3px solid var(--ink)}
+body.tema-titan .pasos .n{border-radius:0;font-size:18px;width:48px;height:48px;border:3px solid var(--ink);background:var(--peri);color:var(--ink)}
+body.tema-titan .spec span,body.tema-titan .spec a{border-radius:0;border:2px solid var(--ink);font-weight:700;text-transform:uppercase;font-size:12px}
+body.tema-titan .spec-big span{border-color:var(--ink)}
+body.tema-titan .tags span{border-radius:0;border:2px solid var(--ink);font-weight:600}
+
+/* acordeón */
+body.tema-titan .areas{border-top:3px solid var(--ink)}
+body.tema-titan details.area{border-bottom:3px solid var(--ink)}
+body.tema-titan .area h3{font-size:clamp(22px,3.4vw,38px);text-transform:uppercase}
+body.tema-titan .area .plus{border:3px solid var(--ink);border-radius:0;width:44px;height:44px}
+body.tema-titan details.area[open] .plus{background:var(--peri);border-color:var(--ink)}
+body.tema-titan details.area[open] .plus::before,body.tema-titan details.area[open] .plus::after{background:var(--ink)}
+body.tema-titan .cols h4{color:var(--peri-deep);font-weight:700}
+
+/* formulario */
+body.tema-titan .field input,body.tema-titan .field textarea,body.tema-titan .field select{
+  border-radius:0;border-width:3px;border-color:var(--ink);font-weight:500;
+}
+body.tema-titan .field input:focus,body.tema-titan .field textarea:focus{box-shadow:4px 4px 0 var(--peri-2)}
+body.tema-titan .field label{font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:.1em}
+
+/* banda y pie */
+body.tema-titan .band{border-block:3px solid var(--ink)}
+body.tema-titan .band h2{font-size:clamp(38px,7vw,96px);text-transform:uppercase}
+body.tema-titan footer{border-top:3px solid var(--ink)}
+body.tema-titan .social a{border-radius:0;border-width:2px}
+body.tema-titan .fab{border-radius:0;border:3px solid #0b0b0d;box-shadow:5px 5px 0 #0b0b0d}
+
+/* movimiento: entra de lado, seco */
+body.tema-titan .rv{opacity:0;transform:translateX(-28px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+body.tema-titan .rv.in{opacity:1;transform:none}
+body.tema-titan .area-card,body.tema-titan .post,body.tema-titan .online-card,body.tema-titan .destacada,
+body.tema-titan .direct a,body.tema-titan .btn{transition:all .18s cubic-bezier(.2,.8,.2,1)}
+body.tema-titan .phero{border-bottom:3px solid var(--ink)}
+body.tema-titan .phero::before{display:none}
+@media (max-width:900px){
+  body.tema-titan .hero h1{font-size:clamp(44px,13vw,80px)}
+  body.tema-titan .hero-badge{display:none}
+}
+
+/* el titular es tan grande que manda: una sola columna */
+body.tema-titan .hero-grid{grid-template-columns:1fr;gap:clamp(28px,4vw,52px)}
+body.tema-titan .hero h1{font-size:clamp(46px,10.4vw,132px);overflow-wrap:break-word}
+body.tema-titan .hero-media{order:0;max-width:100%}
+body.tema-titan .hero-media .frame{aspect-ratio:21/8}
+body.tema-titan .hero-media .frame img{object-position:center 28%}
+body.tema-titan .hero-badge{display:block;left:auto;right:-20px;bottom:-24px;max-width:260px}
+body.tema-titan .hero .cta-row{margin-bottom:0}
+@media (max-width:900px){
+  body.tema-titan .hero-media .frame{aspect-ratio:16/10}
+  body.tema-titan .hero-badge{display:none}
+}

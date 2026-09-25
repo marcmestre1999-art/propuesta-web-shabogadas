@@ -1,0 +1,131 @@
+/* ── Versión CARTEL ────────────────────────────────────────────
+   Bauhaus: círculos y semicírculos, tres colores primarios sobre
+   crema y tipografía geométrica. Una web que parece un cartel. */
+body.tema-cartel{
+  --ink:#141414; --ink-2:#4c4c4c; --ink-3:#7e7e7e;
+  --paper:#f6f1e7; --paper-2:#ece5d6; --line:#141414;
+  --azul:#1f4fd8; --rojo:#e03a2f; --amar:#f5b71d;
+  --peri:var(--azul); --peri-2:var(--azul); --peri-deep:var(--azul);
+  --card:#fffdf8; --shadow:none; --shadow-lg:none;
+  --r:0px; --maxw:1240px; --sp:clamp(64px,8vw,124px);
+  font-family:'Poppins',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-cartel:not([data-theme="light"]){
+    --ink:#f6f1e7; --ink-2:#c3bfb5; --ink-3:#928e85;
+    --paper:#151412; --paper-2:#1e1c19; --line:#f6f1e7; --card:#1e1c19;
+  }
+}
+body.tema-cartel h1,body.tema-cartel h2,body.tema-cartel h3{font-weight:600;letter-spacing:-.035em;line-height:1}
+body.tema-cartel .hero h1{font-size:clamp(46px,8.2vw,110px);font-weight:700}
+body.tema-cartel .hero h1 em{background:var(--amar);padding:0 .06em;box-decoration-break:clone}
+body.tema-cartel h2.title,body.tema-cartel .phero h1{font-size:clamp(32px,5.4vw,66px);font-weight:600}
+body.tema-cartel .eyebrow{color:var(--rojo);letter-spacing:.16em;font-weight:600;font-size:11.5px}
+body.tema-cartel .eyebrow::before{width:14px;height:14px;border-radius:50%;background:var(--rojo)}
+body.tema-cartel .lede{font-size:clamp(17px,2vw,20px);font-weight:300}
+
+body.tema-cartel header{background:var(--paper);border-bottom:2px solid var(--ink);backdrop-filter:none}
+body.tema-cartel .brand b{font-weight:700}
+body.tema-cartel nav a.nav{border-radius:99px;font-weight:500;font-size:13px;text-transform:none;letter-spacing:0}
+body.tema-cartel nav a.nav[aria-current]{background:var(--azul);color:#fff}
+body.tema-cartel .nav-cta{background:var(--azul);color:#fff;border-radius:99px}
+body.tema-cartel .nav-cta:hover{background:var(--rojo);transform:none}
+body.tema-cartel .btn{border-radius:99px;font-weight:600;border-width:2px;padding:15px 28px}
+body.tema-cartel .btn-primary{background:var(--azul);color:#fff;border-color:var(--azul)}
+body.tema-cartel .btn-primary:hover{background:var(--rojo);border-color:var(--rojo);transform:none}
+body.tema-cartel .btn-ghost{border-color:var(--ink)}
+body.tema-cartel .btn-ghost:hover{background:var(--amar);border-color:var(--ink);transform:none}
+
+/* formas geométricas de fondo */
+body.tema-cartel .hero{position:relative;overflow:hidden}
+body.tema-cartel .hero::before{
+  content:"";position:absolute;right:-13vw;top:-13vw;width:26vw;height:26vw;border-radius:50%;
+  background:var(--amar);opacity:1;z-index:-2;
+}
+body.tema-cartel .hero::after{
+  content:"";position:absolute;left:-9vw;bottom:-2vw;width:17vw;height:8.5vw;
+  border-radius:8.5vw 8.5vw 0 0;background:var(--azul);opacity:.9;z-index:-2;
+}
+body.tema-cartel .hero-media .frame{border-radius:999px 999px 20px 20px;border:2px solid var(--ink);box-shadow:none;background:var(--card)}
+body.tema-cartel .hero-media .frame img{filter:grayscale(1) contrast(1.1)}
+body.tema-cartel .hero-media::after{
+  background:var(--rojo);border-radius:50%;width:38%;height:38%;inset:auto -14px -14px auto;
+}
+body.tema-cartel .hero-badge{
+  border-radius:99px;border:2px solid var(--ink);background:var(--amar);box-shadow:none;text-align:center;
+  width:158px;height:158px;display:grid;place-content:center;left:-46px;bottom:6px;padding:0 20px;font-size:12px;
+}
+body.tema-cartel .hero-badge b{font-size:40px;font-weight:700;color:var(--ink)}
+
+body.tema-cartel .trust{border-color:var(--ink);border-width:2px 0}
+body.tema-cartel .trust li{font-weight:500;font-size:13.5px}
+body.tema-cartel .trust li+li{border-color:var(--ink)}
+body.tema-cartel .trust li:nth-child(1) svg{color:var(--azul)}
+body.tema-cartel .trust li:nth-child(2) svg{color:var(--rojo)}
+body.tema-cartel .trust li:nth-child(3) svg{color:var(--amar)}
+body.tema-cartel .alt{background:var(--paper-2)}
+
+body.tema-cartel .area-card,body.tema-cartel .grupo,body.tema-cartel .online-card,body.tema-cartel .lawyer,
+body.tema-cartel .post,body.tema-cartel .office,body.tema-cartel .trio li,body.tema-cartel form,
+body.tema-cartel .direct a,body.tema-cartel .pasos li,body.tema-cartel .destacada{
+  border-radius:20px;border:2px solid var(--ink);background:var(--card);box-shadow:none;
+}
+body.tema-cartel .area-card:hover,body.tema-cartel .post:hover,body.tema-cartel .online-card:hover,
+body.tema-cartel .destacada:hover{transform:translateY(-5px);box-shadow:none;border-color:var(--ink)}
+body.tema-cartel .area-card:nth-child(4n+1):hover{background:var(--amar)}
+body.tema-cartel .area-card:nth-child(4n+2):hover{background:var(--azul);color:#fff}
+body.tema-cartel .area-card:nth-child(4n+2):hover *{color:#fff}
+body.tema-cartel .area-card:nth-child(4n+3):hover{background:var(--rojo);color:#fff}
+body.tema-cartel .area-card:nth-child(4n+3):hover *{color:#fff}
+body.tema-cartel .area-card:nth-child(4n+4):hover{background:var(--amar)}
+body.tema-cartel .area-card .num{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--azul);font-size:12px;
+}
+body.tema-cartel .area-card:nth-child(2) .num{background:var(--rojo)}
+body.tema-cartel .area-card:nth-child(3) .num{background:var(--amar);color:var(--ink)}
+body.tema-cartel .prio{border:2px solid var(--ink);border-radius:20px;overflow:hidden;gap:2px;background:var(--ink)}
+body.tema-cartel .prio li{background:var(--card)}
+body.tema-cartel .prio li:nth-child(4n+2){background:var(--amar)}
+body.tema-cartel .prio li:nth-child(4n+3){background:var(--paper-2)}
+body.tema-cartel .prio .k{color:var(--azul);font-weight:700}
+body.tema-cartel .online-card .ic{border-radius:50%;background:var(--azul);color:#fff}
+body.tema-cartel .online-card:nth-child(3n+2) .ic{background:var(--rojo)}
+body.tema-cartel .online-card:nth-child(3n+3) .ic{background:var(--amar);color:var(--ink)}
+body.tema-cartel .pasos .n{border-radius:50%;background:var(--rojo);color:#fff;font-weight:700}
+body.tema-cartel .spec span,body.tema-cartel .spec a{border-radius:99px;border:2px solid var(--ink);background:none;color:var(--ink);font-weight:500}
+body.tema-cartel .spec a:nth-child(1){background:var(--azul);color:#fff;border-color:var(--azul)}
+body.tema-cartel .spec a:nth-child(3){background:var(--amar)}
+body.tema-cartel .spec-big span{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+body.tema-cartel .tags span{border-radius:99px;border-width:1.5px;border-color:var(--ink)}
+body.tema-cartel .cols h4,body.tema-cartel .post .cat,body.tema-cartel .role{color:var(--azul)}
+body.tema-cartel .area .plus{border-radius:50%;border-width:2px;border-color:var(--ink)}
+body.tema-cartel details.area[open] .plus{background:var(--azul);border-color:var(--azul)}
+body.tema-cartel .areas{border-top:2px solid var(--ink)}
+body.tema-cartel details.area{border-bottom:2px solid var(--ink)}
+body.tema-cartel .online-teaser{background:var(--azul);border-radius:24px}
+body.tema-cartel .online-teaser .eyebrow{color:var(--amar)}
+body.tema-cartel .online-teaser .eyebrow::before{background:var(--amar)}
+body.tema-cartel .online-teaser .btn-primary{background:var(--amar);color:var(--ink);border-color:var(--amar)}
+body.tema-cartel .cta-box{background:var(--amar);color:var(--ink);border-radius:24px;border:2px solid var(--ink)}
+body.tema-cartel .cta-box .btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+body.tema-cartel .cta-box .btn-ghost{border-color:var(--ink);color:var(--ink)}
+body.tema-cartel .band{background:var(--azul)}
+body.tema-cartel .band img.bg{opacity:.18;filter:grayscale(1)}
+body.tema-cartel .band .btn-primary{background:var(--amar);color:var(--ink);border-color:var(--amar)}
+body.tema-cartel footer{background:var(--ink);border-radius:32px 32px 0 0}
+body.tema-cartel .social a{border-radius:50%;border-width:2px}
+body.tema-cartel .field input,body.tema-cartel .field textarea,body.tema-cartel .field select{
+  border-radius:14px;border-width:2px;border-color:var(--ink);
+}
+body.tema-cartel .field input:focus,body.tema-cartel .field textarea:focus{box-shadow:0 0 0 4px var(--amar)}
+body.tema-cartel .post-img,body.tema-cartel .destacada .ph,body.tema-cartel .lawyer .ph{border-radius:0}
+body.tema-cartel .art-img{border-radius:20px;border:2px solid var(--ink)}
+body.tema-cartel .fab{border-radius:50%;border:2px solid var(--ink)}
+
+/* movimiento: entra girando un poco, como una pieza que encaja */
+body.tema-cartel .rv{transform:translateY(24px) rotate(-1.2deg);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.4,.44,1)}
+body.tema-cartel .rv.in{transform:none}
+body.tema-cartel .area-card,body.tema-cartel .post,body.tema-cartel .online-card,
+body.tema-cartel .btn,body.tema-cartel .direct a{transition:all .25s cubic-bezier(.34,1.4,.44,1)}
+@media (max-width:900px){body.tema-cartel .hero-badge{display:none}}
