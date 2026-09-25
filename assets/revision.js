@@ -26,6 +26,15 @@
     fetch(R + 'assets/variantes.json').then(function (r) { return r.json(); }).then(function (j) { VAR = j; });
   } catch (e) {}
 
+  var VBASE = (function () {
+    var m = location.pathname.match(/^(.*\/v\/[^\/]+\/)/);
+    return m ? m[1] : R;
+  })();
+  var VERSION = (function () {
+    var m = location.pathname.match(/\/v\/([^\/]+)\//);
+    return m ? m[1] : 'clasica';
+  })();
+
   var RUTA = (function () {
     var p = location.pathname.replace(/index\.html$/, '');
     if (p.charAt(p.length - 1) !== '/') p += '/';
@@ -636,7 +645,7 @@
       var h = '<p class="rev-vacio">Tus cambios se guardan al cambiar de página.</p>';
       ps.forEach(function (p) {
         h += '<div class="rev-item"><div class="ru">' + (p.grupo || '') + '</div>' +
-          '<a href="' + R + p.ruta + '" style="color:#28407f;text-decoration:none;font-weight:600">' + p.titulo + '</a></div>';
+          '<a href="' + VBASE + p.ruta + '" style="color:#28407f;text-decoration:none;font-weight:600">' + p.titulo + '</a></div>';
       });
       body.innerHTML = h;
     }).catch(function () {
@@ -648,6 +657,7 @@
   function informe() {
     var hoy = new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
     var l = ['# Cambios para la web de S&H Abogadas', '',
+      'Versión de diseño: **' + VERSION + '**', '',
       hoy + ' · ' + nEdits() + ' cambios de texto · ' + nNotas() + ' notas', ''];
     var porPag = {};
     Object.keys(st.textos).forEach(function (k) {
