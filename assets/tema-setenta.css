@@ -1,0 +1,125 @@
+/* ── Versión SETENTA ───────────────────────────────────────────
+   Ocre, mostaza y arcos. Slab serif, letras anchas y el sabor de
+   un despacho de los de siempre, pero con gracia. */
+body.tema-setenta{
+  --ink:#2e1d10; --ink-2:#5f4a37; --ink-3:#8d7862;
+  --paper:#f6ecdc; --paper-2:#efe0c9; --line:#dcc7a7;
+  --peri:#e8c98a; --peri-2:#c98b3f; --peri-deep:#8a4b1d;
+  --verde:#5f6b3a; --teja:#b4522f;
+  --card:#fdf7ec;
+  --shadow:0 2px 0 rgba(46,29,16,.08); --shadow-lg:0 3px 0 rgba(46,29,16,.12), 0 24px 44px -30px rgba(46,29,16,.6);
+  --r:999px; --maxw:1180px; --sp:clamp(68px,8.5vw,128px);
+  font-family:'Bitter',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-setenta:not([data-theme="light"]){
+    --ink:#f4e7d4; --ink-2:#c9b49a; --ink-3:#9c8468;
+    --paper:#20150c; --paper-2:#2a1d11; --line:#4a3524;
+    --card:#2a1d11;
+  }
+}
+body.tema-setenta h1,body.tema-setenta h2,body.tema-setenta h3{
+  font-family:'Bitter',Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.1;
+}
+body.tema-setenta .hero h1{font-size:clamp(42px,6.6vw,84px);font-weight:700}
+body.tema-setenta .hero h1 em{background:var(--peri);padding:0 .1em;border-radius:999px;box-decoration-break:clone}
+body.tema-setenta h2.title,body.tema-setenta .phero h1{font-size:clamp(30px,4.8vw,54px)}
+body.tema-setenta .eyebrow{color:var(--teja);letter-spacing:.22em;font-weight:700;font-size:11.5px}
+body.tema-setenta .eyebrow::before{background:var(--teja);height:3px;border-radius:9px;width:26px}
+body.tema-setenta .lede{font-size:clamp(17px,1.95vw,20px);font-weight:400}
+
+body.tema-setenta header{background:var(--paper);border-bottom:3px solid var(--peri-2);backdrop-filter:none}
+body.tema-setenta .bar{height:80px}
+body.tema-setenta .brand b{letter-spacing:.1em;font-weight:700}
+body.tema-setenta nav a.nav{border-radius:999px;font-size:13px;letter-spacing:.06em;font-weight:600}
+body.tema-setenta nav a.nav:hover{background:var(--peri)}
+body.tema-setenta nav a.nav[aria-current]{background:var(--peri-deep);color:var(--paper)}
+body.tema-setenta .nav-cta{background:var(--peri-deep);color:var(--paper);border-radius:999px}
+body.tema-setenta .nav-cta:hover{background:var(--teja);transform:none}
+body.tema-setenta .btn{border-radius:999px;font-weight:700;letter-spacing:.04em;padding:16px 30px;font-size:14px}
+body.tema-setenta .btn-primary{background:var(--peri-deep);color:var(--paper);box-shadow:none}
+body.tema-setenta .btn-primary:hover{background:var(--teja);transform:translateY(-2px)}
+body.tema-setenta .btn-ghost{border-color:var(--peri-2);color:var(--peri-deep);background:var(--card)}
+body.tema-setenta .btn-ghost:hover{background:var(--peri);border-color:var(--peri-2);transform:translateY(-2px)}
+
+/* arcos por todas partes */
+body.tema-setenta .hero::before{background:radial-gradient(circle,var(--peri) 0%,transparent 66%);opacity:.7}
+body.tema-setenta .hero-media .frame{
+  border-radius:999px 999px 18px 18px;border:3px solid var(--peri-2);box-shadow:none;
+}
+body.tema-setenta .hero-media .frame img{filter:sepia(.35) contrast(1.05) saturate(.9)}
+body.tema-setenta .hero-media::after{
+  background:var(--verde);border-radius:999px 999px 18px 18px;opacity:.55;
+}
+body.tema-setenta .hero-badge{
+  border-radius:999px;border:3px solid var(--peri-2);background:var(--peri);color:var(--ink);
+  width:160px;height:160px;display:grid;place-content:center;text-align:center;padding:0 20px;
+  left:-40px;bottom:0;font-size:12px;box-shadow:none;
+}
+body.tema-setenta .hero-badge b{font-size:40px;font-weight:700;color:var(--peri-deep)}
+body.tema-setenta .trust{border:0;background:var(--peri-deep);border-radius:999px;color:var(--paper);padding:2px 14px}
+body.tema-setenta .trust li{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+body.tema-setenta .trust li+li{border-color:rgba(246,236,220,.28)}
+body.tema-setenta .trust svg{color:var(--peri)}
+body.tema-setenta .alt{background:var(--paper-2)}
+
+body.tema-setenta .area-card,body.tema-setenta .grupo,body.tema-setenta .online-card,
+body.tema-setenta .lawyer,body.tema-setenta .post,body.tema-setenta .office,body.tema-setenta .trio li,
+body.tema-setenta form,body.tema-setenta .direct a,body.tema-setenta .pasos li,body.tema-setenta .destacada{
+  border-radius:26px;border:2px solid var(--line);background:var(--card);box-shadow:none;
+}
+body.tema-setenta .area-card,body.tema-setenta .online-card{border-radius:26px 26px 26px 4px}
+body.tema-setenta .area-card:hover,body.tema-setenta .post:hover,body.tema-setenta .online-card:hover,
+body.tema-setenta .destacada:hover{transform:translateY(-4px);border-color:var(--peri-2);box-shadow:var(--shadow-lg)}
+body.tema-setenta .post-img,body.tema-setenta .destacada .ph{border-radius:0}
+body.tema-setenta .post-img img,body.tema-setenta .destacada .ph img,body.tema-setenta .lawyer .ph img,
+body.tema-setenta .art-img img{filter:sepia(.32) contrast(1.04) saturate(.92)}
+body.tema-setenta .lawyer .ph{border-radius:0}
+body.tema-setenta .prio{border-radius:26px;overflow:hidden;border:2px solid var(--line);background:var(--line);gap:2px}
+body.tema-setenta .prio li{background:var(--card)}
+body.tema-setenta .prio li:nth-child(4n+2){background:var(--peri)}
+body.tema-setenta .prio li:nth-child(4n+3){background:var(--paper-2)}
+body.tema-setenta .prio .k,body.tema-setenta .cols h4,body.tema-setenta .post .cat,
+body.tema-setenta .role,body.tema-setenta .area-card .num{color:var(--teja);letter-spacing:.14em}
+body.tema-setenta .online-card .ic{border-radius:999px;background:var(--peri-deep);color:var(--paper)}
+body.tema-setenta .online-card:nth-child(3n+2) .ic{background:var(--verde)}
+body.tema-setenta .online-card:nth-child(3n+3) .ic{background:var(--teja)}
+body.tema-setenta .pasos .n{border-radius:999px;background:var(--teja);color:var(--paper);font-weight:700}
+body.tema-setenta .spec span,body.tema-setenta .spec a{
+  border-radius:999px;background:var(--peri);color:var(--peri-deep);font-weight:700;border:2px solid var(--peri-2);
+}
+body.tema-setenta .spec-big span{background:var(--peri-deep);color:var(--paper);border-color:var(--peri-deep)}
+body.tema-setenta .tags span{border-radius:999px;border-color:var(--line);background:var(--paper-2)}
+body.tema-setenta .area .plus{border-radius:999px;border:2px solid var(--peri-2)}
+body.tema-setenta details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-setenta details.area[open] .plus::before,body.tema-setenta details.area[open] .plus::after{background:var(--paper)}
+body.tema-setenta .online-teaser{background:var(--verde);border-radius:26px}
+body.tema-setenta .online-teaser .eyebrow{color:var(--peri)}
+body.tema-setenta .online-teaser .eyebrow::before{background:var(--peri)}
+body.tema-setenta .online-teaser .btn-primary{background:var(--peri);color:var(--ink)}
+body.tema-setenta .cta-box{background:var(--peri);color:var(--ink);border-radius:26px;border:2px solid var(--peri-2)}
+body.tema-setenta .cta-box .btn-primary{background:var(--peri-deep);color:var(--paper)}
+body.tema-setenta .cta-box .btn-ghost{border-color:var(--peri-deep);color:var(--peri-deep);background:var(--card)}
+body.tema-setenta .band{background:var(--peri-deep);border-radius:26px;max-width:calc(var(--maxw) + 2 * var(--gut));margin-inline:auto}
+body.tema-setenta .band img.bg{opacity:.22;filter:sepia(.5)}
+body.tema-setenta footer{background:#241609;border-radius:26px 26px 0 0}
+body.tema-setenta footer h4{color:var(--peri)}
+body.tema-setenta .social a{border-radius:999px;border-color:#4a3524}
+body.tema-setenta .field input,body.tema-setenta .field textarea,body.tema-setenta .field select{
+  border-radius:18px;border-width:2px;border-color:var(--line);background:var(--paper);
+}
+body.tema-setenta .field input:focus,body.tema-setenta .field textarea:focus{
+  border-color:var(--peri-2);box-shadow:0 0 0 4px var(--peri);
+}
+body.tema-setenta .field label{letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:var(--teja)}
+body.tema-setenta .art-body{font-size:18px}
+body.tema-setenta .art-img,body.tema-setenta .video{border-radius:26px}
+body.tema-setenta .art-body blockquote{background:var(--peri);border-left:4px solid var(--teja);border-radius:0 18px 18px 0}
+body.tema-setenta .fab{border-radius:999px}
+
+/* movimiento: entra como un sello que se posa */
+body.tema-setenta .rv{transform:translateY(22px) scale(.99);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.34,1.3,.44,1)}
+body.tema-setenta .area-card,body.tema-setenta .post,body.tema-setenta .online-card,
+body.tema-setenta .destacada,body.tema-setenta .btn{transition:all .3s cubic-bezier(.34,1.3,.44,1)}
+@media (max-width:900px){body.tema-setenta .hero-badge{display:none}}

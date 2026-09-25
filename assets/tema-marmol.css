@@ -1,0 +1,162 @@
+/* ── Versión MÁRMOL ────────────────────────────────────────────
+   Piedra clara y letra clásica: Cormorant de alto contraste,
+   vetas suaves de fondo, versalitas y filetes de bronce. */
+body.tema-marmol{
+  --ink:#1d1b18; --ink-2:#55504a; --ink-3:#8b857c;
+  --paper:#f7f5f1; --paper-2:#efece6; --line:#ddd8cf;
+  --peri:#e7e2d8; --peri-2:#b9ad95; --peri-deep:#7a6a4e;
+  --bronce:#94764a; --card:#fffefb;
+  --shadow:0 1px 2px rgba(29,27,24,.04); --shadow-lg:0 24px 50px -34px rgba(29,27,24,.5);
+  --r:2px; --maxw:1160px; --sp:clamp(80px,10vw,152px);
+  background:
+    radial-gradient(1200px 700px at 12% -10%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(900px 600px at 90% 8%, rgba(185,173,149,.18), transparent 62%),
+    radial-gradient(700px 900px at 70% 80%, rgba(148,118,74,.07), transparent 58%),
+    var(--paper);
+  background-attachment:fixed;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-marmol:not([data-theme="light"]){
+    --ink:#f2efe9; --ink-2:#c0b9ae; --ink-3:#938c81;
+    --paper:#161513; --paper-2:#1d1b18; --line:#33302a; --card:#1d1b18;
+    --peri:#2a2722; --peri-2:#8a7f6a; --peri-deep:#cbbb9c;
+    background:#161513;
+  }
+}
+body.tema-marmol h1,body.tema-marmol h2,body.tema-marmol h3{
+  font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:.005em;line-height:1.1;
+}
+body.tema-marmol .hero h1{font-size:clamp(52px,8.6vw,116px);font-weight:300}
+body.tema-marmol .hero h1 em{background:none;font-style:italic;color:var(--bronce)}
+body.tema-marmol h2.title,body.tema-marmol .phero h1{font-size:clamp(36px,6vw,74px);font-weight:300}
+body.tema-marmol .lede{font-size:clamp(17px,1.9vw,19.5px);color:var(--ink-2)}
+body.tema-marmol .eyebrow{
+  color:var(--bronce);letter-spacing:.32em;font-size:10.5px;font-weight:500;
+}
+body.tema-marmol .eyebrow::before{background:var(--bronce);width:30px;height:1px}
+
+body.tema-marmol header{background:color-mix(in srgb,var(--paper) 86%,transparent);border-bottom:1px solid var(--line)}
+body.tema-marmol .bar{height:88px}
+body.tema-marmol .brand b{
+  font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.22em;font-size:17px;
+}
+body.tema-marmol nav a.nav{
+  border-radius:0;font-size:11px;letter-spacing:.2em;color:var(--ink-2);border-bottom:1px solid transparent;
+}
+body.tema-marmol nav a.nav:hover{background:none;color:var(--ink);border-bottom-color:var(--bronce)}
+body.tema-marmol nav a.nav[aria-current]{background:none;color:var(--ink);border-bottom-color:var(--bronce)}
+body.tema-marmol .nav-cta{
+  background:none;border:1px solid var(--bronce);color:var(--bronce);border-radius:0;
+  letter-spacing:.16em;font-size:11px;
+}
+body.tema-marmol .nav-cta:hover{background:var(--bronce);color:var(--paper);transform:none}
+body.tema-marmol .btn{
+  border-radius:0;letter-spacing:.2em;text-transform:uppercase;font-size:10.5px;padding:18px 34px;font-weight:500;
+}
+body.tema-marmol .btn-primary{background:var(--ink);color:var(--paper);box-shadow:none}
+body.tema-marmol .btn-primary:hover{background:var(--bronce);transform:none}
+body.tema-marmol .btn-ghost{border-color:var(--bronce);color:var(--bronce);background:none}
+body.tema-marmol .btn-ghost:hover{background:var(--bronce);color:var(--paper);transform:none}
+body.tema-marmol .btn-wa{background:none;border-color:var(--line);color:var(--ink-2)}
+body.tema-marmol .btn-wa:hover{background:var(--ink);color:var(--paper);transform:none}
+
+body.tema-marmol .hero{padding-block:clamp(64px,9vw,130px) 0}
+body.tema-marmol .hero::before{display:none}
+body.tema-marmol .hero-media .frame{
+  border-radius:0;box-shadow:none;outline:1px solid var(--bronce);outline-offset:12px;
+}
+body.tema-marmol .hero-media .frame img{filter:grayscale(1) contrast(.95) brightness(1.04)}
+body.tema-marmol .hero-media::after{display:none}
+body.tema-marmol .hero-badge{
+  border-radius:0;border:0;border-top:1px solid var(--bronce);background:none;box-shadow:none;
+  position:static;width:100%;max-width:none;margin-top:22px;padding:14px 0 0;color:var(--ink-3);
+}
+body.tema-marmol .hero-badge b{
+  font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--bronce);
+  display:inline;margin-right:12px;
+}
+body.tema-marmol .trust{border-color:var(--line)}
+body.tema-marmol .trust li{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;padding:26px 8px}
+body.tema-marmol .trust li+li{border-color:var(--line)}
+body.tema-marmol .trust svg{color:var(--bronce);width:16px;height:16px}
+body.tema-marmol .alt{background:var(--paper-2)}
+
+body.tema-marmol .area-card,body.tema-marmol .grupo,body.tema-marmol .online-card,body.tema-marmol .lawyer,
+body.tema-marmol .post,body.tema-marmol .office,body.tema-marmol .trio li,body.tema-marmol form,
+body.tema-marmol .direct a,body.tema-marmol .pasos li,body.tema-marmol .destacada{
+  border-radius:0;border:1px solid var(--line);background:var(--card);box-shadow:none;
+}
+body.tema-marmol .area-card:hover,body.tema-marmol .post:hover,body.tema-marmol .online-card:hover,
+body.tema-marmol .destacada:hover{transform:none;box-shadow:var(--shadow-lg);border-color:var(--bronce)}
+body.tema-marmol .post-img img,body.tema-marmol .destacada .ph img,body.tema-marmol .lawyer .ph img,
+body.tema-marmol .art-img img{filter:grayscale(1) contrast(.95) brightness(1.03)}
+body.tema-marmol .post:hover .post-img img{filter:grayscale(.55)}
+body.tema-marmol .area-card h3,body.tema-marmol .online-card h3,body.tema-marmol .post h3,
+body.tema-marmol .prio h3{font-size:23px;font-weight:400}
+body.tema-marmol .prio{border-radius:0;border-color:var(--line);gap:1px;background:var(--line)}
+body.tema-marmol .prio li{background:var(--card)}
+body.tema-marmol .prio .k,body.tema-marmol .cols h4,body.tema-marmol .post .cat,
+body.tema-marmol .role,body.tema-marmol .area-card .num{color:var(--bronce);letter-spacing:.22em;font-size:10.5px}
+body.tema-marmol .online-card .ic{
+  border-radius:0;background:none;border:1px solid var(--bronce);color:var(--bronce);
+}
+body.tema-marmol .pasos .n{
+  border-radius:0;background:none;border:1px solid var(--bronce);color:var(--bronce);
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;
+}
+body.tema-marmol .spec span,body.tema-marmol .spec a{
+  border-radius:0;background:none;border:1px solid var(--line);color:var(--ink-2);
+  letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;
+}
+body.tema-marmol .spec a:hover{border-color:var(--bronce);color:var(--bronce)}
+body.tema-marmol .spec-big span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+body.tema-marmol .tags span{border-radius:0;border-color:var(--line);font-size:10.5px;letter-spacing:.12em}
+body.tema-marmol .areas{border-top:1px solid var(--line)}
+body.tema-marmol details.area{border-bottom:1px solid var(--line)}
+body.tema-marmol .area h3{font-size:clamp(24px,3.4vw,38px);font-weight:400}
+body.tema-marmol .area .plus{border-radius:0;border-color:var(--bronce);width:34px;height:34px}
+body.tema-marmol details.area[open] .plus{background:var(--bronce);border-color:var(--bronce)}
+body.tema-marmol details.area[open] .plus::before,body.tema-marmol details.area[open] .plus::after{background:var(--paper)}
+body.tema-marmol .online-teaser{background:var(--ink);border-radius:0}
+body.tema-marmol .online-teaser .eyebrow{color:var(--peri-2)}
+body.tema-marmol .online-teaser .eyebrow::before{background:var(--peri-2)}
+body.tema-marmol .online-teaser .btn-primary{background:var(--bronce);color:var(--paper)}
+body.tema-marmol .cta-box{
+  background:none;border:1px solid var(--bronce);color:var(--ink);border-radius:0;
+}
+body.tema-marmol .cta-box h2{font-weight:300}
+body.tema-marmol .cta-box .btn-primary{background:var(--ink);color:var(--paper)}
+body.tema-marmol .cta-box .btn-ghost{border-color:var(--bronce);color:var(--bronce)}
+body.tema-marmol .band{background:#1d1b18}
+body.tema-marmol .band img.bg{opacity:.2;filter:grayscale(1)}
+body.tema-marmol .band h2{font-weight:300;font-size:clamp(36px,5.6vw,68px)}
+body.tema-marmol footer{background:#1d1b18;color:#a39c91;border-top:1px solid var(--bronce)}
+body.tema-marmol footer h4{color:var(--bronce);letter-spacing:.24em}
+body.tema-marmol .social a{border-radius:0;border-color:#3a362f}
+body.tema-marmol .social a:hover{background:var(--bronce);border-color:var(--bronce);color:var(--paper)}
+body.tema-marmol .field input,body.tema-marmol .field textarea,body.tema-marmol .field select{
+  border-radius:0;border-width:1px;border-color:var(--line);background:var(--paper);
+}
+body.tema-marmol .field input:focus,body.tema-marmol .field textarea:focus{
+  border-color:var(--bronce);box-shadow:none;
+}
+body.tema-marmol .field label{letter-spacing:.18em;text-transform:uppercase;font-size:10px;color:var(--ink-3)}
+body.tema-marmol .articulo h1{font-weight:300;font-size:clamp(36px,5.6vw,66px)}
+body.tema-marmol .art-body{font-size:18.5px;line-height:1.8}
+body.tema-marmol .art-body h2,body.tema-marmol .art-body h3{font-weight:400}
+body.tema-marmol .art-img{border-radius:0;outline:1px solid var(--line);outline-offset:-1px}
+body.tema-marmol .art-body blockquote{
+  border-left:0;border-top:1px solid var(--bronce);border-bottom:1px solid var(--bronce);
+  background:none;border-radius:0;font-family:'Cormorant Garamond',serif;font-size:25px;
+  font-style:italic;text-align:center;padding:28px 0;
+}
+body.tema-marmol .fab{border-radius:0;background:var(--ink);color:var(--paper);box-shadow:none}
+
+/* movimiento: lento, como abrir una puerta pesada */
+body.tema-marmol .rv{transform:translateY(16px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.22,1,.36,1)}
+body.tema-marmol .rv h2.title{position:relative;padding-bottom:20px}
+body.tema-marmol .rv h2.title::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--bronce);
+  transition:width 1.4s cubic-bezier(.22,1,.36,1) .2s;
+}
+body.tema-marmol .rv.in h2.title::after{width:96px}

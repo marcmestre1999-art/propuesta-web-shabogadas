@@ -1,0 +1,99 @@
+/* ── Versión COLUMNA ───────────────────────────────────────────
+   Cambia la estructura, no el color: el título de cada sección se
+   queda quieto a la izquierda mientras el contenido pasa al lado. */
+body.tema-columna{
+  --ink:#16171a; --ink-2:#55585f; --ink-3:#8b8e96;
+  --paper:#fcfcfd; --paper-2:#f4f5f7; --line:#e3e5e9;
+  --peri:#e7ecfb; --peri-2:#7b8cc4; --peri-deep:#2c3c74;
+  --card:#ffffff;
+  --shadow:0 1px 2px rgba(22,23,26,.04); --shadow-lg:0 20px 46px -30px rgba(22,23,26,.5);
+  --r:10px; --maxw:1280px; --sp:clamp(56px,7vw,104px);
+}
+@media (prefers-color-scheme: dark){
+  body.tema-columna:not([data-theme="light"]){
+    --ink:#f2f3f6; --ink-2:#b2b6c0; --ink-3:#868a94;
+    --paper:#0f1013; --paper-2:#16181d; --line:#262930; --card:#16181d;
+    --peri:#1e2740; --peri-2:#8fa0d8; --peri-deep:#c5d0ef;
+  }
+}
+body.tema-columna h1,body.tema-columna h2,body.tema-columna h3{font-weight:600;letter-spacing:-.03em;line-height:1.1}
+body.tema-columna .hero h1{font-size:clamp(38px,5.6vw,74px)}
+body.tema-columna .hero h1 em{background:none;color:var(--peri-deep)}
+body.tema-columna h2.title{font-size:clamp(24px,2.8vw,34px)}
+body.tema-columna .phero h1{font-size:clamp(30px,4.6vw,54px)}
+body.tema-columna .eyebrow{color:var(--peri-deep);letter-spacing:.16em}
+body.tema-columna .eyebrow::before{background:var(--peri-2)}
+body.tema-columna .lede{font-size:16.5px;max-width:52ch}
+
+/* ── el truco: cabecera de seccion pegada a la izquierda ── */
+@media (min-width:1000px){
+  body.tema-columna section:not(.hero):not(.phero):not(.band) > .wrap:not(.intro-grid):not(.hero-grid):has(> h2.title){
+    display:grid;grid-template-columns:262px 1fr;gap:clamp(30px,4vw,64px);align-items:start;
+  }
+  body.tema-columna section:not(.hero):not(.phero):not(.band) > .wrap:not(.intro-grid):has(> h2.title) > .eyebrow{
+    grid-column:1;grid-row:1;position:sticky;top:104px;margin:0 0 12px;
+  }
+  body.tema-columna section:not(.hero):not(.phero):not(.band) > .wrap:not(.intro-grid):has(> h2.title) > h2.title{
+    grid-column:1;grid-row:2;position:sticky;top:132px;margin:0 0 14px;
+  }
+  body.tema-columna section:not(.hero):not(.phero):not(.band) > .wrap:not(.intro-grid):has(> h2.title) > .lede{
+    grid-column:1;grid-row:3;position:sticky;top:212px;margin:0 !important;font-size:15px;color:var(--ink-3);
+  }
+  body.tema-columna section:not(.hero):not(.phero):not(.band) > .wrap:not(.intro-grid):has(> h2.title) > *:not(.eyebrow):not(h2.title):not(.lede){
+    grid-column:2;grid-row:1 / span 24;
+  }
+}
+
+body.tema-columna header{background:color-mix(in srgb,var(--paper) 88%,transparent);border-bottom:1px solid var(--line)}
+body.tema-columna .bar{height:72px}
+body.tema-columna nav a.nav{border-radius:8px;font-size:13px;text-transform:none;letter-spacing:.01em;font-weight:500}
+body.tema-columna nav a.nav[aria-current]{background:var(--peri);color:var(--peri-deep)}
+body.tema-columna .nav-cta{background:var(--peri-deep);color:#fff;border-radius:8px}
+body.tema-columna .btn{border-radius:8px;font-size:14px;font-weight:600;padding:13px 22px}
+body.tema-columna .btn-primary{background:var(--peri-deep);color:#fff;box-shadow:none}
+body.tema-columna .btn-primary:hover{background:var(--ink);transform:none}
+body.tema-columna .btn-ghost{border-color:var(--line);color:var(--ink)}
+body.tema-columna .btn-ghost:hover{border-color:var(--ink);transform:none}
+
+body.tema-columna .hero{padding-block:clamp(40px,5vw,78px) 0}
+body.tema-columna .hero::before{background:radial-gradient(circle,var(--peri) 0%,transparent 68%);opacity:.9}
+body.tema-columna .hero-media .frame{border-radius:14px;box-shadow:var(--shadow-lg)}
+body.tema-columna .hero-media::after{border-radius:14px;background:var(--peri)}
+body.tema-columna .hero-badge{border-radius:10px;border-color:var(--line);box-shadow:var(--shadow-lg)}
+body.tema-columna .trust{border-color:var(--line)}
+body.tema-columna .trust svg{color:var(--peri-2)}
+body.tema-columna .alt{background:var(--paper-2)}
+
+body.tema-columna .area-card,body.tema-columna .grupo,body.tema-columna .online-card,
+body.tema-columna .lawyer,body.tema-columna .post,body.tema-columna .office,body.tema-columna .trio li,
+body.tema-columna form,body.tema-columna .direct a,body.tema-columna .pasos li,body.tema-columna .destacada{
+  border-radius:var(--r);border-color:var(--line);box-shadow:var(--shadow);
+}
+body.tema-columna .area-card:hover,body.tema-columna .post:hover,body.tema-columna .online-card:hover,
+body.tema-columna .destacada:hover{transform:none;box-shadow:var(--shadow-lg);border-color:var(--peri-2)}
+body.tema-columna .areas-grid,body.tema-columna .posts,body.tema-columna .online-grid,
+body.tema-columna .grupos,body.tema-columna .trio,body.tema-columna .pasos{
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;
+}
+body.tema-columna .prio{border-radius:var(--r);border-color:var(--line)}
+body.tema-columna .prio .k,body.tema-columna .cols h4,body.tema-columna .post .cat,
+body.tema-columna .role,body.tema-columna .area-card .num{color:var(--peri-deep)}
+body.tema-columna .online-card .ic{border-radius:9px;background:var(--peri);color:var(--peri-deep)}
+body.tema-columna .pasos .n{border-radius:9px;background:var(--peri-deep);color:#fff}
+body.tema-columna .spec span,body.tema-columna .spec a{border-radius:7px;background:var(--peri);color:var(--peri-deep)}
+body.tema-columna .spec-big span{background:var(--peri-deep);color:#fff}
+body.tema-columna .tags span{border-radius:7px}
+body.tema-columna .area .plus{border-radius:8px;border-color:var(--line)}
+body.tema-columna details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-columna .online-teaser{background:var(--peri-deep);border-radius:var(--r)}
+body.tema-columna .cta-box{background:var(--peri);color:var(--ink);border-radius:var(--r)}
+body.tema-columna .cta-box .btn-primary{background:var(--peri-deep);color:#fff}
+body.tema-columna .band{background:var(--ink)}
+body.tema-columna .band img.bg{opacity:.24}
+body.tema-columna footer{background:var(--ink)}
+body.tema-columna .field input,body.tema-columna .field textarea,body.tema-columna .field select{border-radius:8px}
+body.tema-columna .art-img{border-radius:var(--r)}
+body.tema-columna .fab{border-radius:12px}
+
+/* movimiento: sobrio, el protagonista es el desplazamiento */
+body.tema-columna .rv{transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}

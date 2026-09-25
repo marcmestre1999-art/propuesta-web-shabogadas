@@ -1,0 +1,132 @@
+/* ── Versión CRISTAL ───────────────────────────────────────────
+   Claro y aireado: manchas de color desenfocadas detrás y tarjetas
+   de vidrio esmerilado encima. Luminosa, no oscura. */
+body.tema-cristal{
+  --ink:#141a2e; --ink-2:#4e566f; --ink-3:#848ba1;
+  --paper:#f3f6fd; --paper-2:#eaf0fb; --line:rgba(20,26,46,.1);
+  --peri:#d3e0ff; --peri-2:#6f8fe8; --peri-deep:#2947a6;
+  --menta:#8fe3d0; --lila:#c3b6ff;
+  --card:rgba(255,255,255,.62);
+  --shadow:0 2px 8px rgba(20,26,46,.05), 0 20px 42px -28px rgba(41,71,166,.4);
+  --shadow-lg:0 4px 14px rgba(20,26,46,.07), 0 44px 80px -36px rgba(41,71,166,.5);
+  --r:22px; --sp:clamp(72px,9vw,136px);
+  font-family:'Manrope',system-ui,sans-serif;
+  background:
+    radial-gradient(760px 520px at 84% -6%, var(--peri) 0%, transparent 62%),
+    radial-gradient(640px 460px at -6% 24%, var(--menta) 0%, transparent 58%),
+    radial-gradient(720px 520px at 40% 104%, var(--lila) 0%, transparent 60%),
+    var(--paper);
+  background-attachment:fixed;
+}
+@media (prefers-color-scheme: dark){
+  body.tema-cristal:not([data-theme="light"]){
+    --ink:#eef2fb; --ink-2:#b3bcd4; --ink-3:#868ea6;
+    --paper:#0a0e1c; --paper-2:#111629; --line:rgba(255,255,255,.12);
+    --peri:#1e3068; --peri-2:#7d9bf0; --peri-deep:#bfd0ff;
+    --menta:#12463c; --lila:#2e2464; --card:rgba(255,255,255,.055);
+  }
+}
+body.tema-cristal h1,body.tema-cristal h2,body.tema-cristal h3{font-weight:700;letter-spacing:-.035em;line-height:1.06}
+body.tema-cristal .hero h1{font-size:clamp(44px,7vw,92px);font-weight:800}
+body.tema-cristal .hero h1 em{
+  background:linear-gradient(100deg,var(--peri-deep),#3f9d8a 55%,#6b4fe0);
+  -webkit-background-clip:text;background-clip:text;color:transparent;padding:0;
+}
+body.tema-cristal .eyebrow{color:var(--peri-deep);letter-spacing:.18em;font-weight:700}
+body.tema-cristal .eyebrow::before{background:linear-gradient(90deg,var(--peri-2),var(--menta));height:3px;border-radius:9px}
+body.tema-cristal .lede{font-size:clamp(18px,2vw,21px)}
+
+/* cristal en la cabecera y en todo lo que es caja */
+body.tema-cristal header{
+  background:rgba(255,255,255,.55);backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line);
+}
+body.tema-cristal .bar{height:78px}
+body.tema-cristal nav a.nav{border-radius:999px;font-size:14px;text-transform:none;letter-spacing:0;font-weight:600}
+body.tema-cristal nav a.nav:hover{background:rgba(255,255,255,.7)}
+body.tema-cristal nav a.nav[aria-current]{background:var(--peri);color:var(--peri-deep)}
+body.tema-cristal .nav-cta{background:var(--peri-deep);color:#fff;box-shadow:0 12px 26px -12px rgba(41,71,166,.8)}
+body.tema-cristal .btn{border-radius:999px;font-weight:700;font-size:15px;padding:15px 28px}
+body.tema-cristal .btn-primary{background:var(--peri-deep);color:#fff;box-shadow:0 14px 30px -14px rgba(41,71,166,.85)}
+body.tema-cristal .btn-primary:hover{transform:translateY(-3px)}
+body.tema-cristal .btn-ghost{
+  background:rgba(255,255,255,.6);border-color:var(--line);color:var(--ink);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+body.tema-cristal .btn-ghost:hover{background:rgba(255,255,255,.9);border-color:var(--peri-2);transform:translateY(-3px)}
+
+body.tema-cristal .hero::before{background:radial-gradient(circle,var(--peri) 0%,transparent 68%);opacity:.8}
+body.tema-cristal .hero-media .frame{border-radius:28px;box-shadow:0 40px 80px -36px rgba(41,71,166,.55)}
+body.tema-cristal .hero-media::after{
+  background:linear-gradient(140deg,var(--menta),var(--peri-2));border-radius:28px;opacity:.7;filter:blur(1px);
+}
+body.tema-cristal .hero-badge{
+  border-radius:20px;background:rgba(255,255,255,.72);border-color:var(--line);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+body.tema-cristal .hero-badge b{color:var(--peri-deep)}
+body.tema-cristal .trust{
+  border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.55);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:4px 8px;
+}
+body.tema-cristal .trust li+li{border-color:var(--line)}
+body.tema-cristal .trust svg{color:var(--peri-2)}
+body.tema-cristal .alt{background:rgba(255,255,255,.28)}
+
+body.tema-cristal .area-card,body.tema-cristal .grupo,body.tema-cristal .online-card,
+body.tema-cristal .lawyer,body.tema-cristal .post,body.tema-cristal .office,body.tema-cristal .trio li,
+body.tema-cristal form,body.tema-cristal .direct a,body.tema-cristal .pasos li,body.tema-cristal .destacada,
+body.tema-cristal .faq details{
+  border-radius:var(--r);border:1px solid var(--line);background:var(--card);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+body.tema-cristal .area-card:hover,body.tema-cristal .post:hover,body.tema-cristal .online-card:hover,
+body.tema-cristal .destacada:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--peri-2)}
+body.tema-cristal .prio{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--line)}
+body.tema-cristal .prio li{background:rgba(255,255,255,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.tema-cristal .prio .k,body.tema-cristal .cols h4,body.tema-cristal .post .cat,
+body.tema-cristal .role,body.tema-cristal .area-card .num{color:var(--peri-deep)}
+body.tema-cristal .online-card .ic{border-radius:15px;background:linear-gradient(140deg,var(--peri-2),var(--menta));color:#fff}
+body.tema-cristal .pasos .n{background:var(--peri-deep);color:#fff}
+body.tema-cristal .spec span,body.tema-cristal .spec a{
+  background:rgba(255,255,255,.7);color:var(--peri-deep);border:1px solid var(--line);font-weight:700;
+}
+body.tema-cristal .spec-big span{background:var(--peri-deep);color:#fff;border-color:var(--peri-deep)}
+body.tema-cristal .tags span{border-radius:999px;background:rgba(255,255,255,.6);border-color:var(--line)}
+body.tema-cristal .area .plus{border-color:var(--line);background:rgba(255,255,255,.5)}
+body.tema-cristal details.area[open] .plus{background:var(--peri-deep);border-color:var(--peri-deep)}
+body.tema-cristal .areas,body.tema-cristal details.area,body.tema-cristal .faq,
+body.tema-cristal .trust,body.tema-cristal .legal details{border-color:var(--line)}
+body.tema-cristal .online-teaser{
+  background:linear-gradient(120deg,var(--peri-deep),#4f6fd6);border-radius:var(--r);color:#fff;
+}
+body.tema-cristal .cta-box{
+  background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--ink);border-radius:var(--r);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+body.tema-cristal .cta-box .btn-primary{background:var(--peri-deep);color:#fff}
+body.tema-cristal .cta-box .btn-ghost{background:rgba(255,255,255,.7);border-color:var(--line);color:var(--ink)}
+body.tema-cristal .band{border-radius:var(--r);max-width:calc(var(--maxw) + 2 * var(--gut));margin-inline:auto}
+body.tema-cristal .band img.bg{opacity:.34}
+body.tema-cristal footer{background:#0b1226;border-radius:var(--r) var(--r) 0 0}
+body.tema-cristal .social a{border-radius:999px}
+body.tema-cristal .field input,body.tema-cristal .field textarea,body.tema-cristal .field select{
+  border-radius:14px;background:rgba(255,255,255,.7);border-color:var(--line);
+}
+body.tema-cristal .field input:focus,body.tema-cristal .field textarea:focus{box-shadow:0 0 0 4px var(--peri)}
+body.tema-cristal .art-img,body.tema-cristal .video{border-radius:var(--r)}
+body.tema-cristal .art-body blockquote{
+  border-radius:16px;background:rgba(255,255,255,.6);border-left-color:var(--peri-2);
+}
+body.tema-cristal .mapa{border-radius:16px;background:rgba(255,255,255,.5);border-color:var(--line)}
+body.tema-cristal .fab{box-shadow:0 14px 30px -8px rgba(37,211,102,.6)}
+
+/* movimiento: entra desenfocado y se aclara */
+body.tema-cristal .rv{transform:translateY(24px);filter:blur(6px);
+  transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1),filter .8s ease}
+body.tema-cristal .rv.in{transform:none;filter:none}
+body.tema-cristal .area-card,body.tema-cristal .post,body.tema-cristal .online-card,
+body.tema-cristal .destacada,body.tema-cristal .btn,body.tema-cristal .direct a{
+  transition:all .35s cubic-bezier(.16,1,.3,1);
+}
+@media (prefers-reduced-motion:reduce){body.tema-cristal .rv{filter:none}}
