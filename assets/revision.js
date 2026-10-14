@@ -19,6 +19,7 @@
   function guardar() {
     try { localStorage.setItem(LS, JSON.stringify(st)); } catch (e) {}
     pintarContador();
+    pintaGuias();
   }
   var st = cargar() || { textos: {}, notas: [] };
   var VAR = {};
@@ -34,6 +35,33 @@
     var m = location.pathname.match(/\/v\/([^\/]+)\//);
     return m ? m[1] : 'clasica';
   })();
+
+  st.secciones = st.secciones || {};
+  var qEst = location.search.match(/[?&]estilo=([^&]*)/);
+  if (qEst) {
+    st.estilo = decodeURIComponent(qEst[1]) || 'clasica';
+    try { localStorage.setItem(LS, JSON.stringify(st)); } catch (e) {}
+  }
+
+  /* Pregunta que guía cada sección (por el nombre de la sección) */
+  var PREG = [
+    [/otro estilo|ninguna/i, '¿Qué webs os gustan, de abogados o de lo que sea? Colores, fotos, la sensación que queréis dar.'],
+    [/dénia y valencia|^s&h/i, 'Es lo primero que se ve. ¿Qué tiene que entender alguien en cinco segundos? ¿Os vale la foto?'],
+    [/quiénes somos|quién va a llevar/i, '¿Cómo os presentaríais vosotras? Lo que os hace distintas, años de experiencia, idiomas…'],
+    [/online/i, '¿Qué hacéis de verdad a distancia? ¿Hay precios cerrados que queráis enseñar?'],
+    [/servicios|qué llevamos|al detalle/i, '¿Falta algún servicio o sobra alguno? ¿Cuál es el que más os interesa que entre?'],
+    [/prioridades/i, '¿Estas son vuestras prioridades? ¿Os gusta el árbol o preferís algo más sencillo?'],
+    [/actualidad|seguir leyendo/i, '¿Qué os preguntan más los clientes? De ahí salen los próximos artículos.'],
+    [/el despacho/i, '¿Tenéis fotos del despacho o del equipo que queráis poner?'],
+    [/cómo trabajamos|cómo funciona/i, '¿Así es como trabajáis? Contad los pasos reales con un cliente nuevo.'],
+    [/preguntas frecuentes/i, '¿Qué preguntas os hacen siempre en la primera llamada?'],
+    [/contacto|antes de escribirnos|empezamos/i, '¿Cómo preferís que os contacten: WhatsApp, llamada o formulario? ¿En qué horario?']
+  ];
+  function pregunta(n) {
+    for (var i = 0; i < PREG.length; i++) if (PREG[i][0].test(n)) return PREG[i][1];
+    return '¿Qué querríais tener aquí? Lo que sobra, lo que falta o lo que cambiaríais.';
+  }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
   var RUTA = (function () {
     var p = location.pathname.replace(/index\.html$/, '');
@@ -117,6 +145,21 @@
     '.rev-var .chips button:hover{background:#3a3a44}',
     '.rev-var .chips button.on{background:#d0deff;color:#101014}',
     '.rev-var .cierra{position:absolute;right:10px;top:8px;background:none;border:0;color:#9296a4;font-size:18px;cursor:pointer;line-height:1}',
+    '.rev-envio{position:fixed;inset:0;z-index:150;background:rgba(16,16,20,.45);display:grid;place-items:center;padding:16px}',
+    '.rev-envio .caja{background:#fff;color:#101014;border-radius:16px;padding:22px 22px 18px;width:min(420px,100%);font:400 14.5px/1.55 Archivo,system-ui,sans-serif}',
+    '.rev-envio b{display:block;font-size:18px;margin-bottom:6px}.rev-envio p{margin:0 0 10px;color:#3a3a44}',
+    '.rev-envio .barra{height:6px;background:#eef0f6;border-radius:3px;overflow:hidden;margin-top:8px}.rev-envio .barra i{display:block;height:100%;background:#101014;transition:width .3s}',
+    '.rev-envio .bts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.rev-envio .bts .rev-btn{flex:1 1 auto}',
+    '.rev-guia{position:relative;z-index:60;max-width:1160px;margin:14px auto;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;',
+    'background:#eef3ff;border:1.5px dashed #a3b8ff;border-radius:12px;font:400 14px/1.45 Archivo,system-ui,sans-serif;color:#101014;width:calc(100% - 32px)}',
+    '.rev-guia .q{flex:1 1 320px}.rev-guia .q b{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#28407f;margin-bottom:2px}',
+    '.rev-guia .bs{display:flex;flex-wrap:wrap;gap:6px}',
+    '.rev-guia .bs button{background:#101014;color:#fff;border:0;border-radius:999px;padding:8px 14px;font:600 13px Archivo,system-ui,sans-serif;cursor:pointer}',
+    '.rev-guia .bs button[data-g="ok"]{background:#fff;color:#101014;border:1.5px solid #cdd5ea}',
+    '.rev-guia .bs button[data-g="ok"].on{background:#1d6b3f;border-color:#1d6b3f;color:#fff}',
+    '.rev-guia .bs button.grabando{background:#c0392b}',
+    '.rev-guia .st{flex-basis:100%;font-size:12.5px;font-weight:600;color:#1d6b3f}.rev-guia .st:empty{display:none}',
+    '.rev-guia.hecha{background:#f1faf3;border-color:#9bd3ae;border-style:solid}',
     '@media (max-width:560px){.rev-panel{width:100%;top:auto;height:82vh;border-radius:18px 18px 0 0;transform:translateY(100%)}',
     '.rev-panel.abierto{transform:none}.rev-pill{left:12px;bottom:12px;padding:10px 14px;font-size:13px}}'
   ].join('');
@@ -151,14 +194,24 @@
   }
 
   /* ── marcar los textos editables ───────────────────────── */
-  var editables = [];
+  var editables = [], guias = [];
+  function notasDe(nom) { return st.notas.filter(function (n) { return n.ruta === RUTA && n.seccion === nom; }).length; }
+  function guiaHecha(g) { return st.secciones[g.getAttribute('data-k')] === 'ok' || notasDe(g.getAttribute('data-nom')) > 0; }
+  function pintaGuias() {
+    guias.forEach(function (g) {
+      var n = notasDe(g.getAttribute('data-nom')), ok = st.secciones[g.getAttribute('data-k')] === 'ok';
+      g.classList.toggle('hecha', ok || n > 0);
+      g.querySelector('[data-g="ok"]').classList.toggle('on', ok);
+      g.querySelector('.st').textContent = n ? '✓ ' + n + (n === 1 ? ' comentario guardado' : ' comentarios guardados') : ok ? '✓ Marcada: así os gusta' : '';
+    });
+  }
   function preparar() {
     var secciones = document.querySelectorAll('main section, main article');
     Array.prototype.forEach.call(secciones, function (sec, si) {
       var cands = sec.querySelectorAll(SEL);
       var n = 0;
       Array.prototype.forEach.call(cands, function (el) {
-        if (el.closest('form, .rev-ui, .meter, .hint, .mapa')) return;
+        if (el.closest('form, .rev-ui, .meter, .hint, .mapa, [data-norev]')) return;
         if (el.querySelector(SEL)) return;             // solo las hojas
         if (!texto(el.innerHTML)) return;
         var clave = RUTA + '|' + (sec.id || 's' + si) + '|' + el.tagName.toLowerCase() + n;
@@ -177,20 +230,33 @@
           else { g.obsoleto = true; }
         }
       });
-      // botón de nota por sección
+      // la pregunta de la sección, con audio, texto o "así me gusta"
       if (sec.tagName === 'SECTION') {
-        if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
-        var bar = document.createElement('div');
-        bar.className = 'rev-ui rev-sec';
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.textContent = '💬 Nota';
-        b.addEventListener('click', function (e) {
+        var nom = nombreSeccion(sec);
+        if (st.estilo === 'otro' && !guias.length && st.rutaOtro === RUTA) nom = 'Otro estilo';
+        var k = RUTA + '|' + nom;
+        var g = document.createElement('div');
+        g.className = 'rev-ui rev-guia';
+        g.setAttribute('data-k', k);
+        g.setAttribute('data-nom', nom);
+        g.innerHTML = '<div class="q"><b>' + esc(nom) + '</b><span>' + esc(pregunta(nom)) + '</span></div>' +
+          '<div class="bs"><button type="button" data-g="audio">🎙 Contarlo en audio</button>' +
+          '<button type="button" data-g="texto">✍️ Escribirlo</button>' +
+          '<button type="button" data-g="ok">👍 Así me gusta</button></div><div class="st"></div>';
+        sec.parentNode.insertBefore(g, sec);
+        g.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-g]');
+          if (!b) return;
           e.preventDefault(); e.stopPropagation();
-          abrir('notas', nombreSeccion(sec));
+          var a = b.getAttribute('data-g');
+          var kk = g.getAttribute('data-k'), nn = g.getAttribute('data-nom');
+          if (a === 'ok') {
+            if (st.secciones[kk] === 'ok') delete st.secciones[kk]; else st.secciones[kk] = 'ok';
+            guardar();
+          } else if (a === 'audio') grabar(b, nn);
+          else abrir('notas', nn);
         });
-        bar.appendChild(b);
-        sec.appendChild(bar);
+        guias.push(g);
       }
     });
   }
@@ -208,7 +274,7 @@
         el.removeAttribute('contenteditable');
       }
     });
-    Array.prototype.forEach.call(document.querySelectorAll('.rev-sec'), function (b) {
+    Array.prototype.forEach.call(document.querySelectorAll('.rev-sec, .rev-guia'), function (b) {
       b.style.display = on ? '' : 'none';
     });
   }
@@ -309,8 +375,9 @@
   /* -- nota de voz ---------------------------------------- */
   var mr = null, trozos = [], t0 = 0, cron = null;
 
-  function grabar(boton) {
+  function grabar(boton, seccionFija) {
     if (mr) { mr.stop(); return; }
+    var etiqueta = boton.textContent;
     if (!navigator.mediaDevices || !window.MediaRecorder) { aviso('Tu navegador no puede grabar audio.'); return; }
     navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
       mr = new MediaRecorder(stream);
@@ -321,21 +388,22 @@
         clearInterval(cron);
         stream.getTracks().forEach(function (t) { t.stop(); });
         var seg = Math.round((Date.now() - t0) / 1000);
-        var blob = new Blob(trozos, { type: mr.mimeType || 'audio/webm' });
+        var tipo = mr.mimeType || 'audio/webm';
+        var blob = new Blob(trozos, { type: tipo });
         mr = null;
         boton.classList.remove('grabando');
-        boton.textContent = '🎙 Grabar audio';
+        boton.textContent = etiqueta;
         if (seg < 1) return;
         st.audios = (st.audios || 0) + 1;
-        var nombre = 'nota-voz-' + st.audios + '.webm';
-        var campo = document.getElementById('rev-txt');
+        var nombre = 'nota-voz-' + st.audios + (/mp4|aac/.test(tipo) ? '.m4a' : /ogg/.test(tipo) ? '.ogg' : '.webm');
+        var campo = seccionFija ? null : document.getElementById('rev-txt');
         var extra = campo ? campo.value : '';
         if (campo) campo.value = '';
         st.notas.push({
           texto: '🎙 Nota de voz de ' + seg + ' s (' + nombre + ')' +
                  (extra.trim() ? String.fromCharCode(10) + extra.trim() : ''),
           audio: nombre, seg: seg,
-          seccion: (document.getElementById('rev-sec') || {}).value || '',
+          seccion: seccionFija || (document.getElementById('rev-sec') || {}).value || '',
           ruta: RUTA, pagina: TITULO
         });
         guardar();
@@ -348,6 +416,7 @@
         pintar();
       };
       mr.start();
+      if (seccionFija) aviso('Grabando. Cuenta lo que querríais aquí y pulsa «Parar».');
       boton.classList.add('grabando');
       cron = setInterval(function () {
         boton.textContent = '⏹ Parar (' + Math.round((Date.now() - t0) / 1000) + ' s)';
@@ -474,7 +543,7 @@
   document.addEventListener('click', function (e) {
     if (!document.body.classList.contains('rev-on')) return;
     var a = e.target.closest && e.target.closest('main a');
-    if (!a) return;
+    if (!a || a.closest('[data-norev]')) return;
     e.preventDefault();
     aviso('En modo revisión los enlaces no navegan. Usa el menú de arriba o «Ir a otra página».');
   });
@@ -491,9 +560,9 @@
     '<button type="button" data-tab="ir">Ir a…</button></div>' +
     '<div class="rev-body" id="rev-body"></div>' +
     '<div class="rev-foot">' +
-    '<div class="fila"><button type="button" class="rev-btn p" id="rev-copiar">Copiar todo</button>' +
-    '<button type="button" class="rev-btn s" id="rev-bajar">Descargar</button></div>' +
-    '<div class="fila"><button type="button" class="rev-btn wa" id="rev-wa">Enviar por WhatsApp</button></div>' +
+    '<div class="fila"><button type="button" class="rev-btn p" id="rev-todo">📤 Enviar (textos y audios)</button></div>' +
+    '<div class="fila"><button type="button" class="rev-btn x" id="rev-copiar">Copiar el resumen</button>' +
+    '<button type="button" class="rev-btn x" id="rev-bajar">Descargar una copia</button></div>' +
     '<div class="fila"><button type="button" class="rev-btn x" id="rev-limpiar">Empezar de cero</button>' +
     '<button type="button" class="rev-btn x" id="rev-salir">Salir del modo revisión</button></div>' +
     '</div>';
@@ -656,9 +725,15 @@
   /* ── exportar ──────────────────────────────────────────── */
   function informe() {
     var hoy = new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
-    var l = ['# Cambios para la web de S&H Abogadas', '',
-      'Versión de diseño: **' + VERSION + '**', '',
-      hoy + ' · ' + nEdits() + ' cambios de texto · ' + nNotas() + ' notas', ''];
+    var l = ['# Cambios para la web de S&H Abogadas', '', (st.quien ? 'Lo envía: **' + st.quien + '**' : ''), '',
+      'Estilo elegido: **' + (st.estilo || VERSION) + '**', '',
+      hoy + ' · ' + nEdits() + ' cambios de texto · ' + nNotas() + ' comentarios', ''];
+    var bien = Object.keys(st.secciones).filter(function (k) { return st.secciones[k] === 'ok'; });
+    if (bien.length) {
+      l.push('**Secciones que os gustan tal cual:**');
+      bien.forEach(function (k) { var p = k.split('|'); l.push('- ' + p[1] + '  (' + p[0] + ')'); });
+      l.push('');
+    }
     var porPag = {};
     Object.keys(st.textos).forEach(function (k) {
       var c = st.textos[k];
@@ -691,13 +766,175 @@
     });
     var conAudio = st.notas.filter(function (n) { return n.audio; });
     if (conAudio.length) {
-      l.push('---', 'Hay ' + conAudio.length + ' nota(s) de voz. Descárgalas desde el panel y adjúntalas:');
+      l.push('---', 'Hay ' + conAudio.length + ' nota(s) de voz, enviadas junto a este resumen:');
       conAudio.forEach(function (n) { l.push('- ' + n.audio + ' (' + n.seg + ' s)'); });
       l.push('');
     }
     if (!nEdits() && !nNotas()) l.push('(sin cambios todavía)');
     return l.join('\n');
   }
+
+  /* ── enviar: directo al repo de Ringuno ────────────────────────
+     Cada cosa va al back office (entrada pública para demos, ver proposals/spec-demo-drop.md):
+     el resumen como nota y cada audio como nota de voz, que el back office transcribe. Acaba en
+     clients/shabogadas/inbox/ y el brief se recompila solo. Mismo contrato que /backoffice/drop,
+     sin login: X-Demo-Key en vez del token. X-Submission-Id fijo por envío y por archivo, así
+     un reintento nunca crea un segundo input. Solo se da por enviado cuando todo responde 2xx;
+     si no sale, no se pierde nada (sigue guardado aquí). */
+  var ENVIO = '__ENVIO_URL__';            // lo pone build.py desde envio/config.json
+  var CLAVE_ENVIO = '__ENVIO_CLAVE__';
+  var CLIENTE = 'shabogadas';
+
+  function leeAudioP(n) { return new Promise(function (ok) { leeAudio(n, ok); }); }
+  function espera(ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); }
+
+  function sube(item) {
+    var intento = 0;
+    function uno() {
+      intento++;
+      var ctl = window.AbortController ? new AbortController() : null;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, 180000) : null;
+      return fetch(ENVIO, {
+        method: 'POST', body: item.blob, signal: ctl ? ctl.signal : undefined,
+        headers: {
+          'Content-Type': item.tipo, 'X-Demo-Key': CLAVE_ENVIO, 'X-Client': CLIENTE, 'X-Kind': item.kind,
+          'X-Filename': encodeURIComponent(item.nombre), 'X-Who': encodeURIComponent(st.quien || ''),
+          'X-Subject': encodeURIComponent(item.asunto), 'X-Language': 'es', 'X-Submission-Id': item.id
+        }
+      }).then(function (r) {
+        if (t) clearTimeout(t);
+        if (r.ok) return true;
+        var e = new Error('HTTP ' + r.status); e.final = r.status >= 400 && r.status < 500 && r.status !== 408 && r.status !== 429;
+        throw e;
+      }).catch(function (e) {
+        if (t) clearTimeout(t);
+        if (e.final || intento >= 5) throw e;
+        return espera([0, 2000, 5000, 10000, 20000][intento]).then(uno);
+      });
+    }
+    return uno();
+  }
+
+  var modal = null;
+  function estadoEnvio(html, botones) {
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'rev-ui rev-envio';
+      document.body.appendChild(modal);
+    }
+    modal.innerHTML = '<div class="caja">' + html + (botones ? '<div class="bts">' + botones + '</div>' : '') + '</div>';
+    return modal;
+  }
+  function cierraEnvio() { if (modal) { modal.remove(); modal = null; } }
+
+  var quienOk = false;
+  function enviar() {
+    if (!nEdits() && !nNotas() && !Object.keys(st.secciones).length) {
+      aviso('Todavía no hay nada que enviar: contesta alguna sección primero.');
+      return;
+    }
+    if (!quienOk) {
+      estadoEnvio('<b>¿Quién lo envía?</b><p>Para saber de quién son los comentarios.</p>' +
+        '<input type="text" id="rev-quien" value="' + esc(st.quien || '') + '" placeholder="Tu nombre" ' +
+        'style="width:100%;border:1.5px solid #e3e6ef;border-radius:9px;padding:11px 12px;font:400 15px Archivo,system-ui,sans-serif">',
+        '<button type="button" class="rev-btn p" data-e="1">Enviar</button><button type="button" class="rev-btn x" data-c="1">Cancelar</button>');
+      var inp = modal.querySelector('#rev-quien');
+      inp.focus();
+      var sigue = function () {
+        var v = inp.value.trim();
+        if (!v) { inp.focus(); return; }
+        st.quien = v; guardar(); quienOk = true; enviar(); quienOk = false;
+      };
+      modal.querySelector('[data-e]').addEventListener('click', sigue);
+      inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') sigue(); });
+      modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
+      return;
+    }
+    if (ENVIO.indexOf('http') !== 0) return compartir();
+    // Solo lo nuevo: los audios ya recibidos no se vuelven a subir; el resumen va entero cada vez.
+    st.subidos = st.subidos || {};
+    var conAudio = st.notas.filter(function (n) { return n.audio && !st.subidos[n.audio]; });
+    var envio = 'web-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    estadoEnvio('<b>Enviando…</b><p>' + (conAudio.length ? conAudio.length + ' audio(s) y el resumen.' : 'El resumen.') +
+      ' No cierres esta página.</p><div class="barra"><i style="width:6%"></i></div>');
+    Promise.all(conAudio.map(function (n) {
+      return leeAudioP(n.audio).then(function (b) { return b ? { n: n, b: b } : null; });
+    })).then(function (lista) {
+      lista = lista.filter(Boolean);
+      var faltan = conAudio.length - lista.length;
+      var md = informe() + (faltan ? '\n\n(' + faltan + ' audio(s) ya no estaban guardados en este navegador)' : '');
+      var items = [{ id: envio + '-resumen', kind: 'note', nombre: 'revision-web-' + (st.estilo || VERSION) + '.md',
+        tipo: 'text/markdown', asunto: 'Revisión de la web (' + (st.estilo || VERSION) + ')',
+        blob: new Blob([md], { type: 'text/markdown' }) }];
+      lista.forEach(function (x, i) {
+        items.push({ id: envio + '-a' + (i + 1), kind: 'voice', nombre: x.n.audio, tipo: (x.b.type || 'audio/webm').split(';')[0],
+          asunto: 'Revisión de la web · ' + (x.n.seccion || 'toda la página') + ' (' + (x.n.pagina || '') + ')', blob: x.b, nota: x.n });
+      });
+      var hechos = 0, cadena = Promise.resolve();
+      items.forEach(function (it) {
+        cadena = cadena.then(function () { return sube(it); }).then(function () {
+          hechos++;
+          if (it.nota) { st.subidos[it.nota.audio] = new Date().toISOString(); guardar(); }
+          var b = modal && modal.querySelector('.barra i');
+          if (b) b.style.width = Math.round(6 + 94 * hechos / items.length) + '%';
+        });
+      });
+      return cadena.then(function () {
+        st.enviado = new Date().toISOString();
+        guardar();
+        estadoEnvio('<b>✓ Recibido</b><p>Nos ha llegado todo' + (lista.length ? ', con ' + lista.length + ' audio(s)' : '') +
+          '. Puedes seguir comentando y volver a enviar cuando quieras.</p>', '<button type="button" class="rev-btn p" data-c="1">Perfecto</button>');
+        modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
+      });
+    }).catch(function () {
+      copiaLocal('No se ha podido enviar (¿hay conexión?). No se ha perdido nada: sigue todo guardado aquí, y lo que ya había llegado no se repite.');
+    });
+  }
+
+  /* Mientras la entrada del back office no esté conectada: Compartir del móvil (WhatsApp…) con el
+     resumen y los audios; en el ordenador, se descargan para adjuntarlos. */
+  function compartir() {
+    var conAudio = st.notas.filter(function (n) { return n.audio; });
+    Promise.all(conAudio.map(function (n) {
+      return leeAudioP(n.audio).then(function (b) { return b ? new File([b], n.audio, { type: (b.type || 'audio/webm').split(';')[0] }) : null; });
+    })).then(function (audios) {
+      var files = [new File([informe()], 'cambios-web-shabogadas.md', { type: 'text/markdown' })]
+        .concat(audios.filter(Boolean));
+      var puede = false;
+      try { puede = !!(navigator.canShare && navigator.canShare({ files: files })); } catch (e) {}
+      if (puede) {
+        estadoEnvio('<b>Mandárselo a Marc</b><p>Se abre el menú de compartir: elige WhatsApp y su chat. Van el resumen' +
+          (audios.length ? ' y ' + audios.length + ' audio(s)' : '') + '.</p>',
+          '<button type="button" class="rev-btn p" data-s="1">Compartir</button><button type="button" class="rev-btn x" data-c="1">Cancelar</button>');
+        modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
+        modal.querySelector('[data-s]').addEventListener('click', function () {
+          navigator.share({ files: files, title: 'Web S&H Abogadas', text: 'Comentarios de la web' + (st.quien ? ' · ' + st.quien : '') })
+            .then(function () { st.enviado = new Date().toISOString(); guardar(); cierraEnvio(); aviso('Enviado'); })
+            .catch(function () {});
+        });
+        return;
+      }
+      files.forEach(function (f, i) { setTimeout(function () { bajaAudio(f.name, f); }, i * 450); });
+      estadoEnvio('<b>Descargado</b><p>Se han descargado el resumen' + (audios.length ? ' y ' + audios.length + ' audio(s)' : '') +
+        '. Mándaselos a Marc por WhatsApp o correo.</p>', '<button type="button" class="rev-btn p" data-c="1">Vale</button>');
+      modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
+    });
+  }
+
+  function copiaLocal(motivo) {
+    estadoEnvio('<b>No ha salido</b><p>' + motivo + '</p><p>Prueba otra vez en un momento. Si corre prisa, descarga una copia y mándala por WhatsApp.</p>',
+      '<button type="button" class="rev-btn p" data-r="1">Probar otra vez</button><button type="button" class="rev-btn s" data-d="1">Descargar una copia</button><button type="button" class="rev-btn x" data-c="1">Cerrar</button>');
+    modal.querySelector('[data-r]').addEventListener('click', function () { cierraEnvio(); enviar(); });
+    modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
+    modal.querySelector('[data-d]').addEventListener('click', function () {
+      bajaAudio('cambios-web-shabogadas.md', new Blob([informe()], { type: 'text/markdown;charset=utf-8' }));
+      st.notas.filter(function (n) { return n.audio; }).forEach(function (n, i) {
+        leeAudio(n.audio, function (b) { if (b) setTimeout(function () { bajaAudio(n.audio, b); }, (i + 1) * 450); });
+      });
+    });
+  }
+
+  panel.querySelector('#rev-todo').addEventListener('click', enviar);
 
   panel.querySelector('#rev-copiar').addEventListener('click', function () {
     var t = informe();
@@ -723,14 +960,7 @@
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
   });
 
-  panel.querySelector('#rev-wa').addEventListener('click', function () {
-    var t = informe();
-    if (t.length > 1600) {
-      aviso('Son muchos cambios para WhatsApp: mejor «Descargar» y envía el archivo.');
-      return;
-    }
-    window.open('https://wa.me/?text=' + encodeURIComponent(t), '_blank');
-  });
+
 
   panel.querySelector('#rev-salir').addEventListener('click', function () {
     if (nEdits() + nNotas() && !confirm('Tienes cambios guardados. Salir no los borra: seguirán aquí cuando vuelvas a entrar con el enlace de revisión. ¿Salir?')) return;
@@ -740,7 +970,7 @@
 
   panel.querySelector('#rev-limpiar').addEventListener('click', function () {
     if (!confirm('¿Borrar todos los cambios y notas guardados? No se puede deshacer.')) return;
-    st = { textos: {}, notas: [] };
+    st = { textos: {}, notas: [], secciones: {} };
     borraAudios();
     guardar();
     location.reload();
@@ -754,7 +984,9 @@
 
   function pintarContador() {
     var n = nEdits() + nNotas();
-    pill.innerHTML = (activo ? '✏️ Revisión activa' : '👁 Modo revisión') + (n ? ' <b>' + n + '</b>' : '');
+    var hechas = guias.filter(guiaHecha).length;
+    pill.innerHTML = (activo ? '✏️ Revisión' : '👁 Modo revisión') +
+      (guias.length ? ' · ' + hechas + ' de ' + guias.length + ' secciones' : '') + (n ? ' <b>' + n + '</b>' : '');
     pill.classList.toggle('rev-off', !activo);
   }
 
@@ -766,13 +998,12 @@
     if (vieja) vieja.remove();
     var d = document.createElement('div');
     d.className = 'rev-ui rev-ayuda';
-    d.innerHTML = '<b>Modo revisión</b><ul>' +
-      '<li>✏️ <b>Pincha un texto y escribe encima.</b></li>' +
-      '<li>🔁 <b>Titulares:</b> 5 versiones para probar.</li>' +
-      '<li>🎤 <b>¿Mejor hablando?</b> Dicta el texto o graba un audio.</li>' +
+    d.innerHTML = '<b>Cómo funciona</b><ul>' +
+      (st.estilo === 'otro' ? '<li>1️⃣ <b>Estilo:</b> queréis otro distinto. Contad cómo en la pregunta de arriba del todo, con la web delante.</li>' : '<li>1️⃣ <b>Estilo:</b> estás viendo «' + esc(st.estilo || VERSION) + '». Si ninguno os convence, se hacen más.</li>') +
+      '<li>2️⃣ <b>Sección por sección:</b> encima de cada una hay una pregunta. Contesta con un audio o por escrito, o marca «Así me gusta».</li>' +
+      '<li>✏️ <b>Si quieres, cambia textos</b> pinchando encima. Los titulares tienen 5 versiones para probar.</li>' +
       '<li>🗑️ <b>Borra el texto</b> de algo y se quita de la web.</li>' +
-      '<li>💬 <b>Nota:</b> un comentario en esa sección.</li>' +
-      '<li>📤 <b>Al acabar:</b> la pastilla de abajo → Copiar o Descargar.</li>' +
+      '<li>3️⃣ <b>Al acabar:</b> la pastilla de abajo → «Enviar». Nos llega todo, con los audios. Ve página a página con el menú; se guarda todo.</li>' +
       '</ul><i>No cambia la web: es una propuesta, y se guarda aunque cierres.<br>' +
       'Como mi prima no se calla ni bajo del agua, espero que mandando un audio tenga facilidades para llevar a cabo esta hazaña.</i>' +
       '<button type="button">Entendido, empiezo</button>';
@@ -781,11 +1012,13 @@
   }
 
   /* arranque */
+  if (qEst && st.estilo === 'otro') st.rutaOtro = RUTA;
   preparar();
   activo = true;
   activarEdicion(true);
   pintarContador();
-  ayuda();
+  pintaGuias();
+  if ((!st.vioAyuda || qEst) && TITULO !== 'Elegir el estilo') { ayuda(); st.vioAyuda = true; try { localStorage.setItem(LS, JSON.stringify(st)); } catch (e) {} }
 
   window.SHRevision = { informe: informe, estado: function () { return st; }, abrir: abrir };
 })();
