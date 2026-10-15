@@ -781,8 +781,8 @@
      sin login: X-Demo-Key en vez del token. X-Submission-Id fijo por envío y por archivo, así
      un reintento nunca crea un segundo input. Solo se da por enviado cuando todo responde 2xx;
      si no sale, no se pierde nada (sigue guardado aquí). */
-  var ENVIO = '__ENVIO_URL__';            // lo pone build.py desde envio/config.json
-  var CLAVE_ENVIO = '__ENVIO_CLAVE__';
+  var ENVIO = 'https://hallowed-barracuda-843.eu-west-1.convex.site/backoffice/demo-drop';            // lo pone build.py desde envio/config.json
+  var CLAVE_ENVIO = 'sh-P82dANVlEFobhzhkYSu7WPc5yXBSS3J4';
   var CLIENTE = 'shabogadas';
 
   function leeAudioP(n) { return new Promise(function (ok) { leeAudio(n, ok); }); }
