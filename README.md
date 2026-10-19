@@ -3,7 +3,7 @@
 Borrador de trabajo: **no es la web oficial** de S&H Abogadas, que está en
 [shabogadas.com](https://shabogadas.com/).
 
-Quince versiones del mismo sitio (mismos textos y mismas páginas, distinto diseño).
+Veintitrés versiones del mismo sitio (mismos textos y mismas páginas, distinto diseño).
 Índice para compararlas: [`versiones.html`](./versiones.html).
 
 Todas las páginas llevan `noindex`. Textos e imágenes pertenecen a S&H Abogadas.

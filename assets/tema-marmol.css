@@ -7,7 +7,7 @@ body.tema-marmol{
   --peri:#e7e2d8; --peri-2:#b9ad95; --peri-deep:#7a6a4e;
   --bronce:#94764a; --card:#fffefb;
   --shadow:0 1px 2px rgba(29,27,24,.04); --shadow-lg:0 24px 50px -34px rgba(29,27,24,.5);
-  --r:2px; --maxw:1160px; --sp:clamp(80px,10vw,152px);
+  --r:2px; --maxw:1160px; --sp:clamp(52px,6.5vw,92px);
   background:
     radial-gradient(1200px 700px at 12% -10%, rgba(255,255,255,.9), transparent 60%),
     radial-gradient(900px 600px at 90% 8%, rgba(185,173,149,.18), transparent 62%),
@@ -26,7 +26,7 @@ body.tema-marmol{
 body.tema-marmol h1,body.tema-marmol h2,body.tema-marmol h3{
   font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:.005em;line-height:1.1;
 }
-body.tema-marmol .hero h1{font-size:clamp(52px,8.6vw,116px);font-weight:300}
+body.tema-marmol .hero h1{font-size:clamp(46px,6.2vw,88px);font-weight:300}
 body.tema-marmol .hero h1 em{background:none;font-style:italic;color:var(--bronce)}
 body.tema-marmol h2.title,body.tema-marmol .phero h1{font-size:clamp(36px,6vw,74px);font-weight:300}
 body.tema-marmol .lede{font-size:clamp(17px,1.9vw,19.5px);color:var(--ink-2)}
@@ -110,7 +110,8 @@ body.tema-marmol .spec span,body.tema-marmol .spec a{
 }
 body.tema-marmol .spec a:hover{border-color:var(--bronce);color:var(--bronce)}
 body.tema-marmol .spec-big span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-body.tema-marmol .tags span{border-radius:0;border-color:var(--line);font-size:10.5px;letter-spacing:.12em}
+body.tema-marmol .tags span{border-radius:0;border-color:var(--line);font-size:10.5px;letter-spacing:.06em;padding:4px 8px;white-space:nowrap}
+body.tema-marmol .tags{gap:6px}
 body.tema-marmol .areas{border-top:1px solid var(--line)}
 body.tema-marmol details.area{border-bottom:1px solid var(--line)}
 body.tema-marmol .area h3{font-size:clamp(24px,3.4vw,38px);font-weight:400}
@@ -160,3 +161,40 @@ body.tema-marmol .rv h2.title::after{
   transition:width 1.4s cubic-bezier(.22,1,.36,1) .2s;
 }
 body.tema-marmol .rv.in h2.title::after{width:96px}
+
+/* ── legibilidad (20-oct-2026) ─────────────────────────────────
+   Cormorant solo en titulares grandes; todo lo pequeño en Archivo.
+   Nada por debajo de 12 px, menos tracking en mayúsculas y grises/bronce
+   con contraste AA sobre el crema. */
+body.tema-marmol{--ink-2:#4a4640; --ink-3:#6b665e; --bronce-txt:#7d6240}
+body.tema-marmol h2.title,body.tema-marmol .phero h1{font-weight:400}
+body.tema-marmol .pasos h3,body.tema-marmol .grupo h3,body.tema-marmol .office h3,
+body.tema-marmol .trio b,body.tema-marmol .faq summary{
+  font-family:Archivo,system-ui,sans-serif;font-weight:600;letter-spacing:0;line-height:1.3;
+}
+body.tema-marmol .pasos h3{font-size:17px;margin-bottom:8px;text-transform:none}
+body.tema-marmol .grupo h3,body.tema-marmol .office h3{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronce-txt)}
+body.tema-marmol .pasos p,body.tema-marmol .trio span,body.tema-marmol .online-card p,body.tema-marmol .area-card p,
+body.tema-marmol .post p,body.tema-marmol .grupo li,body.tema-marmol .lawyer p,body.tema-marmol .office-extra{font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+body.tema-marmol .area .sum-note{font-size:15px;color:var(--ink-3)}
+/* pasos: número arriba y el texto a todo el ancho */
+body.tema-marmol .pasos li{grid-template-columns:1fr;gap:14px;padding:26px 24px}
+body.tema-marmol .pasos .n{width:38px;height:38px}
+/* etiquetas en mayúsculas: más grandes y con menos espacio */
+body.tema-marmol .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--bronce-txt)}
+body.tema-marmol nav a.nav{font-size:12px;letter-spacing:.12em}
+body.tema-marmol .btn,body.tema-marmol .nav-cta{font-size:12px;letter-spacing:.14em}
+body.tema-marmol .trust li{font-size:12px;letter-spacing:.14em}
+body.tema-marmol .field label{font-size:12px;letter-spacing:.1em;color:var(--ink-2)}
+body.tema-marmol .prio .k,body.tema-marmol .cols h4,body.tema-marmol .post .cat,body.tema-marmol .destacada .cat,
+body.tema-marmol .role,body.tema-marmol .area-card .num{font-size:12px;letter-spacing:.14em;color:var(--bronce-txt)}
+body.tema-marmol .spec span,body.tema-marmol .spec a{font-size:12px;letter-spacing:.1em}
+body.tema-marmol .tags span{font-size:12px}
+body.tema-marmol .btn-ghost{color:var(--bronce-txt);border-color:var(--bronce-txt)}
+body.tema-marmol .form-note,body.tema-marmol .video-cap{font-size:14px;color:var(--ink-3)}
+body.tema-marmol .hero-badge{color:var(--ink-2);font-size:15px}
+@media (prefers-color-scheme: dark){
+  body.tema-marmol:not([data-theme="light"]){--ink-2:#cfc8bd; --ink-3:#a39c91; --bronce-txt:#c9a877}
+}
+body.tema-marmol .trio li,body.tema-marmol .pasos li{align-content:start}
+body.tema-marmol .pasos .n{font-family:Archivo,system-ui,sans-serif;font-size:15px;font-weight:500}

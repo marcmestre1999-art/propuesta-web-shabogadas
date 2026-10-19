@@ -1,0 +1,14 @@
+/* ── Versión MAR · ATARDECER ─ tonos cálidos, titular centrado ── */
+body.tema-mar-atardecer .hero{--mar:38,24,34}
+body.tema-mar-atardecer .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.72) 0%,rgba(var(--mar),.3) 60%,rgba(var(--mar),.2) 100%)}
+body.tema-mar-atardecer .hero-grid{grid-template-columns:1fr;text-align:center;justify-items:center}
+body.tema-mar-atardecer .hero-media{display:none}
+body.tema-mar-atardecer .hero .eyebrow{justify-content:center}
+body.tema-mar-atardecer .hero p.lede{max-width:56ch;margin-inline:auto}
+body.tema-mar-atardecer .hero .cta-row{justify-content:center}
+body.tema-mar-atardecer .hero h1{font-weight:300}
+body.tema-mar-atardecer .hero h1 em{color:#f6cfae}
+body.tema-mar-atardecer .hero .eyebrow::before{background:#f6cfae}
+body.tema-mar-atardecer .trust svg{color:#f6cfae}
+body.tema-mar-atardecer .hero .btn-primary{background:#f6e7d8;color:#2a1a22}
+@media (max-width:880px){body.tema-mar-atardecer .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.78),rgba(var(--mar),.55))}}

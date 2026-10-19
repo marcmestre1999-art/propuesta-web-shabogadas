@@ -1,0 +1,44 @@
+/* ── Versión MÁRMOL CON MAR ────────────────────────────────────
+   Todo Mármol (se carga antes tema-marmol.css) y una portada a sangre
+   con el mar en vídeo de fondo, como en la web actual pero en bucle limpio. */
+body.tema-marmol-mar .hero{
+  --mar:8,22,38;
+  color:#fff;isolation:isolate;
+  min-height:min(92vh,980px);display:flex;flex-direction:column;justify-content:center;
+  padding-block:clamp(72px,10vw,140px) 0;
+}
+body.tema-marmol-mar .hero-mar{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#0d2a44 center/cover no-repeat}
+body.tema-marmol-mar .hero-mar video{width:100%;height:100%;object-fit:cover;display:block}
+body.tema-marmol-mar .hero-mar::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(var(--mar),.74) 0%,rgba(var(--mar),.46) 48%,rgba(var(--mar),.12) 100%),
+    linear-gradient(0deg,rgba(var(--mar),.6) 0%,transparent 42%);
+}
+body.tema-marmol-mar .hero h1{color:#fff}
+body.tema-marmol-mar .hero h1 em{color:#e6d3ae}
+body.tema-marmol-mar .hero .eyebrow{color:rgba(255,255,255,.82)}
+body.tema-marmol-mar .hero .eyebrow::before{background:#e6d3ae}
+body.tema-marmol-mar .hero p.lede{color:rgba(255,255,255,.9)}
+body.tema-marmol-mar .hero .btn-primary{background:#fff;color:#1d1b18}
+body.tema-marmol-mar .hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+body.tema-marmol-mar .hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+body.tema-marmol-mar .hero-media .frame{box-shadow:0 30px 60px -30px rgba(0,0,0,.6);outline:1px solid rgba(255,255,255,.35);outline-offset:10px}
+body.tema-marmol-mar .hero-media .frame img{filter:none}
+body.tema-marmol-mar .hero-badge{color:var(--ink-2)}
+body.tema-marmol-mar .trust{border-color:rgba(255,255,255,.22)}
+body.tema-marmol-mar .trust li{color:#fff}
+body.tema-marmol-mar .trust li+li{border-color:rgba(255,255,255,.22)}
+body.tema-marmol-mar .trust svg{color:#e6d3ae}
+@media (max-width:880px){
+  body.tema-marmol-mar .hero{min-height:0}
+  body.tema-marmol-mar .hero-media{display:none}
+  body.tema-marmol-mar .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.72),rgba(var(--mar),.5))}
+}
+@media (prefers-reduced-motion:reduce){
+  body.tema-marmol-mar .hero-mar video{display:none}
+}
+body.tema-marmol-mar .hero h1{font-size:clamp(48px,7.2vw,100px)}
+body.tema-marmol-mar .hero .btn-wa{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.45)}
+body.tema-marmol-mar .hero .btn-wa:hover{background:#25d366;border-color:#25d366;color:#04310f}
+body.tema-marmol-mar .hero-badge,body.tema-marmol-mar .hero-badge b{color:rgba(255,255,255,.88);border-color:rgba(255,255,255,.3)}

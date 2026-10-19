@@ -1,0 +1,13 @@
+/* ── Versión MAR · CALA ─ agua turquesa a pantalla completa, texto centrado ── */
+body.tema-mar-cala .hero{--mar:6,40,52}
+body.tema-mar-cala .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.62) 0%,rgba(var(--mar),.38) 55%,rgba(var(--mar),.5) 100%)}
+body.tema-mar-cala .hero-grid{grid-template-columns:1fr;text-align:center;justify-items:center}
+body.tema-mar-cala .hero-media{display:none}
+body.tema-mar-cala .hero .eyebrow{justify-content:center}
+body.tema-mar-cala .hero p.lede{max-width:58ch;margin-inline:auto}
+body.tema-mar-cala .hero .cta-row{justify-content:center}
+body.tema-mar-cala .hero h1 em{color:#bfeee8}
+body.tema-mar-cala .hero .eyebrow::before{background:#bfeee8}
+body.tema-mar-cala .trust svg{color:#bfeee8}
+body.tema-mar-cala .hero h1,body.tema-mar-cala .hero p.lede{text-shadow:0 2px 24px rgba(0,0,0,.25)}
+@media (max-width:880px){body.tema-mar-cala .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.72),rgba(var(--mar),.5))}}

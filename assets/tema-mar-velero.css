@@ -1,0 +1,12 @@
+/* ── Versión MAR · VELERO ─ plata y contraluz, texto abajo a la izquierda ── */
+body.tema-mar-velero .hero{--mar:14,16,20;justify-content:flex-end}
+body.tema-mar-velero .hero-mar video{filter:saturate(.55)}
+body.tema-mar-velero .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.82) 0%,rgba(var(--mar),.45) 45%,rgba(var(--mar),.05) 80%)}
+body.tema-mar-velero .hero-grid{grid-template-columns:minmax(0,760px)}
+body.tema-mar-velero .hero-media{display:none}
+body.tema-mar-velero .hero h1 em{color:#d9dde3}
+body.tema-mar-velero .hero .eyebrow::before{background:#d9dde3}
+body.tema-mar-velero .trust svg{color:#d9dde3}
+@media (min-width:881px){body.tema-mar-velero .hero{padding-top:clamp(220px,30vh,340px)}}
+body.tema-mar-velero .hero-grid{justify-content:start}
+@media (max-width:880px){body.tema-mar-velero .hero-mar::after{background:linear-gradient(0deg,rgba(var(--mar),.8),rgba(var(--mar),.5))}}

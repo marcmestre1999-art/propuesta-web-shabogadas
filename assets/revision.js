@@ -335,34 +335,69 @@
     catch (e) { rec = null; boton.classList.remove('grabando'); boton.textContent = '🎤 Dictar'; }
   }
 
-  /* -- almacen de audios en el propio navegador ----------- */
-  var DB = null;
+  /* -- almacen de audios en el propio navegador -----------
+     Se guardan los bytes (ArrayBuffer + tipo), no el Blob: Safari/iPhone no guarda bien Blobs de MediaRecorder en
+     IndexedDB (2026-10-17: los 3 audios de Elisabeth no llegaron). Copia en memoria para esta página, y cada audio se
+     relee tras guardarlo: si no está, se avisa y se ofrece enviarlo ya. */
+  var DB = null, MEM = {}, enRiesgo = {};   // enRiesgo: audios que solo viven en memoria y aún no han llegado
+  window.addEventListener('beforeunload', function (e) {
+    if (Object.keys(enRiesgo).length) { e.preventDefault(); e.returnValue = ''; }
+  });
   function db(cb) {
     if (DB) return cb(DB);
     if (!window.indexedDB) return cb(null);
-    var r = indexedDB.open('sh-revision', 1);
-    r.onupgradeneeded = function () { r.result.createObjectStore('audios'); };
-    r.onsuccess = function () { DB = r.result; cb(DB); };
-    r.onerror = function () { cb(null); };
+    try {
+      var r = indexedDB.open('sh-revision', 1);
+      r.onupgradeneeded = function () { r.result.createObjectStore('audios'); };
+      r.onsuccess = function () { DB = r.result; cb(DB); };
+      r.onerror = function () { cb(null); };
+    } catch (e) { cb(null); }
+  }
+  function bytes(blob) {
+    if (blob.arrayBuffer) return blob.arrayBuffer();
+    return new Promise(function (ok, ko) {
+      var fr = new FileReader();
+      fr.onload = function () { ok(fr.result); };
+      fr.onerror = ko;
+      fr.readAsArrayBuffer(blob);
+    });
   }
   function guardaAudio(nombre, blob, cb) {
+    MEM[nombre] = blob;
+    var fin = function (ok) { if (cb) { cb(ok); cb = null; } };
+    bytes(blob).then(function (buf) {
+      db(function (d) {
+        if (!d) return fin(false);
+        try {
+          var tx = d.transaction('audios', 'readwrite');
+          tx.objectStore('audios').put({ buf: buf, tipo: blob.type || 'audio/webm' }, nombre);
+          tx.oncomplete = function () {
+            leeDisco(nombre, function (b) { fin(!!b && b.size === blob.size && b.size > 0); });
+          };
+          tx.onerror = tx.onabort = function () { fin(false); };
+        } catch (e) { fin(false); }
+      });
+    }, function () { fin(false); });
+  }
+  function leeDisco(nombre, cb) {
     db(function (d) {
-      if (!d) return cb && cb(false);
-      var tx = d.transaction('audios', 'readwrite');
-      tx.objectStore('audios').put(blob, nombre);
-      tx.oncomplete = function () { cb && cb(true); };
-      tx.onerror = function () { cb && cb(false); };
+      if (!d) return cb(null);
+      try {
+        var q = d.transaction('audios').objectStore('audios').get(nombre);
+        q.onsuccess = function () {
+          var v = q.result;
+          if (v && v.buf) return cb(new Blob([v.buf], { type: v.tipo }));
+          cb(v instanceof Blob && v.size ? v : null);   // formato antiguo (Blob)
+        };
+        q.onerror = function () { cb(null); };
+      } catch (e) { cb(null); }
     });
   }
   function leeAudio(nombre, cb) {
-    db(function (d) {
-      if (!d) return cb(null);
-      var q = d.transaction('audios').objectStore('audios').get(nombre);
-      q.onsuccess = function () { cb(q.result || null); };
-      q.onerror = function () { cb(null); };
-    });
+    if (MEM[nombre]) return cb(MEM[nombre]);
+    leeDisco(nombre, cb);
   }
-  function borraAudios() { db(function (d) { if (d) d.transaction('audios', 'readwrite').objectStore('audios').clear(); }); }
+  function borraAudios() { MEM = {}; db(function (d) { if (d) d.transaction('audios', 'readwrite').objectStore('audios').clear(); }); }
 
   function bajaAudio(nombre, blob) {
     var a = document.createElement('a');
@@ -408,10 +443,18 @@
         });
         guardar();
         guardaAudio(nombre, blob, function (ok) {
-          aviso(ok ? 'Audio guardado: puedes oirlo y descargarlo cuando quieras.'
-                   : 'No he podido guardarlo aqui; te lo descargo.');
-          if (!ok) bajaAudio(nombre, blob);
           pintar();
+          if (ok) { aviso('Audio guardado: puedes oirlo y descargarlo cuando quieras.'); return; }
+          enRiesgo[nombre] = true;
+          estadoEnvio('<b>Envía este audio ahora</b><p>Este navegador no deja guardar el audio, así que si cambias de ' +
+            'página o la cierras, se pierde. Envíalo ahora (llega con lo que lleves hasta aquí) y sigue después; ' +
+            'lo que ya haya llegado no se repite.</p>',
+            '<button type="button" class="rev-btn p" data-e="1">Enviar ahora</button>' +
+            '<button type="button" class="rev-btn s" data-d="1">Descargarlo</button>' +
+            '<button type="button" class="rev-btn x" data-c="1">Más tarde</button>');
+          modal.querySelector('[data-e]').addEventListener('click', function () { cierraEnvio(); enviar(); });
+          modal.querySelector('[data-d]').addEventListener('click', function () { bajaAudio(nombre, blob); });
+          modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
         });
         pintar();
       };
@@ -874,7 +917,7 @@
       items.forEach(function (it) {
         cadena = cadena.then(function () { return sube(it); }).then(function () {
           hechos++;
-          if (it.nota) { st.subidos[it.nota.audio] = new Date().toISOString(); guardar(); }
+          if (it.nota) { st.subidos[it.nota.audio] = new Date().toISOString(); delete enRiesgo[it.nota.audio]; guardar(); }
           var b = modal && modal.querySelector('.barra i');
           if (b) b.style.width = Math.round(6 + 94 * hechos / items.length) + '%';
         });
@@ -882,8 +925,14 @@
       return cadena.then(function () {
         st.enviado = new Date().toISOString();
         guardar();
-        estadoEnvio('<b>✓ Recibido</b><p>Nos ha llegado todo' + (lista.length ? ', con ' + lista.length + ' audio(s)' : '') +
-          '. Puedes seguir comentando y volver a enviar cuando quieras.</p>', '<button type="button" class="rev-btn p" data-c="1">Perfecto</button>');
+        estadoEnvio(faltan
+          ? '<b>Ha llegado el texto, pero faltan ' + faltan + ' audio(s)</b><p>' +
+            (lista.length ? 'Han llegado ' + lista.length + ' audio(s). ' : '') +
+            'Este navegador no había guardado ' + (faltan > 1 ? 'los demás' : 'uno') + '. Si puedes, vuelve a grabar' +
+            (faltan > 1 ? 'los' : 'lo') + ' y envía otra vez.</p>'
+          : '<b>✓ Recibido</b><p>Nos ha llegado todo' + (lista.length ? ', con ' + lista.length + ' audio(s)' : '') +
+            '. Puedes seguir comentando y volver a enviar cuando quieras.</p>',
+          '<button type="button" class="rev-btn p" data-c="1">' + (faltan ? 'Entendido' : 'Perfecto') + '</button>');
         modal.querySelector('[data-c]').addEventListener('click', cierraEnvio);
       });
     }).catch(function () {

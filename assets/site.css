@@ -114,7 +114,7 @@ nav a.nav[aria-current]{color:#101014;background:var(--peri)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-@media (max-width:900px){
+@media (max-width:1200px){
   .burger{display:block}
   nav{
     position:fixed;inset:72px 0 auto;flex-direction:column;align-items:stretch;gap:2px;
@@ -133,6 +133,7 @@ nav a.nav[aria-current]{color:#101014;background:var(--peri)}
   background:radial-gradient(circle,var(--peri) 0%,transparent 68%);opacity:.55;pointer-events:none;
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center;position:relative}
+.hero-grid > *{min-width:0}
 .hero h1{font-size:clamp(38px,6.1vw,70px);font-weight:700;letter-spacing:-.035em;margin-bottom:.34em}
 .hero h1 em{
   font-style:normal;white-space:nowrap;
@@ -461,7 +462,7 @@ footer li{margin-bottom:9px}
 .online-card .more{font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;text-decoration:none;margin-top:6px}
 .online-card .more svg{width:15px;height:15px}
 
-.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px}
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px;padding:0;list-style:none}
 .pasos li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:26px;border-radius:var(--r);background:var(--paper-2)}
 .pasos .n{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:15px}
 .pasos h3{font-size:18px;margin-bottom:6px}
@@ -523,3 +524,73 @@ footer li{margin-bottom:9px}
 .pg-despacho .tags,.pg-inicio .tags{margin-top:12px}
 .pg-despacho .tags span,.pg-inicio .tags span{font-size:11px;padding:4px 10px}
 @media (max-width:560px){.pg-despacho .team,.pg-inicio .team{grid-template-columns:1fr}}
+
+/* titulares alternativos de la portada (?hero=a|b|c) */
+.hero-opt:not(.on){display:none}
+/* videollamada de 30 minutos (servicios online) */
+.cita-30{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,56px);align-items:end;padding:clamp(28px,4vw,48px);border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.cita-30 .cta-row{margin-bottom:0;justify-content:flex-end}
+.cita-precio{font-weight:600;margin:18px 0 0}
+@media (max-width:880px){.cita-30{grid-template-columns:1fr}.cita-30 .cta-row{justify-content:flex-start}}
+
+/* reserva de la primera reunión (/reservar/) */
+.reserva{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:clamp(22px,4vw,48px);max-width:900px;margin:0 auto;scroll-margin-top:100px}
+.reserva-demo{font-size:13px;color:var(--ink-3);margin:0 0 22px;padding:10px 14px;border:1px dashed var(--line);border-radius:var(--r)}
+.reserva-pasos{display:flex;gap:6px;list-style:none;padding:0;margin:0 0 30px;counter-reset:p}
+.reserva-pasos li{flex:1;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);border-top:3px solid var(--line);padding-top:10px}
+.reserva-pasos li.on{color:var(--ink);border-color:var(--ink)}
+.reserva-pasos li.hecho{color:var(--ink-2);border-color:var(--peri-2)}
+.reserva h3{font-size:clamp(24px,3vw,34px);margin:0 0 8px}
+.reserva-nota{color:var(--ink-2);font-size:14.5px;margin:0 0 20px}
+.reserva-ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+.reserva-op{display:grid;gap:6px;text-align:left;padding:20px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);cursor:pointer;font:inherit;color:var(--ink);transition:border-color .15s,transform .15s}
+.reserva-op:hover,.reserva-op:focus-visible{border-color:var(--ink);transform:translateY(-2px)}
+.reserva-op.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.reserva-ops + h3{margin-top:28px}
+.reserva-op b{font-size:17px}
+.reserva-op span{font-size:14px;color:var(--ink-2)}
+.reserva-abog img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center 20%}
+.reserva-resumen{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.reserva-resumen span{font-size:13px;font-weight:500;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.reserva-dias{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-top:16px}
+.reserva-dia{flex:none;width:68px;display:grid;justify-items:center;gap:2px;padding:10px 0;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);cursor:pointer;font:inherit;color:var(--ink)}
+.reserva-dia b{font-size:22px;line-height:1.1}
+.reserva-dia small{font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em}
+.reserva-dia.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.reserva-dia.on small{color:inherit;opacity:.75}
+.reserva-dia:disabled{opacity:.35;cursor:default}
+.reserva-fecha{font-weight:600;margin:20px 0 10px}
+.reserva-fecha::first-letter{text-transform:uppercase}
+.reserva-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.reserva-hora{display:grid;gap:2px;padding:12px 6px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);cursor:pointer;font:inherit;font-weight:600;color:var(--ink)}
+.reserva-hora small{font-weight:500;font-size:11.5px;color:var(--ink-3)}
+.reserva-hora:hover,.reserva-hora:focus-visible{border-color:var(--ink);background:var(--card)}
+.reserva-atras{margin-top:26px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:var(--ink-2);cursor:pointer;text-decoration:underline}
+.reserva-form,.reserva-pago{display:grid;gap:4px;max-width:520px}
+.reserva-fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reserva-total{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);margin-bottom:14px}
+.reserva-total b{font-size:20px}
+.reserva-error{color:#b3261e;font-size:14px;margin:4px 0}
+.reserva-ok{text-align:center;padding:12px 0}
+.reserva-ok p{max-width:46ch;margin:0 auto 14px;color:var(--ink-2)}
+.reserva-check{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:26px;margin-bottom:14px}
+@media (max-width:600px){.reserva-pasos li{font-size:0;padding-top:6px}.reserva-pasos li.on{font-size:12px}}
+/* bloques «Cómo te atendemos» (servicios) */
+.trio.atiende li{align-content:start}
+.trio.atiende .btn{justify-self:start;margin-top:10px}
+.trio.atiende .atiende-alt{font-size:13.5px}
+.trio.atiende .atiende-alt a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+/* menú de 7 entradas (con Sustituciones): más compacto en portátiles */
+@media (min-width:1201px) and (max-width:1400px){
+  nav{gap:0}
+  nav a.nav{padding:9px 9px;letter-spacing:.04em}
+  body.tema-marmol nav a.nav{letter-spacing:.12em}
+  .nav-cta{margin-left:6px;padding:11px 14px}
+}
+/* listas de cuatro (pasos, tarifas): 4 en línea si caben, si no 2 + 2, nunca una sola abajo */
+.pasos-4,.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.pasos-4,.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.pasos-4,.grid-4{grid-template-columns:1fr}}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.grid-3{grid-template-columns:1fr}}
+.office-extra{font-size:13.5px;color:var(--ink-2);margin:6px 0 0}
