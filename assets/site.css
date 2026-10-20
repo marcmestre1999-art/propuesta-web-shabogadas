@@ -166,7 +166,7 @@ nav a.nav[aria-current]{color:#101014;background:var(--peri)}
 @media (max-width:880px){
   body .hero .hero-media .hero-lema{display:block;position:static;margin:14px 0 0;padding:0;max-width:none;
     background:none;border:0;box-shadow:none;transform:none}
-  body .hero .hero-media .hero-lema span{display:inline;font-size:15px;margin-right:.35em}
+  body .hero .hero-media .hero-lema span{display:inline;font-size:17px;margin-right:.3em}
 }
 @media (max-width:880px){
   .hero-grid{grid-template-columns:1fr}
