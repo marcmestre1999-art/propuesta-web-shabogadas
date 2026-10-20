@@ -679,3 +679,4 @@ footer li{margin-bottom:9px}
 .phero + section{padding-top:clamp(36px,4.5vw,60px)}
 .lineas span{display:block}
 .lineas span + span{margin-top:6px}
+.grupos-nota{margin:26px 0 0;font-size:16px;font-weight:600;color:var(--ink)}
