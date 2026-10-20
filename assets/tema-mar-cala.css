@@ -5,7 +5,7 @@ body.tema-mar-cala .hero-grid{grid-template-columns:1fr;text-align:center;justif
 body.tema-mar-cala .hero-media{display:none}
 body.tema-mar-cala .hero .eyebrow{justify-content:center}
 body.tema-mar-cala .hero p.lede{max-width:58ch;margin-inline:auto}
-body.tema-mar-cala .hero .cta-row{justify-content:center}
+body.tema-mar-cala .hero .cta-row,body.tema-mar-cala .hero-materias .spec{justify-content:center}
 body.tema-mar-cala .hero h1 em{color:#bfeee8}
 body.tema-mar-cala .hero .eyebrow::before{background:#bfeee8}
 body.tema-mar-cala .trust svg{color:#bfeee8}
