@@ -260,3 +260,8 @@ body.tema-marmol .band .wrap{z-index:2}
 body.tema-marmol .band .btn-primary{background:#fffefb;color:#1d1b18;border-color:#fffefb}
 body.tema-marmol .band .btn-ghost{background:rgba(0,0,0,.25);color:#fff;border-color:rgba(255,255,255,.6)}
 body.tema-marmol .band::before{background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(20,18,15,.66) 0%,rgba(20,18,15,.38) 60%,rgba(20,18,15,.1) 100%)}
+body.tema-marmol .band img.bg{opacity:1;filter:grayscale(.1) brightness(1.45) contrast(1.08)}
+body.tema-marmol .band::before{background:radial-gradient(ellipse 55% 60% at 50% 50%,rgba(20,18,15,.5) 0%,rgba(20,18,15,.25) 65%,rgba(20,18,15,0) 100%)}
+body.tema-marmol .band h2,body.tema-marmol .band p{text-shadow:0 2px 18px rgba(0,0,0,.65),0 1px 3px rgba(0,0,0,.5)}
+/* encuadre en la bola, no en el pie (Elisabeth, 20-oct: «que se vea más el globo, como en la web de ahora») */
+body.tema-marmol .band img.bg{object-position:50% 0%;transform-origin:50% 22%;transform:scale(1.45)}
