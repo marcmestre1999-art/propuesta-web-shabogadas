@@ -4,7 +4,7 @@
 body.tema-marmol-mar .hero{
   --mar:8,22,38;
   color:#fff;isolation:isolate;
-  min-height:min(92vh,980px);display:flex;flex-direction:column;justify-content:center;
+  min-height:min(80vh,860px);display:flex;flex-direction:column;justify-content:center;
   padding-block:clamp(72px,10vw,140px) 0;
 }
 body.tema-marmol-mar .hero-mar{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#0d2a44 center/cover no-repeat}

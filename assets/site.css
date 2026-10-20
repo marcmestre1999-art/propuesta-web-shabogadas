@@ -669,5 +669,13 @@ footer li{margin-bottom:9px}
 #atencion .trio.atiende li{align-content:stretch;grid-template-rows:auto auto 1fr auto auto}
 /* inicio: solo 4 áreas, sin su número (saldría 01, 02, 04, 07) */
 .pg-inicio #servicios .num{display:none}
+/* inicio: la sección tras la portada, más pegada a ella; seis áreas en 3 columnas (Elisabeth, vídeo 20-oct-2026) */
+.pg-inicio .hero + section{padding-top:clamp(40px,5vw,72px)}
+.pg-inicio #servicios .areas-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 @media (max-width:880px){body .hero .hero-media .hero-lema span{white-space:normal}}
 @media (max-width:880px){body .hero .hero-media .hero-lema span{font-size:15px;margin-right:.2em}}
+
+/* Elisabeth, 20-oct (2.º vídeo): menos margen bajo la cabecera de cada página; frases de tarjeta una por línea */
+.phero + section{padding-top:clamp(36px,4.5vw,60px)}
+.lineas span{display:block}
+.lineas span + span{margin-top:6px}
