@@ -265,3 +265,6 @@ body.tema-marmol .band::before{background:radial-gradient(ellipse 55% 60% at 50%
 body.tema-marmol .band h2,body.tema-marmol .band p{text-shadow:0 2px 18px rgba(0,0,0,.65),0 1px 3px rgba(0,0,0,.5)}
 /* encuadre en la bola, no en el pie (Elisabeth, 20-oct: «que se vea más el globo, como en la web de ahora») */
 body.tema-marmol .band img.bg{object-position:50% 0%;transform-origin:50% 22%;transform:scale(1.45)}
+/* menos zoom y sin aclarar la foto (al ampliarla tanto se veían las manchas de compresión); encuadre algo más arriba y un pelín más oscura */
+body.tema-marmol .band img.bg{object-position:50% 0%;transform-origin:50% 12%;transform:scale(1.18);filter:grayscale(.1) brightness(1.02) contrast(1.04)}
+body.tema-marmol .band::before{background:radial-gradient(ellipse 58% 65% at 50% 50%,rgba(20,18,15,.55) 0%,rgba(20,18,15,.32) 65%,rgba(20,18,15,.12) 100%)}

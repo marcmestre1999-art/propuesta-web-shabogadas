@@ -61,7 +61,7 @@
       var r = band.getBoundingClientRect();
       if (r.bottom < 0 || r.top > window.innerHeight) return;
       var y = (r.top + r.height / 2 - window.innerHeight / 2) * -0.07;
-      bg.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(1.45)';
+      bg.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(1.18)';
     }
     function pedir(){ if (!t) { t = true; requestAnimationFrame(mover); } }
     window.addEventListener('scroll', pedir, {passive:true});
