@@ -45,3 +45,5 @@ body.tema-marmol-mar .hero h1{font-size:clamp(48px,7.2vw,100px)}
 body.tema-marmol-mar .hero .btn-wa{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.45)}
 body.tema-marmol-mar .hero .btn-wa:hover{background:#25d366;border-color:#25d366;color:#04310f}
 body.tema-marmol-mar .hero-badge,body.tema-marmol-mar .hero-badge b{color:rgba(255,255,255,.88);border-color:rgba(255,255,255,.3)}
+/* las portadas del mar van centradas: ahí no se justifica */
+body.tema-marmol-mar .hero .lede{text-align:inherit}

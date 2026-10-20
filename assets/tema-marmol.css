@@ -207,3 +207,25 @@ body.tema-marmol .duo-ficha small{color:var(--bronce-txt);text-transform:upperca
 body.tema-marmol .duo-ficha:hover{border-color:var(--bronce)}
 body.tema-marmol .que-es-cita{font-family:'Cormorant Garamond',Georgia,serif;border-left-color:var(--bronce)}
 body.tema-marmol .especialidades a:hover .esp-ic{border-color:var(--bronce);color:var(--bronce)}
+
+/* ── Elisabeth, 20-oct-2026: títulos con la letra de «Dénia · València» (Archivo) y textos justificados ── */
+body.tema-marmol h1,body.tema-marmol h2,body.tema-marmol h3,
+body.tema-marmol .hero-badge b,body.tema-marmol .pasos .n,body.tema-marmol .art-body blockquote,
+body.tema-marmol .que-es-cita,body.tema-marmol .hero-lema span{
+  font-family:Archivo,system-ui,sans-serif;font-style:normal;
+}
+body.tema-marmol h1,body.tema-marmol h2{font-weight:500;letter-spacing:-.02em;line-height:1.12}
+body.tema-marmol h3{font-weight:600;letter-spacing:-.005em}
+body.tema-marmol .hero h1{font-size:clamp(38px,4.8vw,62px);font-weight:500}
+body.tema-marmol h2.title{font-size:clamp(28px,3.6vw,46px);font-weight:500}
+body.tema-marmol .phero h1{font-size:clamp(32px,4.4vw,54px);font-weight:500}
+body.tema-marmol h1 em,body.tema-marmol h2 em,body.tema-marmol .hero h1 em{font-style:normal;color:var(--bronce);padding-inline:0}
+body.tema-marmol .lawyer h3{font-size:21px}
+body.tema-marmol .que-es-cita{font-size:clamp(19px,2vw,24px);font-weight:400;line-height:1.4}
+body.tema-marmol .hero-lema span{font-size:clamp(15px,1.4vw,17px);font-weight:500}
+body.tema-marmol .art-body blockquote{font-size:21px;font-weight:400}
+body.tema-marmol .pasos .n{font-size:16px;font-weight:500}
+body.tema-marmol .lede,body.tema-marmol .que-es-texto p,body.tema-marmol .atencion-texto p,body.tema-marmol .lawyer .txt p,
+body.tema-marmol .art-body p,body.tema-marmol .online-card p,body.tema-marmol .area-card p,body.tema-marmol .intro-grid p{
+  text-align:justify;hyphens:auto;-webkit-hyphens:auto;
+}
