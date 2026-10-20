@@ -667,3 +667,7 @@ footer li{margin-bottom:9px}
 .atiende-nota{margin:26px 0 0;max-width:80ch;font-size:15px;color:var(--ink-2)}
 #quienes h2.title{margin-bottom:34px}
 #atencion .trio.atiende li{align-content:stretch;grid-template-rows:auto auto 1fr auto auto}
+/* inicio: solo 4 áreas, sin su número (saldría 01, 02, 04, 07) */
+.pg-inicio #servicios .num{display:none}
+@media (max-width:880px){body .hero .hero-media .hero-lema span{white-space:normal}}
+@media (max-width:880px){body .hero .hero-media .hero-lema span{font-size:15px;margin-right:.2em}}
