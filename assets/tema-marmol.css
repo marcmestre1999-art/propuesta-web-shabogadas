@@ -246,3 +246,5 @@ body.tema-marmol .hero-lema span + span::before{content:"·";color:var(--bronce)
   body.tema-marmol .hero-lema span + span::before{margin:0 .4em 0 .1em}
 }
 body.tema-marmol .hero-badge.hero-lema{text-align:center}
+/* títulos de cabecera del mismo tamaño que los de sección (Elisabeth, 20-oct) */
+body.tema-marmol .phero h1{font-size:clamp(28px,3.6vw,46px)}
