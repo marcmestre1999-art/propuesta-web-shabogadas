@@ -624,3 +624,19 @@ footer li{margin-bottom:9px}
   .pg-inicio .area-card p,.pg-inicio .area-card .more{display:none}
   .pg-inicio .area-card h3{font-size:19px;margin:0}
 }
+
+/* despacho: «¿Qué es S&H?» recogido en dos columnas con la frase destacada */
+.que-es{padding-block:clamp(40px,5vw,64px)}
+.phero-despacho .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,72px);align-items:end}
+.phero-despacho .wrap > *{max-width:none}
+@media (max-width:880px){.phero-despacho .wrap{grid-template-columns:1fr}}
+.que-es-cita{margin:0 0 .4em;padding-left:22px;border-left:2px solid var(--peri-2,var(--ink));max-width:30ch;
+  font-size:clamp(24px,2.8vw,34px);line-height:1.25;font-style:italic;color:var(--ink)}
+.que-es-texto{columns:2 340px;column-gap:clamp(28px,4vw,56px)}
+.que-es-texto p{margin:0 0 1em;font-size:15.5px;line-height:1.65;color:var(--ink-2);break-inside:avoid}
+.que-es-mas{display:none}
+@media (max-width:880px){
+  .que-es-texto.recogido p:nth-child(n+3){display:none}
+  .que-es-texto.recogido + .que-es-mas{display:inline-flex;margin-top:4px}
+}
+.que-es-texto .que-es-esencia{column-span:all;margin:clamp(14px,2vw,22px) 0 0;color:var(--ink);padding-top:18px;border-top:1px solid var(--line);font-weight:600;color:var(--ink);max-width:80ch}

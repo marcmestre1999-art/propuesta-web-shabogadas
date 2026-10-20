@@ -203,3 +203,4 @@ body.tema-marmol .duo-ficha img{border-radius:0}
 body.tema-marmol .duo-ficha b{font-family:Archivo,system-ui,sans-serif;font-weight:600}
 body.tema-marmol .duo-ficha small{color:var(--bronce-txt);text-transform:uppercase;letter-spacing:.1em;font-size:12px}
 body.tema-marmol .duo-ficha:hover{border-color:var(--bronce)}
+body.tema-marmol .que-es-cita{font-family:'Cormorant Garamond',Georgia,serif;border-left-color:var(--bronce)}
