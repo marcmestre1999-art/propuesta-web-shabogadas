@@ -75,6 +75,8 @@ body.tema-marmol .hero-badge b{
   font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--bronce);
   display:inline;margin-right:12px;
 }
+body.tema-marmol .hero-badge.hero-lema{border-top:0;border-left:2px solid var(--bronce);padding:2px 0 2px 20px;margin-top:26px}
+body.tema-marmol .hero-lema span{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(22px,2.2vw,28px);line-height:1.25;color:var(--ink)}
 body.tema-marmol .trust{border-color:var(--line)}
 body.tema-marmol .trust li{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;padding:26px 8px}
 body.tema-marmol .trust li+li{border-color:var(--line)}
@@ -204,3 +206,4 @@ body.tema-marmol .duo-ficha b{font-family:Archivo,system-ui,sans-serif;font-weig
 body.tema-marmol .duo-ficha small{color:var(--bronce-txt);text-transform:uppercase;letter-spacing:.1em;font-size:12px}
 body.tema-marmol .duo-ficha:hover{border-color:var(--bronce)}
 body.tema-marmol .que-es-cita{font-family:'Cormorant Garamond',Georgia,serif;border-left-color:var(--bronce)}
+body.tema-marmol .especialidades a:hover .esp-ic{border-color:var(--bronce);color:var(--bronce)}
