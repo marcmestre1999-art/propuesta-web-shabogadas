@@ -248,3 +248,15 @@ body.tema-marmol .hero-lema span + span::before{content:"·";color:var(--bronce)
 body.tema-marmol .hero-badge.hero-lema{text-align:center}
 /* títulos de cabecera del mismo tamaño que los de sección (Elisabeth, 20-oct) */
 body.tema-marmol .phero h1{font-size:clamp(28px,3.6vw,46px)}
+/* franja del globo: que se vea el mundo (Elisabeth, 20-oct); el texto se lee gracias al degradado del centro */
+body.tema-marmol .band img.bg{opacity:.75;filter:grayscale(.15) contrast(1.05);transform:scale(1.06)}
+body.tema-marmol .band::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(20,18,15,.78) 0%,rgba(20,18,15,.45) 60%,rgba(20,18,15,.15) 100%)}
+body.tema-marmol .band .wrap{z-index:1}
+body.tema-marmol .band p{color:#ece6dc}
+body.tema-marmol .band img.bg{z-index:0}
+body.tema-marmol .band::before{z-index:1}
+body.tema-marmol .band .wrap{z-index:2}
+body.tema-marmol .band .btn-primary{background:#fffefb;color:#1d1b18;border-color:#fffefb}
+body.tema-marmol .band .btn-ghost{background:rgba(0,0,0,.25);color:#fff;border-color:rgba(255,255,255,.6)}
+body.tema-marmol .band::before{background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(20,18,15,.66) 0%,rgba(20,18,15,.38) 60%,rgba(20,18,15,.1) 100%)}
