@@ -233,3 +233,15 @@ body.tema-marmol .art-body p,body.tema-marmol .online-card p,body.tema-marmol .a
 body.tema-marmol h1,body.tema-marmol h2,body.tema-marmol .hero h1,body.tema-marmol h2.title,body.tema-marmol .phero h1{font-weight:600}
 body.tema-marmol .phero .lede b{color:var(--ink)}
 body.tema-marmol .online-card p,body.tema-marmol .area-card p{text-align:left;hyphens:manual}
+/* lema bajo la foto: sin raya, como las etiquetas pequeñas de la web, separado por puntos dorados (Marc, 20-oct) */
+body.tema-marmol .hero-badge.hero-lema,body .hero .hero-media .hero-lema{border:0;padding:0;margin-top:16px}
+body.tema-marmol .hero-lema span,body .hero .hero-media .hero-lema span{
+  display:inline;margin:0;font-family:Archivo,system-ui,sans-serif;font-style:normal;font-weight:600;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap;
+}
+body.tema-marmol .hero-lema span + span::before{content:"·";color:var(--bronce);margin:0 .6em 0 .2em;font-weight:700}
+@media (max-width:880px){
+  body.tema-marmol .hero .hero-media .hero-lema{text-align:center;margin-top:14px}
+  body.tema-marmol .hero .hero-media .hero-lema span{font-size:10px;letter-spacing:.07em}
+  body.tema-marmol .hero-lema span + span::before{margin:0 .5em}
+}
